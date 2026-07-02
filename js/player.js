@@ -64,5 +64,16 @@ const Player = {
         this.x = Math.max(0, Math.min(this.x, maxX));
         this.y = Math.max(0, Math.min(this.y, maxY));
 
+    },
+    useHoe() {
+
+        const tilePos = getPlayerTile();
+
+        const tile = World.tiles[tilePos.row][tilePos.col];
+
+        if (tile.type === "grass") {
+            tile.type = "soil";
+        }
+
     }
 };

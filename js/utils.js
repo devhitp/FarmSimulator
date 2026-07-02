@@ -15,3 +15,9 @@ function getTileAt(x, y) {
     return World.tiles[row][col];
 
 }
+
+function getPlayerTile() {
+
+    return World.worldToTile(Player.x, Player.y);
+
+}
