@@ -4,17 +4,39 @@ const Player = {
     width: TILE_SIZE,
     height: TILE_SIZE,
     speed: 200, // pixels per second
+    facing: "down",
+    toolCooldown: 0,
+    toolDelay: 200,
     update(deltaTime) {
+
+        if (this.toolCooldown > 0) {
+            this.toolCooldown -= deltaTime;
+        }
 
         const moveAmount = this.speed * (deltaTime / 1000);
 
         let moveX = 0;
         let moveY = 0;
 
-        if (Input.isKeyDown("w")) moveY -= moveAmount;
-        if (Input.isKeyDown("s")) moveY += moveAmount;
-        if (Input.isKeyDown("a")) moveX -= moveAmount;
-        if (Input.isKeyDown("d")) moveX += moveAmount;
+        if (Input.isKeyDown("w")) {
+            moveY -= moveAmount;
+            this.facing = "up";
+        }
+
+        if (Input.isKeyDown("s")) {
+            moveY += moveAmount;
+            this.facing = "down";
+        }
+
+        if (Input.isKeyDown("a")) {
+            moveX -= moveAmount;
+            this.facing = "left";
+        }
+
+        if (Input.isKeyDown("d")) {
+            moveX += moveAmount;
+            this.facing = "right";
+        }
 
         // Normalize diagonal movement
         if (moveX !== 0 && moveY !== 0) {
@@ -67,9 +89,45 @@ const Player = {
     },
     useHoe() {
 
+        if (this.toolCooldown > 0) return;
+
+        this.toolCooldown = this.toolDelay;
+
         const tilePos = getPlayerTile();
 
-        const tile = World.tiles[tilePos.row][tilePos.col];
+        let row = tilePos.row;
+        let col = tilePos.col;
+
+        switch (this.facing) {
+
+            case "up":
+                row--;
+                break;
+
+            case "down":
+                row++;
+                break;
+
+            case "left":
+                col--;
+                break;
+
+            case "right":
+                col++;
+                break;
+
+        }
+
+        if (
+            row < 0 ||
+            row >= WORLD_ROWS ||
+            col < 0 ||
+            col >= WORLD_COLS
+        ) {
+            return;
+        }
+
+        const tile = World.tiles[row][col];
 
         if (tile.type === "grass") {
             tile.type = "soil";
