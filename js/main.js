@@ -1,5 +1,3 @@
 window.onload = () => {
-
     Game.init();
-
 };
