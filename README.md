@@ -1,151 +1,226 @@
-<<<<<<< HEAD
 # 🌾 Farm Simulator
 
-Farm Simulator is a 2D browser-based farming simulation game built entirely with **HTML5 Canvas, CSS, and Vanilla JavaScript**. Inspired by games like *Stardew Valley* and *Harvest Moon*, the project focuses on creating a complete farming experience while demonstrating clean software architecture and game development principles without relying on external libraries or game engines.
+> A browser-based farming simulation game built from scratch using **HTML5 Canvas, CSS, and Vanilla JavaScript**.
 
-Players begin with a small plot of land where they can cultivate crops, earn coins, upgrade tools, expand their farm, and unlock new gameplay mechanics. Every system in the game is designed from scratch, including the rendering engine, player movement, tile management, inventory, economy, crop growth, saving/loading, and user interface.
+![Status](https://img.shields.io/badge/Status-In%20Development-orange)
+![Version](https://img.shields.io/badge/Version-v0.1.0-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## Planned Features
+---
 
-### 🌱 Farming System
+## 📖 About
 
-* Prepare soil using farming tools.
-* Plant different types of crops.
-* Water crops and monitor their growth.
-* Harvest mature crops and sell them for profit.
-* Multiple crop growth stages with visual changes.
+Farm Simulator is a 2D farming simulation game currently under active development. The goal of this project is to create a complete farming experience entirely from scratch without using any external game engine or JavaScript framework.
 
-### 🚜 Player & World
+Instead of relying on existing libraries, every major system—including the game loop, rendering engine, camera, world generation, player movement, farming mechanics, inventory, economy, and save system—is being designed and implemented manually.
 
-* Smooth player movement with keyboard controls.
-* Tile-based world rendered using HTML5 Canvas.
-* Camera system that follows the player.
-* Expandable farm layout with different terrain types.
-* Interactive objects such as trees, rocks, fences, and buildings.
+This project serves both as a learning journey and as a demonstration of software architecture, clean code principles, and game development using modern JavaScript.
 
-### 🎒 Inventory & Economy
+---
 
-* Inventory management for seeds, crops, and tools.
-* Coin-based economy.
-* Shop system for purchasing seeds and upgrades.
-* Tool progression and farm expansion.
+# ✨ Current Features (v0.1.0)
 
-### 🌤 Dynamic Gameplay
+### 🎮 Engine
+- ✅ Custom game loop using `requestAnimationFrame()`
+- ✅ HTML5 Canvas rendering engine
+- ✅ Delta-time movement
+- ✅ Camera follow system
+- ✅ Tile Registry
+- ✅ Brush System
+- ✅ Procedural world generation
+- ✅ Water collision
+- ✅ Player facing direction
+- ✅ Tool cooldown system
 
-* Day and night cycle.
-* Weather effects including rain.
-* Seasonal crop behavior.
-* Energy and stamina management.
-* Auto-save and game progress persistence using Local Storage.
+### 🌾 Farming
+- ✅ Hoe tool
+- ✅ Tile interaction system
 
-### 🎨 Visual & Audio Experience
+---
 
-* Pixel-art graphics.
-* Animated crops and player sprites.
-* Smooth transitions and visual effects.
-* Background music and environmental sound effects.
+# 🚀 Planned Features
 
-## Technical Highlights
+### 🌱 Farming
+- Plant seeds
+- Water crops
+- Crop growth stages
+- Harvest crops
+- Multiple crop varieties
 
-* Built entirely with HTML5 Canvas, CSS, and Vanilla JavaScript.
-* Object-oriented and modular project structure.
-* Custom game loop using `requestAnimationFrame()`.
-* Tile-based rendering engine.
-* Collision detection and camera system.
-* State management for gameplay mechanics.
-* Local Storage for persistent save data.
-* Version controlled using Git and GitHub.
+### 🎒 Inventory
+- Item system
+- Inventory management
+- Tool selection
+- Equipment upgrades
 
-## Learning Goals
+### 🌍 World
+- Trees
+- Rocks
+- Flowers
+- Procedural decorations
+- Expandable farm
 
-This project is designed to strengthen practical skills in:
+### 🏪 Economy
+- Shop system
+- Coin system
+- Buying & selling
+- Farm upgrades
 
-* JavaScript game development
-* HTML5 Canvas rendering
-* Object-Oriented Programming (OOP)
-* Data structures and game state management
-* Software architecture for medium-to-large projects
-* Git and GitHub workflow
-* Performance optimization and debugging
+### 🌦 World Systems
+- Day & Night cycle
+- Weather
+- Seasons
+- Save & Load
+- Auto Save
 
-## Project Status
+### 🏡 Living World
+- NPC Villagers
+- Animals
+- Fishing
+- Events
+- Exploration
 
-🚧 **Currently in Development**
+### 🔥 Future (Hard Mode)
+- Hunger
+- Stamina
+- Wildlife
+- Survival mechanics
+- Dynamic difficulty
 
-The game is being built incrementally, with each milestone introducing new gameplay systems while maintaining a clean, scalable architecture. The long-term objective is to create a polished farming simulator that demonstrates professional web development and game programming skills.
-=======
-# 🌾 Farm Simulator
+---
 
-Farm Simulator is a 2D browser-based farming simulation game built entirely with **HTML5 Canvas, CSS, and Vanilla JavaScript**. Inspired by games like *Stardew Valley* and *Harvest Moon*, the project focuses on creating a complete farming experience while demonstrating clean software architecture and game development principles without relying on external libraries or game engines.
+# 🛠 Tech Stack
 
-Players begin with a small plot of land where they can cultivate crops, earn coins, upgrade tools, expand their farm, and unlock new gameplay mechanics. Every system in the game is designed from scratch, including the rendering engine, player movement, tile management, inventory, economy, crop growth, saving/loading, and user interface.
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES6+)
+- HTML5 Canvas
+- Git
+- GitHub
 
-## Planned Features
+---
 
-### 🌱 Farming System
+# 🧠 Technical Highlights
 
-* Prepare soil using farming tools.
-* Plant different types of crops.
-* Water crops and monitor their growth.
-* Harvest mature crops and sell them for profit.
-* Multiple crop growth stages with visual changes.
+- Object-Oriented Design
+- Modular Architecture
+- Procedural World Generation
+- Data-Driven Tile Registry
+- Brush-Based Terrain Generation
+- Camera System
+- Collision Detection
+- Custom Input System
+- Tool System
+- Clean Git Workflow
 
-### 🚜 Player & World
+---
 
-* Smooth player movement with keyboard controls.
-* Tile-based world rendered using HTML5 Canvas.
-* Camera system that follows the player.
-* Expandable farm layout with different terrain types.
-* Interactive objects such as trees, rocks, fences, and buildings.
+# 📂 Project Structure
 
-### 🎒 Inventory & Economy
+```text
+FarmSimulator/
+│
+├── assets/
+├── js/
+│
+├── README.md
+├── TODO.md
+├── DEVLOG.md
+├── CHANGELOG.md
+├── LICENSE
+└── index.html
+```
 
-* Inventory management for seeds, crops, and tools.
-* Coin-based economy.
-* Shop system for purchasing seeds and upgrades.
-* Tool progression and farm expansion.
+---
 
-### 🌤 Dynamic Gameplay
+# 📅 Development Roadmap
 
-* Day and night cycle.
-* Weather effects including rain.
-* Seasonal crop behavior.
-* Energy and stamina management.
-* Auto-save and game progress persistence using Local Storage.
+## ✅ Sprint 1 — Engine Foundation
+- Project Setup
+- Game Loop
+- Camera
+- Player Movement
+- Procedural World
+- Brush System
+- Tile Registry
+- Hoe Tool
 
-### 🎨 Visual & Audio Experience
+## 🚧 Sprint 2 — Core Farming
+- Item Registry
+- Inventory
+- Seeds
+- Watering Can
+- Crop Growth
+- Harvesting
 
-* Pixel-art graphics.
-* Animated crops and player sprites.
-* Smooth transitions and visual effects.
-* Background music and environmental sound effects.
+## ⏳ Sprint 3 — Living World
+- Trees
+- Rocks
+- Flowers
+- World Decoration
 
-## Technical Highlights
+## ⏳ Sprint 4 — Economy
+- Shop
+- Money
+- Farm Expansion
 
-* Built entirely with HTML5 Canvas, CSS, and Vanilla JavaScript.
-* Object-oriented and modular project structure.
-* Custom game loop using `requestAnimationFrame()`.
-* Tile-based rendering engine.
-* Collision detection and camera system.
-* State management for gameplay mechanics.
-* Local Storage for persistent save data.
-* Version controlled using Git and GitHub.
+## ⏳ Sprint 5 — Save System
+- Save / Load
+- World Seed
+- Player Progress
 
-## Learning Goals
+## ⏳ Sprint 6 — Polish
+- Pixel Art
+- Animations
+- Sound Effects
+- UI Improvements
 
-This project is designed to strengthen practical skills in:
+---
 
-* JavaScript game development
-* HTML5 Canvas rendering
-* Object-Oriented Programming (OOP)
-* Data structures and game state management
-* Software architecture for medium-to-large projects
-* Git and GitHub workflow
-* Performance optimization and debugging
+# 🎯 Learning Goals
 
-## Project Status
+This project focuses on improving practical skills in:
 
-🚧 **Currently in Development**
+- JavaScript
+- HTML5 Canvas
+- Game Development
+- Object-Oriented Programming
+- Software Architecture
+- Git & GitHub
+- Debugging
+- Performance Optimization
 
-The game is being built incrementally, with each milestone introducing new gameplay systems while maintaining a clean, scalable architecture. The long-term objective is to create a polished farming simulator that demonstrates professional web development and game programming skills.
->>>>>>> 3055a44 (Initialize project architecture)
+---
+
+# 🤝 Development Workflow
+
+Every completed milestone follows a structured workflow:
+
+- ✅ Planning
+- ✅ Development
+- ✅ Testing
+- ✅ Git Commit
+- ✅ Git Push
+- ✅ TODO Update
+- ✅ DEVLOG Update
+- ✅ CHANGELOG Update
+- ✅ Git Tag
+- ✅ GitHub Release
+
+---
+
+# 🌟 Vision
+
+The long-term vision of Farm Simulator is to become a polished browser-based farming game featuring procedural world generation, relaxing gameplay, expandable farming mechanics, and clean software architecture.
+
+Beyond creating a game, the project aims to demonstrate how medium-sized JavaScript applications can be designed, organized, and maintained using professional development practices.
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+### ⭐ If you like this project, consider giving it a star!
