@@ -15,6 +15,7 @@ const Game = {
         this.canvas.width = GAME_WIDTH;
 
         this.canvas.height = GAME_HEIGHT;
+        Input.init();
         World.init();
         requestAnimationFrame(this.loop.bind(this));
 
@@ -25,7 +26,7 @@ const Game = {
         const deltaTime = timestamp - this.lastTime;
 
         this.lastTime = timestamp;
-
+        Player.update(deltaTime);
         Renderer.draw(this.ctx);
 
         requestAnimationFrame(this.loop.bind(this));
