@@ -20,23 +20,22 @@ const WorldGenerator = {
         }
 
         // Create one random lake
-        const lakeX = Math.floor(Math.random() * (WORLD_COLS - 12)) + 6;
-        const lakeY = Math.floor(Math.random() * (WORLD_ROWS - 12)) + 6;
+        const lakeCount = 3;
 
-        for (let row = lakeY - 3; row <= lakeY + 3; row++) {
+        for (let i = 0; i < lakeCount; i++) {
 
-            for (let col = lakeX - 3; col <= lakeX + 3; col++) {
+            const lakeX = Math.floor(Math.random() * (WORLD_COLS - 12)) + 6;
+            const lakeY = Math.floor(Math.random() * (WORLD_ROWS - 12)) + 6;
 
-                const distance = Math.sqrt(
-                    (col - lakeX) ** 2 +
-                    (row - lakeY) ** 2
-                );
+            const radius = Math.floor(Math.random() * 2) + 3;
 
-                if (distance <= 3) {
-                    tiles[row][col].type = "water";
-                }
-
-            }
+            Brush.paintCircle(
+                tiles,
+                lakeX,
+                lakeY,
+                radius,
+                "water"
+            );
 
         }
 
