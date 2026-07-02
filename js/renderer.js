@@ -7,19 +7,9 @@ const Renderer = {
         for (let row = 0; row < WORLD_ROWS; row++) {
             for (let col = 0; col < WORLD_COLS; col++) {
                 const tile = World.tiles[row][col];
-                switch (tile.type) {
+                const tileData = TileRegistry[tile.type];
 
-                    case "grass":
-                        ctx.fillStyle = "#63B95D";
-                        break;
-
-                    case "water":
-                        ctx.fillStyle = "#4DA6FF";
-                        break;
-
-                    default:
-                        ctx.fillStyle = "#000";
-                }
+                ctx.fillStyle = tileData.color;
                 ctx.fillRect(
                     col * TILE_SIZE,
                     row * TILE_SIZE,

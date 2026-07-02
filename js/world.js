@@ -5,15 +5,15 @@ const World = {
             this.tiles[row] = [];
             for (let col = 0; col < WORLD_COLS; col++) {
                 this.tiles[row][col] = {
-                type: Math.random() < 0.1 ? "water" : "grass",
-                walkable: true
+                    type: Math.random() < 0.1 ? "water" : "grass",
+                    walkable: true
                 };
             }
         }
     },
     isWalkable(tile) {
 
-    return tile && tile.type !== "water";
+        return tile && TileRegistry[tile.type].walkable;
 
-}
+    }
 };
