@@ -10,5 +10,10 @@ const World = {
                 };
             }
         }
-    }
+    },
+    isWalkable(tile) {
+
+    return tile && tile.type !== "water";
+
+}
 };

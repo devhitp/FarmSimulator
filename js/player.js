@@ -16,6 +16,12 @@ const Player = {
         if (Input.isKeyDown("a")) moveX -= moveAmount;
         if (Input.isKeyDown("d")) moveX += moveAmount;
 
+        // Normalize diagonal movement
+        if (moveX !== 0 && moveY !== 0) {
+            moveX *= Math.SQRT1_2;
+            moveY *= Math.SQRT1_2;
+        }
+
         // ---------- X Movement ----------
         let newX = this.x + moveX;
 
@@ -25,14 +31,10 @@ const Player = {
         let bottomRight = getTileAt(newX + this.width - 1, this.y + this.height - 1);
 
         let canMoveX =
-            topLeft &&
-            topRight &&
-            bottomLeft &&
-            bottomRight &&
-            topLeft.type !== "water" &&
-            topRight.type !== "water" &&
-            bottomLeft.type !== "water" &&
-            bottomRight.type !== "water";
+            World.isWalkable(topLeft) &&
+            World.isWalkable(topRight) &&
+            World.isWalkable(bottomLeft) &&
+            World.isWalkable(bottomRight);
 
         if (canMoveX) {
             this.x = newX;
@@ -47,14 +49,10 @@ const Player = {
         bottomRight = getTileAt(this.x + this.width - 1, newY + this.height - 1);
 
         let canMoveY =
-            topLeft &&
-            topRight &&
-            bottomLeft &&
-            bottomRight &&
-            topLeft.type !== "water" &&
-            topRight.type !== "water" &&
-            bottomLeft.type !== "water" &&
-            bottomRight.type !== "water";
+            World.isWalkable(topLeft) &&
+            World.isWalkable(topRight) &&
+            World.isWalkable(bottomLeft) &&
+            World.isWalkable(bottomRight);
 
         if (canMoveY) {
             this.y = newY;
