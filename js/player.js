@@ -87,7 +87,20 @@ const Player = {
         this.y = Math.max(0, Math.min(this.y, maxY));
 
     },
-    useHoe() {
+    useSelectedItem() {
+
+        const item = Inventory.getSelectedItem();
+
+        switch (item.type) {
+
+            case "tool":
+                break;
+
+            case "seed":
+                this.plantSeed(item);
+                return;
+
+        }
 
         if (this.toolCooldown > 0) return;
 
@@ -132,6 +145,64 @@ const Player = {
         if (tile.type === "grass") {
             tile.type = "soil";
         }
+
+    },
+    plantSeed(item) {
+
+        const tilePos = getPlayerTile();
+
+        let row = tilePos.row;
+        let col = tilePos.col;
+
+        switch (this.facing) {
+
+            case "up":
+                row--;
+                break;
+
+            case "down":
+                row++;
+                break;
+
+            case "left":
+                col--;
+                break;
+
+            case "right":
+                col++;
+                break;
+
+        }
+
+        if (
+            row < 0 ||
+            row >= WORLD_ROWS ||
+            col < 0 ||
+            col >= WORLD_COLS
+        ) {
+            return;
+        }
+
+        const tile = World.tiles[row][col];
+
+        if (
+            tile.type !== "soil" ||
+            tile.crop
+        ) {
+            return;
+        }
+
+        tile.crop = {
+
+            cropId: item.cropId,
+
+            stage: 0,
+
+            watered: false,
+
+            plantedAt: Date.now()
+
+        };
 
     }
 };

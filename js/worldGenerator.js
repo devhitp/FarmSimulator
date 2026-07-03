@@ -12,7 +12,8 @@ const WorldGenerator = {
             for (let col = 0; col < WORLD_COLS; col++) {
 
                 tiles[row][col] = {
-                    type: "grass"
+                    type: "grass",
+                    crop: null
                 };
 
             }

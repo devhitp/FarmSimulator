@@ -23,6 +23,23 @@ const Renderer = {
                     TILE_SIZE,
                     TILE_SIZE
                 );
+                if (tile.crop) {
+
+                    ctx.fillStyle = "#7ED957";
+
+                    ctx.beginPath();
+
+                    ctx.arc(
+                        col * TILE_SIZE + TILE_SIZE / 2,
+                        row * TILE_SIZE + TILE_SIZE / 2,
+                        6,
+                        0,
+                        Math.PI * 2
+                    );
+
+                    ctx.fill();
+
+                }
             }
         }
         // Draw Player

@@ -9,6 +9,10 @@ const Game = {
         this.canvas.height = GAME_HEIGHT;
         Input.init();
         World.init();
+
+        Inventory.add("hoe", 1);
+        Inventory.add("turnipSeed", 10);
+
         requestAnimationFrame(this.loop.bind(this));
     },
     loop(timestamp) {
@@ -16,8 +20,16 @@ const Game = {
         this.lastTime = timestamp;
         Player.update(deltaTime);
 
+        if (Input.wasKeyPressed("1")) {
+            Inventory.select("hoe");
+        }
+
+        if (Input.wasKeyPressed("2")) {
+            Inventory.select("turnipSeed");
+        }
+
         if (Input.wasKeyPressed("e")) {
-            Player.useHoe();
+            Player.useSelectedItem();
         }
 
         Camera.update();
