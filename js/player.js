@@ -89,7 +89,7 @@ const Player = {
     },
     useSelectedItem() {
 
-        const item = Inventory.getSelectedItem();
+        const item = Hotbar.getSelectedItem();
 
         switch (item.type) {
 

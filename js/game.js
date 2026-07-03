@@ -21,11 +21,11 @@ const Game = {
         Player.update(deltaTime);
 
         if (Input.wasKeyPressed("1")) {
-            Inventory.select("hoe");
+            Hotbar.selectSlot(0);
         }
 
         if (Input.wasKeyPressed("2")) {
-            Inventory.select("turnipSeed");
+            Hotbar.selectSlot(1);
         }
 
         if (Input.wasKeyPressed("e")) {

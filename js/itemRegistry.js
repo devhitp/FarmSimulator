@@ -1,21 +1,22 @@
 const ItemRegistry = {
 
     hoe: {
+
         id: "hoe",
         name: "Hoe",
-        type: "tool"
+        type: "tool",
+        icon: "🪓"
+
     },
 
     turnipSeed: {
 
-    id: "turnipSeed",
+        id: "turnipSeed",
+        name: "Turnip Seed",
+        type: "seed",
+        cropId: "turnip",
+        icon: "🌱"
 
-    name: "Turnip Seed",
-
-    type: "seed",
-
-    cropId: "turnip"
-
-}
+    },
 
 };
