@@ -9,31 +9,53 @@
 - [x] Brush System
 - [x] Tile Registry
 
-## ✅ Farming
+---
+
+## 🚧 Core Farming (Sprint 2)
+- [x] Item Registry
+- [x] Crop Registry
+- [x] Inventory System
+- [x] Hotbar System
+- [x] Item Selection
 - [x] Hoe Tool
-- [ ] Seeds
+- [x] Seed Items
+- [x] Planting System
+- [x] Crop Rendering
 - [ ] Watering Can
 - [ ] Crop Growth
 - [ ] Harvesting
+
+---
 
 ## ⏳ World
 - [ ] Trees
 - [ ] Rocks
 - [ ] Flowers
+- [ ] Decorative Grass
+- [ ] Fences
 
-## ⏳ Systems
-- [ ] Inventory
+---
+
+## ⏳ Gameplay Systems
 - [ ] Save / Load
 - [ ] Day & Night
 - [ ] Weather
-
-## ⏳ NPC
-- [ ] Villagers
+- [ ] Economy
 - [ ] Shop
+- [ ] Tool Upgrades
+
+---
+
+## ⏳ Living World
+- [ ] Villagers
 - [ ] Animals
+- [ ] Fishing
+
+---
 
 ## 🌟 Future (v2+)
 - [ ] Difficulty Modes
 - [ ] Hunger
+- [ ] Stamina
 - [ ] Wild Animals
 - [ ] Seasons
