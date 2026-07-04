@@ -5,6 +5,11 @@ const Inventory = {
     selectedItem: "hoe",
 
     add(itemId, amount = 1) {
+        console.log("ADDING ITEM:", itemId);
+        if (!itemId) {
+            console.log("BLOCKED INVALID ITEM ADD:", itemId);
+            return;
+        }
 
         const existing = this.items.find(item => item.id === itemId);
 
@@ -19,7 +24,7 @@ const Inventory = {
         });
 
     },
-    
+
     getSelectedItem() {
 
         return ItemRegistry[this.selectedItem];
@@ -27,10 +32,10 @@ const Inventory = {
     },
     select(itemId) {
 
-    if (ItemRegistry[itemId]) {
-        this.selectedItem = itemId;
-    }
+        if (ItemRegistry[itemId]) {
+            this.selectedItem = itemId;
+        }
 
-}
+    }
 
 };

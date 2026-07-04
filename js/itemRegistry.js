@@ -3,9 +3,28 @@ const ItemRegistry = {
     hoe: {
 
         id: "hoe",
+
         name: "Hoe",
+
         type: "tool",
+
+        toolType: "hoe",
+
         icon: "🪓"
+
+    },
+
+    wateringCan: {
+
+        id: "wateringCan",
+
+        name: "Watering Can",
+
+        type: "tool",
+
+        toolType: "wateringCan",
+
+        icon: "💧"
 
     },
 
@@ -18,5 +37,17 @@ const ItemRegistry = {
         icon: "🌱"
 
     },
+
+    turnip: {
+
+        id: "turnip",
+
+        name: "Turnip",
+
+        type: "crop",
+
+        icon: "🥕"
+
+    }
 
 };

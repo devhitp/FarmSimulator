@@ -2,7 +2,8 @@ const Hotbar = {
 
     slots: [
         "hoe",
-        "turnipSeed"
+        "turnipSeed",
+        "wateringCan"
     ],
 
     selectedSlot: 0,

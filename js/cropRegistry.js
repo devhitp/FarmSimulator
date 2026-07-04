@@ -10,7 +10,9 @@ const CropRegistry = {
 
         growthTime: 30,
 
-        sellPrice: 15
+        sellPrice: 15,
+
+        harvestItem: "turnip"
 
     }
 

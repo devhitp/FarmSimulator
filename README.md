@@ -18,40 +18,35 @@ This project serves both as a learning journey and as a demonstration of softwar
 
 ---
 
-# ✨ Current Features (v0.1.0)
+## 🚀 Current Version
 
-### 🎮 Engine
-- ✅ Custom game loop using `requestAnimationFrame()`
-- ✅ HTML5 Canvas rendering engine
-- ✅ Delta-time movement
-- ✅ Camera follow system
-- ✅ Tile Registry
-- ✅ Brush System
-- ✅ Procedural world generation
-- ✅ Water collision
-- ✅ Player facing direction
-- ✅ Tool cooldown system
+**v0.2.0 – Core Farming Complete**
 
-### 🌾 Farming
-- ✅ Hoe tool
-- ✅ Tile interaction system
+### ✅ Completed Features
+
+#### Engine
+- Project Setup
+- Game Loop
+- Camera
+- World Generation
+- Tile Registry
+
+#### Farming
+- Hoe Tool
+- Seed Planting
+- Watering
+- Crop Growth
+- Harvesting
+
+#### Systems
+- Inventory
+- Hotbar
+- Item Registry
+- Crop Registry
 
 ---
 
-# 🚀 Planned Features
-
-### 🌱 Farming
-- Plant seeds
-- Water crops
-- Crop growth stages
-- Harvest crops
-- Multiple crop varieties
-
-### 🎒 Inventory
-- Item system
-- Inventory management
-- Tool selection
-- Equipment upgrades
+🚧 Currently working on **Sprint 2.5 – Visual Polish**
 
 ### 🌍 World
 - Trees

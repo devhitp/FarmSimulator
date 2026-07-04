@@ -11,7 +11,7 @@
 
 ---
 
-## 🚧 Core Farming (Sprint 2)
+## ✅ Core Farming (Sprint 2)
 - [x] Item Registry
 - [x] Crop Registry
 - [x] Inventory System
@@ -20,10 +20,9 @@
 - [x] Hoe Tool
 - [x] Seed Items
 - [x] Planting System
-- [x] Crop Rendering
-- [ ] Watering Can
-- [ ] Crop Growth
-- [ ] Harvesting
+- [x] Watering System
+- [x] Crop Growth
+- [x] Harvesting
 
 ---
 

@@ -7,6 +7,7 @@ const Player = {
     facing: "down",
     toolCooldown: 0,
     toolDelay: 200,
+
     update(deltaTime) {
 
         if (this.toolCooldown > 0) {
@@ -94,7 +95,20 @@ const Player = {
         switch (item.type) {
 
             case "tool":
-                break;
+
+                switch (item.toolType) {
+
+                    case "hoe":
+                        this.useHoe();
+                        break;
+
+                    case "wateringCan":
+                        this.waterTile();
+                        break;
+
+                }
+
+                return;
 
             case "seed":
                 this.plantSeed(item);
@@ -102,9 +116,9 @@ const Player = {
 
         }
 
-        if (this.toolCooldown > 0) return;
+    },
 
-        this.toolCooldown = this.toolDelay;
+    getFacingTile() {
 
         const tilePos = getPlayerTile();
 
@@ -137,16 +151,54 @@ const Player = {
             col < 0 ||
             col >= WORLD_COLS
         ) {
+            return null;
+        }
+
+        return World.tiles[row][col];
+
+    },
+
+    useHoe() {
+
+        const tile = this.getFacingTile();
+
+        if (!tile) return;
+
+        if (tile.crop) {
+
+            this.harvestCrop();
+            return;
+
+        }
+
+        if (tile.type === "grass") {
+
+            tile.type = "soil";
+
+        }
+
+        console.log("Hoe tile:", tile);
+
+    },
+
+    waterTile() {
+
+        if (this.toolCooldown > 0) return;
+
+        this.toolCooldown = this.toolDelay;
+
+        const tile = this.getFacingTile();
+
+        if (!tile) return;
+
+        if (tile.type !== "soil") {
             return;
         }
 
-        const tile = World.tiles[row][col];
-
-        if (tile.type === "grass") {
-            tile.type = "soil";
-        }
+        tile.watered = true;
 
     },
+
     plantSeed(item) {
 
         const tilePos = getPlayerTile();
@@ -198,11 +250,38 @@ const Player = {
 
             stage: 0,
 
-            watered: false,
-
             plantedAt: Date.now()
 
         };
 
-    }
+    },
+    
+
+    harvestCrop() {
+
+        if (this.toolCooldown > 0) return;
+
+        this.toolCooldown = this.toolDelay;
+
+        const tile = this.getFacingTile();
+
+        if (!tile || !tile.crop) {
+            return;
+        }
+
+        const cropData = CropRegistry[tile.crop.cropId];
+
+        if (tile.crop.stage < cropData.growthStages - 1) {
+            return;
+        }
+
+        Inventory.add(cropData.harvestItem, 1);
+
+        tile.crop = null;
+        tile.watered = false;
+        tile.type = "soil";
+
+        console.log("Harvest tile:", this.getFacingTile());
+
+    },
 };

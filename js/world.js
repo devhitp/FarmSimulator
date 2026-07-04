@@ -26,5 +26,47 @@ const World = {
             y: row * TILE_SIZE
         };
 
-    }
+    },
+    update(deltaTime) {
+        
+
+        for (let row = 0; row < WORLD_ROWS; row++) {
+
+            for (let col = 0; col < WORLD_COLS; col++) {
+
+                const tile = this.tiles[row][col];
+
+                if (!tile.crop) {
+                    continue;
+                }
+
+                if (!tile.watered) {
+                    continue;
+                }
+
+                const cropData = CropRegistry[tile.crop.cropId];
+
+                const elapsed =
+                    (Date.now() - tile.crop.plantedAt) / 1000;
+
+                const stage = Math.min(
+
+                    Math.floor(
+                        elapsed /
+                        (cropData.growthTime / cropData.growthStages)
+                    ),
+
+                    cropData.growthStages - 1
+
+                );
+
+                tile.crop.stage = stage;
+                console.log(tile.crop.stage);
+
+            }
+
+        }
+        
+
+    },
 };

@@ -13,6 +13,7 @@ const WorldGenerator = {
 
                 tiles[row][col] = {
                     type: "grass",
+                    watered: false,
                     crop: null
                 };
 

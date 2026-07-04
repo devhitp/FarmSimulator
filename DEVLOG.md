@@ -24,33 +24,39 @@
 
 ---
 
-## 🚧 v0.2.0 - Core Farming (In Progress)
+---
+
+## 🎉 v0.2.0 - Core Farming Complete
 
 ### ✅ Completed
-- Designed the Item Registry.
-- Added the Crop Registry.
-- Implemented the Inventory System.
+- Added Item Registry.
+- Added Crop Registry.
+- Implemented Inventory System.
 - Created the Hotbar System.
 - Added item selection.
-- Implemented seed items.
-- Added crop planting.
-- Rendered planted crops.
-- Improved the Hotbar UI.
-- Added item quantity display.
+- Implemented seed planting.
+- Added watering mechanic.
+- Implemented crop growth stages.
+- Added harvesting system.
+- Connected harvested crops to the inventory.
+- Built a temporary Inventory UI for debugging.
 
 ### 🛠 Problems Solved
-- Refactored item usage to use the Hotbar instead of directly accessing the Inventory.
-- Improved rendering architecture by separating world rendering from UI rendering.
-- Fixed Canvas rendering state issues affecting the world grid.
-- Improved Hotbar rendering and item selection feedback.
+- Refactored Player actions into reusable tool methods.
+- Added reusable `getFacingTile()` helper.
+- Fixed duplicate function definitions.
+- Fixed tool cooldown conflict.
+- Fixed inventory data flow.
+- Fixed crop harvesting pipeline.
+- Fixed Item Registry and Crop Registry separation.
+- Improved overall gameplay architecture.
 
 ### 📚 Lessons Learned
-- Canvas rendering state should be isolated using `ctx.save()` and `ctx.restore()`.
-- Registries make gameplay systems scalable and easier to maintain.
-- Separating data (registries) from behavior (player, world) leads to cleaner architecture.
-- UI systems should remain independent from gameplay systems.
+- Separate gameplay data from item definitions.
+- Avoid duplicate object methods.
+- Registries make gameplay systems scalable.
+- Debugging data flow is more effective than guessing.
+- Build mechanics first, visuals second.
 
-### 🎯 Next Feature
-- Watering Can
-- Crop Growth
-- Harvesting
+### 🚀 Next Sprint
+Sprint 2.5 – Polish

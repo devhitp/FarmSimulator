@@ -11,6 +11,7 @@ const Game = {
         World.init();
 
         Inventory.add("hoe", 1);
+        Inventory.add("wateringCan", 1);
         Inventory.add("turnipSeed", 10);
 
         requestAnimationFrame(this.loop.bind(this));
@@ -19,6 +20,8 @@ const Game = {
         const deltaTime = timestamp - this.lastTime;
         this.lastTime = timestamp;
         Player.update(deltaTime);
+        World.update(deltaTime);
+        Camera.update();
 
         if (Input.wasKeyPressed("1")) {
             Hotbar.selectSlot(0);
@@ -27,12 +30,15 @@ const Game = {
         if (Input.wasKeyPressed("2")) {
             Hotbar.selectSlot(1);
         }
+        
+        if (Input.wasKeyPressed("3")) {
+            Hotbar.selectSlot(2);
+        }
 
         if (Input.wasKeyPressed("e")) {
             Player.useSelectedItem();
         }
-
-        Camera.update();
+        
         Renderer.draw(this.ctx);
         requestAnimationFrame(this.loop.bind(this));
     }

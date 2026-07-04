@@ -9,7 +9,12 @@ const Renderer = {
                 const tile = World.tiles[row][col];
                 const tileData = TileRegistry[tile.type];
 
-                ctx.fillStyle = tileData.color;
+                if (tile.type === "soil" && tile.watered) {
+                    ctx.fillStyle = "#6B4423";
+                } else {
+                    ctx.fillStyle = tileData.color;
+                }
+
                 ctx.fillRect(
                     col * TILE_SIZE,
                     row * TILE_SIZE,
@@ -25,14 +30,21 @@ const Renderer = {
                 );
                 if (tile.crop) {
 
-                    ctx.fillStyle = "#7ED957";
+                    const colors = [
+                        "#7ED957",
+                        "#5FCF65",
+                        "#42B84A",
+                        "#2E8B57"
+                    ];
+
+                    ctx.fillStyle = colors[tile.crop.stage];
 
                     ctx.beginPath();
 
                     ctx.arc(
                         col * TILE_SIZE + TILE_SIZE / 2,
                         row * TILE_SIZE + TILE_SIZE / 2,
-                        6,
+                        6 + tile.crop.stage * 2,
                         0,
                         Math.PI * 2
                     );
@@ -52,6 +64,7 @@ const Renderer = {
         );
         ctx.restore();
         this.drawHotbar(ctx);
+        InventoryUI.draw(ctx);
     },
     drawHotbar(ctx) {
         ctx.save();
