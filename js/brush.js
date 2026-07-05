@@ -1,4 +1,13 @@
+// ===================================================
+// BRUSH
+// Utility for painting terrain shapes onto the world.
+// ===================================================
+
 const Brush = {
+
+    // ===================================================
+    // TERRAIN PAINTING
+    // ===================================================
 
     paintCircle(tiles, centerX, centerY, radius, type) {
 
@@ -6,6 +15,9 @@ const Brush = {
 
             for (let col = centerX - radius; col <= centerX + radius; col++) {
 
+                // -------------------------------------------
+                // World Bounds Check
+                // -------------------------------------------
                 if (
                     row < 0 ||
                     row >= WORLD_ROWS ||
@@ -15,6 +27,9 @@ const Brush = {
                     continue;
                 }
 
+                // -------------------------------------------
+                // Distance From Brush Center
+                // -------------------------------------------
                 const distance = Math.sqrt(
                     (col - centerX) ** 2 +
                     (row - centerY) ** 2
@@ -22,12 +37,17 @@ const Brush = {
 
                 if (distance <= radius) {
 
-                    // Randomly skip some edge tiles
-                    if (distance > radius - 1 && Math.random() < 0.35) {
+                    // Slight randomness around the edge
+                    // to make terrain look more natural.
+                    if (
+                        distance > radius - 1 &&
+                        Math.random() < 0.35
+                    ) {
                         continue;
                     }
 
                     tiles[row][col].type = type;
+
                 }
 
             }

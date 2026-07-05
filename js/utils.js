@@ -1,7 +1,20 @@
+// ===================================================
+// UTILITIES
+// Shared helper functions used throughout the engine.
+// ===================================================
+
+// ===================================================
+// TILE HELPERS
+// ===================================================
+
 function getTileAt(x, y) {
 
     const col = Math.floor(x / TILE_SIZE);
     const row = Math.floor(y / TILE_SIZE);
+
+    // -----------------------------------------------
+    // World Bounds Check
+    // -----------------------------------------------
 
     if (
         row < 0 ||
@@ -16,8 +29,15 @@ function getTileAt(x, y) {
 
 }
 
+// ===================================================
+// PLAYER HELPERS
+// ===================================================
+
 function getPlayerTile() {
 
-    return World.worldToTile(Player.x, Player.y);
+    return World.worldToTile(
+        Player.x,
+        Player.y
+    );
 
 }

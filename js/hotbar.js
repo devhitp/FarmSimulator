@@ -1,4 +1,13 @@
+// ===================================================
+// HOTBAR
+// Manages the player's quick-access item slots.
+// ===================================================
+
 const Hotbar = {
+
+    // ===================================================
+    // HOTBAR DATA
+    // ===================================================
 
     slots: [
         "hoe",
@@ -8,22 +17,38 @@ const Hotbar = {
 
     selectedSlot: 0,
 
+    // ===================================================
+    // ITEM ACCESS
+    // ===================================================
+
     getSelectedItem() {
 
-        return ItemRegistry[this.slots[this.selectedSlot]];
-
-    },
-    selectSlot(slot) {
-
-        if (slot >= 0 && slot < this.slots.length) {
-            this.selectedSlot = slot;
-        }
+        return ItemRegistry[
+            this.slots[this.selectedSlot]
+        ];
 
     },
 
     getSelectedItemId() {
 
         return this.slots[this.selectedSlot];
+
+    },
+
+    // ===================================================
+    // SLOT MANAGEMENT
+    // ===================================================
+
+    selectSlot(slot) {
+
+        if (
+            slot >= 0 &&
+            slot < this.slots.length
+        ) {
+
+            this.selectedSlot = slot;
+
+        }
 
     }
 

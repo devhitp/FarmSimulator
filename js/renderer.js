@@ -1,14 +1,45 @@
+// ===================================================
+// RENDERER
+// Handles all game rendering.
+// ===================================================
+
 const Renderer = {
+
+    // ===================================================
+    // MAIN DRAW LOOP
+    // ===================================================
+
     draw(ctx) {
+
         ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
         ctx.save();
         ctx.translate(-Camera.x, -Camera.y);
-        // Draw World
+
+        this.drawWorld(ctx);
+        this.drawPlayer(ctx);
+
+        ctx.restore();
+
+        this.drawHotbar(ctx);
+        InventoryUI.draw(ctx);
+
+    },
+
+    // ===================================================
+    // WORLD RENDERING
+    // ===================================================
+
+    drawWorld(ctx) {
+
         for (let row = 0; row < WORLD_ROWS; row++) {
+
             for (let col = 0; col < WORLD_COLS; col++) {
+
                 const tile = World.tiles[row][col];
                 const tileData = TileRegistry[tile.type];
 
+                // Ground
                 if (tile.type === "soil" && tile.watered) {
                     ctx.fillStyle = "#6B4423";
                 } else {
@@ -21,52 +52,79 @@ const Renderer = {
                     TILE_SIZE,
                     TILE_SIZE
                 );
+
                 ctx.strokeStyle = "#4BA048";
+
                 ctx.strokeRect(
                     col * TILE_SIZE,
                     row * TILE_SIZE,
                     TILE_SIZE,
                     TILE_SIZE
                 );
+
+                // Crop
                 if (tile.crop) {
-
-                    const colors = [
-                        "#7ED957",
-                        "#5FCF65",
-                        "#42B84A",
-                        "#2E8B57"
-                    ];
-
-                    ctx.fillStyle = colors[tile.crop.stage];
-
-                    ctx.beginPath();
-
-                    ctx.arc(
-                        col * TILE_SIZE + TILE_SIZE / 2,
-                        row * TILE_SIZE + TILE_SIZE / 2,
-                        6 + tile.crop.stage * 2,
-                        0,
-                        Math.PI * 2
-                    );
-
-                    ctx.fill();
-
+                    this.drawCrop(ctx, row, col, tile);
                 }
+
             }
+
         }
-        // Draw Player
+
+    },
+
+    // ===================================================
+    // CROP RENDERING
+    // ===================================================
+
+    drawCrop(ctx, row, col, tile) {
+
+        const colors = [
+            "#7ED957",
+            "#5FCF65",
+            "#42B84A",
+            "#2E8B57"
+        ];
+
+        ctx.fillStyle = colors[tile.crop.stage];
+
+        ctx.beginPath();
+
+        ctx.arc(
+            col * TILE_SIZE + TILE_SIZE / 2,
+            row * TILE_SIZE + TILE_SIZE / 2,
+            6 + tile.crop.stage * 2,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fill();
+
+    },
+
+    // ===================================================
+    // PLAYER RENDERING
+    // ===================================================
+
+    drawPlayer(ctx) {
+
         ctx.fillStyle = "#3498db";
+
         ctx.fillRect(
             Player.x,
             Player.y,
             Player.width,
             Player.height
         );
-        ctx.restore();
-        this.drawHotbar(ctx);
-        InventoryUI.draw(ctx);
+
     },
+
+    // ===================================================
+    // HOTBAR UI
+    // ===================================================
+
     drawHotbar(ctx) {
+
         ctx.save();
 
         const slotSize = 50;
@@ -80,6 +138,7 @@ const Renderer = {
         const y = GAME_HEIGHT - 70;
 
         for (let i = 0; i < Hotbar.slots.length; i++) {
+
             const isSelected = i === Hotbar.selectedSlot;
 
             const size = isSelected ? 56 : 50;
@@ -108,7 +167,6 @@ const Renderer = {
             ctx.font = "24px Arial";
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
             ctx.fillStyle = "#FFF";
 
             ctx.fillText(
@@ -126,7 +184,6 @@ const Renderer = {
                 ctx.font = "12px Arial";
                 ctx.textAlign = "right";
                 ctx.textBaseline = "bottom";
-                ctx.fillStyle = "#FFF";
 
                 ctx.fillText(
                     "×" + inventoryItem.amount,
@@ -136,8 +193,13 @@ const Renderer = {
 
             }
 
-            ctx.strokeStyle = isSelected ? "#FFE97A" : "#DDD";
-            ctx.lineWidth = isSelected ? 3 : 2;
+            ctx.strokeStyle = isSelected
+                ? "#FFE97A"
+                : "#DDD";
+
+            ctx.lineWidth = isSelected
+                ? 3
+                : 2;
 
             ctx.strokeRect(
                 x,
@@ -147,7 +209,9 @@ const Renderer = {
             );
 
         }
+
         ctx.restore();
 
     }
+
 };

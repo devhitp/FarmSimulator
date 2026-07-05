@@ -3,7 +3,7 @@
 > A browser-based farming simulation game built from scratch using **HTML5 Canvas, CSS, and Vanilla JavaScript**.
 
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
-![Version](https://img.shields.io/badge/Version-v0.1.0-blue)
+![Version](https://img.shields.io/badge/Version-v0.2.0-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---

@@ -1,15 +1,37 @@
+// ===================================================
+// WORLD
+// Handles world generation, tile utilities,
+// collision queries and crop updates.
+// ===================================================
+
 const World = {
+
+    // ===================================================
+    // WORLD DATA
+    // ===================================================
+
     tiles: [],
+
+    // ===================================================
+    // INITIALIZATION
+    // ===================================================
+
     init() {
 
         this.tiles = WorldGenerator.generate();
 
     },
+
+    // ===================================================
+    // TILE UTILITIES
+    // ===================================================
+
     isWalkable(tile) {
 
         return tile && TileRegistry[tile.type].walkable;
 
     },
+
     worldToTile(x, y) {
 
         return {
@@ -27,8 +49,12 @@ const World = {
         };
 
     },
+
+    // ===================================================
+    // WORLD UPDATE
+    // ===================================================
+
     update(deltaTime) {
-        
 
         for (let row = 0; row < WORLD_ROWS; row++) {
 
@@ -36,10 +62,12 @@ const World = {
 
                 const tile = this.tiles[row][col];
 
+                // Skip empty tiles
                 if (!tile.crop) {
                     continue;
                 }
 
+                // Crops only grow when watered
                 if (!tile.watered) {
                     continue;
                 }
@@ -61,12 +89,14 @@ const World = {
                 );
 
                 tile.crop.stage = stage;
+
+                // Debug
                 console.log(tile.crop.stage);
 
             }
 
         }
-        
 
-    },
+    }
+
 };

@@ -1,15 +1,32 @@
+// ===================================================
+// PLAYER
+// Handles movement, tools, farming, and interactions
+// ===================================================
+
 const Player = {
+
+    // ===================================================
+    // PROPERTIES
+    // ===================================================
+
     x: 10 * TILE_SIZE,
     y: 10 * TILE_SIZE,
     width: TILE_SIZE,
     height: TILE_SIZE,
+
     speed: 200, // pixels per second
     facing: "down",
+
     toolCooldown: 0,
     toolDelay: 200,
 
+    // ===================================================
+    // UPDATE LOOP
+    // ===================================================
+
     update(deltaTime) {
 
+        // Cooldown timer
         if (this.toolCooldown > 0) {
             this.toolCooldown -= deltaTime;
         }
@@ -18,6 +35,10 @@ const Player = {
 
         let moveX = 0;
         let moveY = 0;
+
+        // ===================================================
+        // INPUT HANDLING
+        // ===================================================
 
         if (Input.isKeyDown("w")) {
             moveY -= moveAmount;
@@ -45,7 +66,10 @@ const Player = {
             moveY *= Math.SQRT1_2;
         }
 
-        // ---------- X Movement ----------
+        // ===================================================
+        // X AXIS MOVEMENT + COLLISION
+        // ===================================================
+
         let newX = this.x + moveX;
 
         let topLeft = getTileAt(newX, this.y);
@@ -63,7 +87,10 @@ const Player = {
             this.x = newX;
         }
 
-        // ---------- Y Movement ----------
+        // ===================================================
+        // Y AXIS MOVEMENT + COLLISION
+        // ===================================================
+
         let newY = this.y + moveY;
 
         topLeft = getTileAt(this.x, newY);
@@ -81,13 +108,21 @@ const Player = {
             this.y = newY;
         }
 
+        // ===================================================
+        // WORLD BOUNDARIES
+        // ===================================================
+
         const maxX = WORLD_COLS * TILE_SIZE - this.width;
         const maxY = WORLD_ROWS * TILE_SIZE - this.height;
 
         this.x = Math.max(0, Math.min(this.x, maxX));
         this.y = Math.max(0, Math.min(this.y, maxY));
-
     },
+
+    // ===================================================
+    // ITEM USAGE CONTROLLER
+    // ===================================================
+
     useSelectedItem() {
 
         const item = Hotbar.getSelectedItem();
@@ -105,7 +140,6 @@ const Player = {
                     case "wateringCan":
                         this.waterTile();
                         break;
-
                 }
 
                 return;
@@ -113,10 +147,12 @@ const Player = {
             case "seed":
                 this.plantSeed(item);
                 return;
-
         }
-
     },
+
+    // ===================================================
+    // TILE DETECTION
+    // ===================================================
 
     getFacingTile() {
 
@@ -127,22 +163,10 @@ const Player = {
 
         switch (this.facing) {
 
-            case "up":
-                row--;
-                break;
-
-            case "down":
-                row++;
-                break;
-
-            case "left":
-                col--;
-                break;
-
-            case "right":
-                col++;
-                break;
-
+            case "up": row--; break;
+            case "down": row++; break;
+            case "left": col--; break;
+            case "right": col++; break;
         }
 
         if (
@@ -155,30 +179,27 @@ const Player = {
         }
 
         return World.tiles[row][col];
-
     },
+
+    // ===================================================
+    // FARMING TOOLS
+    // ===================================================
 
     useHoe() {
 
         const tile = this.getFacingTile();
-
         if (!tile) return;
 
         if (tile.crop) {
-
             this.harvestCrop();
             return;
-
         }
 
         if (tile.type === "grass") {
-
             tile.type = "soil";
-
         }
 
         console.log("Hoe tile:", tile);
-
     },
 
     waterTile() {
@@ -188,16 +209,16 @@ const Player = {
         this.toolCooldown = this.toolDelay;
 
         const tile = this.getFacingTile();
-
         if (!tile) return;
 
-        if (tile.type !== "soil") {
-            return;
-        }
+        if (tile.type !== "soil") return;
 
         tile.watered = true;
-
     },
+
+    // ===================================================
+    // SEED PLANTING
+    // ===================================================
 
     plantSeed(item) {
 
@@ -208,22 +229,10 @@ const Player = {
 
         switch (this.facing) {
 
-            case "up":
-                row--;
-                break;
-
-            case "down":
-                row++;
-                break;
-
-            case "left":
-                col--;
-                break;
-
-            case "right":
-                col++;
-                break;
-
+            case "up": row--; break;
+            case "down": row++; break;
+            case "left": col--; break;
+            case "right": col++; break;
         }
 
         if (
@@ -245,17 +254,15 @@ const Player = {
         }
 
         tile.crop = {
-
             cropId: item.cropId,
-
             stage: 0,
-
             plantedAt: Date.now()
-
         };
-
     },
-    
+
+    // ===================================================
+    // HARVEST SYSTEM
+    // ===================================================
 
     harvestCrop() {
 
@@ -264,10 +271,7 @@ const Player = {
         this.toolCooldown = this.toolDelay;
 
         const tile = this.getFacingTile();
-
-        if (!tile || !tile.crop) {
-            return;
-        }
+        if (!tile || !tile.crop) return;
 
         const cropData = CropRegistry[tile.crop.cropId];
 
@@ -282,6 +286,5 @@ const Player = {
         tile.type = "soil";
 
         console.log("Harvest tile:", this.getFacingTile());
-
-    },
+    }
 };
