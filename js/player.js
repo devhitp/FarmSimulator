@@ -214,6 +214,18 @@ const Player = {
         if (tile.type !== "soil") return;
 
         tile.watered = true;
+
+        const worldPos = World.tileToWorld(
+            World.worldToTile(Player.x, Player.y).row,
+            World.worldToTile(Player.x, Player.y).col
+        );
+
+        ParticleManager.spawn(
+            worldPos.x + TILE_SIZE / 2,
+            worldPos.y + TILE_SIZE / 2,
+            "#4DA6FF",
+            6
+        );
     },
 
     // ===================================================
@@ -280,6 +292,21 @@ const Player = {
         }
 
         Inventory.add(cropData.harvestItem, 1);
+
+        const tilePos = World.worldToTile(
+            Player.x,
+            Player.y
+        );
+
+        const worldPos = World.tileToWorld(
+            tilePos.row,
+            tilePos.col
+        );
+
+        const x = worldPos.x + TILE_SIZE / 2;
+        const y = worldPos.y + TILE_SIZE / 2;
+
+        Effects.harvest(x, y);
 
         tile.crop = null;
         tile.watered = false;

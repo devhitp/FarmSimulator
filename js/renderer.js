@@ -39,11 +39,27 @@ const Renderer = {
                 const tile = World.tiles[row][col];
                 const tileData = TileRegistry[tile.type];
 
-                // Ground
-                if (tile.type === "soil" && tile.watered) {
+                if (tile.type === "grass") {
+
+                    const grassColors = [
+                        "#63B95D",
+                        "#67BF61",
+                        "#5EB357",
+                        "#6CC468"
+                    ];
+
+                    ctx.fillStyle = grassColors[tile.variation];
+
+                }
+                else if (tile.type === "soil" && tile.watered) {
+
                     ctx.fillStyle = "#6B4423";
-                } else {
+
+                }
+                else {
+
                     ctx.fillStyle = tileData.color;
+
                 }
 
                 ctx.fillRect(
@@ -52,6 +68,27 @@ const Renderer = {
                     TILE_SIZE,
                     TILE_SIZE
                 );
+
+                // ======================================
+                // Soil Texture
+                // ======================================
+
+                if (tile.type === "soil") {
+
+                    ctx.fillStyle = tile.watered
+                        ? "#5A361C"
+                        : "#70431F";
+
+                    for (let i = 0; i < 6; i++) {
+
+                        const px = col * TILE_SIZE + 4 + (i * 4) % 24;
+                        const py = row * TILE_SIZE + 5 + ((i * 7) % 20);
+
+                        ctx.fillRect(px, py, 2, 2);
+
+                    }
+
+                }
 
                 ctx.strokeStyle = "#4BA048";
 
@@ -63,9 +100,14 @@ const Renderer = {
                 );
 
                 // Crop
-                if (tile.crop) {
-                    this.drawCrop(ctx, row, col, tile);
-                }
+                CropRenderer.draw(
+
+                    ctx,
+                    tile,
+                    col * TILE_SIZE,
+                    row * TILE_SIZE
+
+                );
 
             }
 
@@ -118,6 +160,7 @@ const Renderer = {
         );
 
     },
+
 
     // ===================================================
     // HOTBAR UI
@@ -209,6 +252,7 @@ const Renderer = {
             );
 
         }
+        ParticleManager.draw(ctx);
 
         ctx.restore();
 

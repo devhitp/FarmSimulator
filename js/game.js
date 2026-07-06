@@ -56,6 +56,7 @@ const Game = {
 
         Player.update(deltaTime);
         World.update(deltaTime);
+        ParticleManager.update(deltaTime);
         Camera.update();
 
         // -----------------------------------------------

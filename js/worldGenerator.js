@@ -27,7 +27,9 @@ const WorldGenerator = {
 
                     type: "grass",
                     watered: false,
-                    crop: null
+                    crop: null,
+
+                    variation: Math.floor(Math.random() * 4)
 
                 };
 
