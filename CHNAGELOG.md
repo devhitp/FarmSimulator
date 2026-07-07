@@ -1,10 +1,10 @@
-# Changelog
+# 📜 Changelog
 
 All notable changes to this project will be documented here.
 
 ---
 
-## v0.1.0
+## [v0.1.0] - Engine Foundation
 
 ### Added
 - Harvest Engine
@@ -52,3 +52,41 @@ All notable changes to this project will be documented here.
 - Inventory synchronization
 - Harvesting pipeline
 - Registry architecture
+
+---
+
+## [v0.3.0] - Visual Polish & World Expansion
+
+### Added
+
+#### Rendering
+- Crop Renderer
+- Tree Renderer
+- Particle Manager
+- Effects System
+
+#### World
+- Tree Registry
+- Procedural Tree Generation
+- Grass Variation
+- Soil Texturing
+
+#### Visual Effects
+- Harvest Particle Effects
+- Water Feedback Effects
+
+#### Engine
+- Asset Manager (Foundation)
+
+### Improved
+- Rendering pipeline architecture
+- Renderer responsibility separation
+- Inventory UI
+- Visual feedback
+- World generation
+
+### Fixed
+- Inventory tooltip mouse positioning
+- Mouse coordinate scaling with browser zoom
+- Rendering organization
+- Particle effect integration

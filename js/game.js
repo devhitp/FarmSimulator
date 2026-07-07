@@ -31,6 +31,15 @@ const Game = {
         Input.init(this.canvas);
         World.init();
 
+        // =====================================
+        // Load Assets
+        // =====================================
+
+        Assets.loadImage(
+            "oak",
+            "assets/trees/oak.png"
+        );
+
         // Starting Inventory
         Inventory.add("hoe", 1);
         Inventory.add("wateringCan", 1);

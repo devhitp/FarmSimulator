@@ -1,9 +1,11 @@
 # 🌾 Farm Simulator
 
+> Powered by **Harvest Engine** — a custom 2D game engine built from scratch in Vanilla JavaScript.
+
 > A browser-based farming simulation game built from scratch using **HTML5 Canvas, CSS, and Vanilla JavaScript**.
 
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
-![Version](https://img.shields.io/badge/Version-v0.2.0-blue)
+![Version](https://img.shields.io/badge/Version-v0.4.0-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
@@ -20,33 +22,47 @@ This project serves both as a learning journey and as a demonstration of softwar
 
 ## 🚀 Current Version
 
-**v0.2.0 – Core Farming Complete**
+**v0.4.0 – World Expansion & Rendering Systems**
 
 ### ✅ Completed Features
 
-#### Engine
+#### 🎮 Engine
 - Project Setup
 - Game Loop
-- Camera
+- Camera System
+- Input Manager
 - World Generation
 - Tile Registry
+- Asset Manager
+- Effects System
+- Particle Manager
 
-#### Farming
+#### 🌾 Farming
 - Hoe Tool
 - Seed Planting
 - Watering
 - Crop Growth
 - Harvesting
 
-#### Systems
+#### 🎒 Systems
 - Inventory
+- Inventory UI
 - Hotbar
 - Item Registry
 - Crop Registry
+- Tree Registry
+
+#### 🎨 Rendering
+- Crop Renderer
+- Tree Renderer
+- Grass Variation
+- Soil Texturing
+- Harvest Particles
+- Water Feedback
 
 ---
 
-🚧 Currently working on **Sprint 2.5 – Visual Polish**
+🚧 Currently working on **Sprint 4 – Asset Engine**
 
 ### 🌍 World
 - Trees
@@ -97,38 +113,44 @@ This project serves both as a learning journey and as a demonstration of softwar
 
 # 🧠 Technical Highlights
 
-- Object-Oriented Design
-- Modular Architecture
+- Modular Game Architecture
+- Custom Rendering Pipeline
+- Asset Management System
 - Procedural World Generation
-- Data-Driven Tile Registry
+- Data-Driven Registries
 - Brush-Based Terrain Generation
 - Camera System
 - Collision Detection
-- Custom Input System
-- Tool System
+- Particle Effects
+- Effects System
+- Custom Input Manager
+- Inventory & Hotbar
 - Clean Git Workflow
 
 ---
 
 # 📂 Project Structure
 
-```text
 FarmSimulator/
 │
 ├── assets/
+│   ├── crops/
+│   ├── trees/
+│   ├── tiles/
+│   ├── player/
+│   ├── ui/
+│   └── icons/
+│
 ├── js/
 │
 ├── README.md
-├── TODO.md
+├── ARCHITECTURE.md
 ├── DEVLOG.md
 ├── CHANGELOG.md
 ├── LICENSE
 └── index.html
-```
 
 ---
-
-# 📅 Development Roadmap
 
 ## ✅ Sprint 1 — Engine Foundation
 - Project Setup
@@ -138,36 +160,51 @@ FarmSimulator/
 - Procedural World
 - Brush System
 - Tile Registry
-- Hoe Tool
 
-## 🚧 Sprint 2 — Core Farming
-- Item Registry
-- Inventory
+## ✅ Sprint 2 — Farming System
+- Hoe Tool
 - Seeds
-- Watering Can
+- Watering
 - Crop Growth
 - Harvesting
+- Inventory
+- Hotbar
 
-## ⏳ Sprint 3 — Living World
-- Trees
+## ✅ Sprint 3 — World Expansion
+- Tree Registry
+- Tree Generation
+- Tree Renderer
+- Grass Variation
+- Soil Texturing
+- Harvest Effects
+
+## 🚧 Sprint 4 — Asset Engine
+- Asset Manager
+- Sprite Rendering
+- Tree Assets
+- Terrain Assets
+- Multi-Tile Objects
+
+## ⏳ Sprint 5 — Living World
 - Rocks
 - Flowers
-- World Decoration
+- Decorations
+- Forest Generation
 
-## ⏳ Sprint 4 — Economy
+## ⏳ Sprint 6 — Economy
 - Shop
-- Money
+- Coins
 - Farm Expansion
 
-## ⏳ Sprint 5 — Save System
+## ⏳ Sprint 7 — Save System
 - Save / Load
 - World Seed
-- Player Progress
+- Auto Save
 
-## ⏳ Sprint 6 — Polish
+## ⏳ Sprint 8 — Polish
 - Pixel Art
 - Animations
-- Sound Effects
+- Audio
 - UI Improvements
 
 ---
@@ -206,9 +243,11 @@ Every completed milestone follows a structured workflow:
 
 # 🌟 Vision
 
-The long-term vision of Farm Simulator is to become a polished browser-based farming game featuring procedural world generation, relaxing gameplay, expandable farming mechanics, and clean software architecture.
+The vision of Farm Simulator is to build a complete browser-based farming simulation game powered by **Harvest Engine**, a custom JavaScript game engine developed entirely from scratch.
 
-Beyond creating a game, the project aims to demonstrate how medium-sized JavaScript applications can be designed, organized, and maintained using professional development practices.
+The project emphasizes scalable architecture, reusable systems, procedural world generation, and clean software engineering practices while remaining completely independent of external game engines.
+
+Every major gameplay and rendering system is designed to be modular, making Harvest Engine a strong foundation for future projects beyond Farm Simulator.
 
 ---
 

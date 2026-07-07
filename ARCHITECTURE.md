@@ -17,11 +17,14 @@ Game
 │
 ├── Input
 ├── Camera
-├── Renderer
 ├── World
+├── Renderer
 ├── Player
 ├── Inventory
 ├── Hotbar
+├── Asset Manager
+├── Particle Manager
+├── Effects
 └── Registries
 ```
 
@@ -72,15 +75,83 @@ Future:
 
 Draws:
 
-- World
+Draws:
+
+- Terrain
+- Trees
 - Crops
 - Player
+- Particle Effects
 - Hotbar
 - Inventory UI
+
+The renderer delegates specialized drawing to dedicated renderers:
+
+- TreeRenderer
+- CropRenderer
 
 Renderer never updates game logic.
 
 ---
+
+---
+
+# Rendering Systems
+
+## Crop Renderer
+
+Responsible for:
+
+- Crop rendering
+- Crop growth visuals
+- Future crop animations
+
+---
+
+## Tree Renderer
+
+Responsible for:
+
+- Tree rendering
+- Future tree sprites
+- Future tree animations
+
+---
+
+## Particle Manager
+
+Responsible for:
+
+- Harvest particles
+- Water splash particles
+
+Future:
+
+- Rain
+- Snow
+- Dust
+- Leaves
+- Fire
+
+---
+
+## Effects
+
+High-level visual effects.
+
+Current:
+
+- Harvest effect
+
+Future:
+
+- Water splash
+- Mining
+- Tree chopping
+- Magic
+
+---
+
 
 # World System
 
@@ -103,7 +174,9 @@ Generates the world.
 Current generation:
 
 - Grass
+- Grass Variation
 - Lakes
+- Trees
 
 Future generation:
 
@@ -163,7 +236,30 @@ Future crops:
 - Corn
 - Pumpkin
 
+Current Features:
+
+- Growth Stages
+- Growth Time
+- Harvest Item
+
 ---
+
+## Tree Registry
+
+Stores all tree definitions.
+
+Current tree:
+
+- Oak Tree
+
+Future:
+
+- Pine
+- Birch
+- Maple
+
+---
+
 
 # Inventory System
 
@@ -173,9 +269,10 @@ Stores every collected item.
 
 Handles:
 
-- Add items
-- Stack items
-- Item lookup
+- Item Collection
+- Item Stacking
+- Item Lookup
+- Harvest Rewards
 
 ---
 
@@ -206,7 +303,14 @@ Future:
 
 ---
 
-# Registries
+Registries
+
+Current Registries:
+
+- Tile Registry
+- Item Registry
+- Crop Registry
+- Tree Registry
 
 ## Item Registry
 
@@ -244,10 +348,32 @@ Examples:
 
 ---
 
+# Asset System
+
+## Asset Manager
+
+Responsible for:
+
+- Loading image assets
+- Storing loaded assets
+- Providing asset lookup
+
+Future:
+
+- Sprite Sheets
+- Audio
+- Animations
+- Loading Screen
+
+---
+
+
 # Design Philosophy
 
-Harvest Engine follows these principles:
+Harvest Engine follows modern game engine principles:
 
+- Separation of Rendering and Gameplay
+- Reusable Managers
 - Single Responsibility
 - Modular Systems
 - Data-Driven Registries
@@ -262,25 +388,31 @@ Harvest Engine follows these principles:
 ## ✅ Completed
 
 - Engine Foundation
-- Player Movement
-- Camera
+- Camera System
+- Input Manager
 - World Generation
-- Tile Registry
 - Brush System
-- Farming Sprint 2
+- Tile Registry
+- Farming System
 - Inventory
 - Hotbar
 - Crop Growth
 - Harvesting
+- Crop Renderer
+- Tree Renderer
+- Particle Manager
+- Effects System
+- Asset Manager
 - Architecture Cleanup
 
 ---
 
 # Planned Systems
 
-- Trees
 - Rocks
 - Flowers
+- Asset Integration
+- Multi-Tile Objects
 - Weather
 - Seasons
 - NPCs
@@ -288,11 +420,31 @@ Harvest Engine follows these principles:
 - Shop
 - Save / Load
 - Audio
-- Particles
 - Lighting
 
 ---
 
 # Engine Version
 
-Harvest Engine v0.2
+Harvest Engine v0.4
+
+---
+
+# Rendering Pipeline
+
+```
+Game
+    │
+    ▼
+Renderer
+    │
+    ├── Terrain
+    ├── TreeRenderer
+    ├── CropRenderer
+    ├── ParticleManager
+    ├── Player
+    ├── Hotbar
+    └── Inventory UI
+```
+
+The renderer coordinates every visual system while keeping gameplay logic completely separate from rendering.

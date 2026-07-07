@@ -58,5 +58,73 @@
 - Debugging data flow is more effective than guessing.
 - Build mechanics first, visuals second.
 
+
+---
+
+## 🎉 v0.3.0 - Visual Polish & Rendering Systems
+
+### ✅ Completed
+
+#### 🌿 Visual Improvements
+- Added Grass Variation system.
+- Improved soil rendering with visual texturing.
+- Added Water Feedback effects.
+- Implemented Harvest Particle Effects.
+
+#### 🎨 Rendering Systems
+- Created a dedicated Crop Renderer.
+- Created a dedicated Tree Renderer.
+- Separated rendering responsibilities from the main Renderer.
+- Improved rendering pipeline architecture.
+
+#### ✨ Effects
+- Added Particle Manager.
+- Added reusable Effects system.
+- Connected harvesting with particle effects.
+- Built reusable visual effect architecture.
+
+#### 🌍 World
+- Added Tree Registry.
+- Implemented procedural tree generation.
+- Added basic tree rendering.
+
+#### 🖼 Asset Pipeline
+- Created Asset Manager.
+- Designed the foundation for future sprite loading.
+- Prepared the engine for PNG asset integration.
+
+---
+
+### 🛠 Problems Solved
+
+- Refactored the rendering pipeline into dedicated renderers.
+- Fixed inventory tooltip mouse coordinate issues.
+- Fixed browser zoom mouse position bug.
+- Reduced rendering responsibility inside Renderer.
+- Created reusable particle architecture.
+- Improved overall engine scalability.
+
+---
+
+### 📚 Lessons Learned
+
+- Separate rendering from gameplay logic.
+- Every major system should have a single responsibility.
+- Build reusable managers instead of feature-specific code.
+- Temporary placeholder graphics are acceptable while building gameplay systems.
+- A clean architecture makes future asset integration significantly easier.
+
+---
+
 ### 🚀 Next Sprint
-Sprint 2.5 – Polish
+
+## Sprint 4 – Asset Engine
+
+Planned goals:
+
+- Integrate real pixel-art assets.
+- Replace placeholder tree rendering.
+- Replace terrain rendering with sprites.
+- Build sprite rendering pipeline.
+- Support multi-tile world objects.
+- Continue world expansion with rocks and flowers.

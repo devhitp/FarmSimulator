@@ -99,6 +99,15 @@ const Renderer = {
                     TILE_SIZE
                 );
 
+                TreeRenderer.draw(
+
+                    ctx,
+                    tile,
+                    col * TILE_SIZE,
+                    row * TILE_SIZE
+
+                );
+
                 // Crop
                 CropRenderer.draw(
 
