@@ -1,46 +1,107 @@
 // ===================================================
 // TREE RENDERER
+// ---------------------------------------------------
 // Draws all trees.
 // ===================================================
 
 const TreeRenderer = {
 
-    draw(ctx, tile, x, y) {
+    // ===================================================
+    // GROUND LAYER
+    // ===================================================
 
-        if (!tile.tree) return;
+    drawGround(ctx, tile, x, y) {
 
-        const tree = TreeRegistry[tile.tree.id];
+        if (!tile.tree) {
+            return;
+        }
 
-        // -----------------------------
-        // Trunk
-        // -----------------------------
+        const treeData = TreeRegistry[tile.tree.id];
 
-        ctx.fillStyle = tree.trunkColor;
+        if (!treeData) {
+            return;
+        }
 
-        ctx.fillRect(
-            x + 12,
-            y + 14,
-            8,
-            18
+        // -----------------------------------------------
+        // Large Trees
+        // -----------------------------------------------
+
+        if (treeData.trunkImage) {
+
+            const trunk = Assets.get(treeData.trunkImage);
+
+            if (trunk) {
+
+                ctx.drawImage(
+                    trunk,
+                    x,
+                    y,
+                    TILE_SIZE,
+                    TILE_SIZE
+                );
+
+            }
+
+        }
+
+        // -----------------------------------------------
+        // Small Trees
+        // -----------------------------------------------
+
+        else if (treeData.image) {
+
+            const image = Assets.get(treeData.image);
+
+            if (image) {
+
+                ctx.drawImage(
+                    image,
+                    x,
+                    y,
+                    TILE_SIZE,
+                    TILE_SIZE
+                );
+
+            }
+
+        }
+
+    },
+
+    // ===================================================
+    // OVERHEAD LAYER
+    // ===================================================
+
+    drawOverhead(ctx, tile, x, y) {
+
+        if (!tile.tree) {
+            return;
+        }
+
+        const treeData = TreeRegistry[tile.tree.id];
+
+        if (!treeData) {
+            return;
+        }
+
+        // Small trees have no overhead layer
+        if (!treeData.topImage) {
+            return;
+        }
+
+        const top = Assets.get(treeData.topImage);
+
+        if (!top) {
+            return;
+        }
+
+        ctx.drawImage(
+            top,
+            x,
+            y - TILE_SIZE,
+            TILE_SIZE,
+            TILE_SIZE
         );
-
-        // -----------------------------
-        // Leaves
-        // -----------------------------
-
-        ctx.fillStyle = tree.color;
-
-        ctx.beginPath();
-
-        ctx.arc(
-            x + 16,
-            y + 10,
-            12,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fill();
 
     }
 

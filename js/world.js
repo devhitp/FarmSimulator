@@ -28,7 +28,27 @@ const World = {
 
     isWalkable(tile) {
 
-        return tile && TileRegistry[tile.type].walkable;
+        if (!tile) {
+            return false;
+        }
+
+        // Water blocks movement
+        if (tile.type === "water") {
+            return false;
+        }
+
+        // Trees block movement
+        if (tile.tree) {
+
+            const treeData = TreeRegistry[tile.tree.id];
+
+            if (treeData && treeData.solid) {
+                return false;
+            }
+
+        }
+
+        return true;
 
     },
 

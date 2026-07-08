@@ -18,10 +18,30 @@ const Renderer = {
 
         this.drawWorld(ctx);
 
-        // Draw world-space particles
         ParticleManager.draw(ctx);
 
         this.drawPlayer(ctx);
+
+        // =====================================
+        // Overhead Layer
+        // =====================================
+
+        for (let row = 0; row < WORLD_ROWS; row++) {
+
+            for (let col = 0; col < WORLD_COLS; col++) {
+
+                const tile = World.tiles[row][col];
+
+                TreeRenderer.drawOverhead(
+                    ctx,
+                    tile,
+                    col * TILE_SIZE,
+                    row * TILE_SIZE
+                );
+
+            }
+
+        }
 
         ctx.restore();
 
@@ -55,7 +75,7 @@ const Renderer = {
                     y
                 );
 
-                TreeRenderer.draw(
+                TreeRenderer.drawGround(
                     ctx,
                     tile,
                     x,

@@ -74,59 +74,10 @@ const WorldGenerator = {
         }
 
         // -----------------------------------------------
-        // Generate Trees
+        // Generate Forest
         // -----------------------------------------------
 
-        const treeCount = 80;
-
-        for (let i = 0; i < treeCount; i++) {
-
-            const row = Math.floor(Math.random() * WORLD_ROWS);
-            const col = Math.floor(Math.random() * WORLD_COLS);
-
-            const tile = tiles[row][col];
-
-            // Trees only grow on grass
-            if (tile.type !== "grass") {
-                continue;
-            }
-
-            // Don't place trees too close to water
-            let nearWater = false;
-
-            for (let r = -1; r <= 1; r++) {
-
-                for (let c = -1; c <= 1; c++) {
-
-                    const checkRow = row + r;
-                    const checkCol = col + c;
-
-                    if (
-                        checkRow < 0 ||
-                        checkRow >= WORLD_ROWS ||
-                        checkCol < 0 ||
-                        checkCol >= WORLD_COLS
-                    ) {
-                        continue;
-                    }
-
-                    if (tiles[checkRow][checkCol].type === "water") {
-                        nearWater = true;
-                    }
-
-                }
-
-            }
-
-            if (nearWater) {
-                continue;
-            }
-
-            tile.tree = {
-                id: "oak"
-            };
-
-        }
+        ForestGenerator.generate(tiles);
 
         return tiles;
 

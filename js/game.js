@@ -33,7 +33,7 @@ const Game = {
         World.init();
 
         // =====================================
-        // Load Terrain Assets
+        // Terrain Assets
         // =====================================
 
         Assets.loadImage(
@@ -47,12 +47,37 @@ const Game = {
         );
 
         // =====================================
-        // Load Assets
+        // Tree Assets
         // =====================================
 
         Assets.loadImage(
-            "oak",
-            "assets/trees/oak.png"
+            "oakTop",
+            "assets/trees/oak_top.png"
+        );
+
+        Assets.loadImage(
+            "oakTrunk",
+            "assets/trees/oak_trunk.png"
+        );
+
+        Assets.loadImage(
+            "pineTop",
+            "assets/trees/pine_top.png"
+        );
+
+        Assets.loadImage(
+            "pineTrunk",
+            "assets/trees/pine_trunk.png"
+        );
+
+        Assets.loadImage(
+            "smallOak",
+            "assets/trees/small_oak.png"
+        );
+
+        Assets.loadImage(
+            "smallPine",
+            "assets/trees/small_pine.png"
         );
 
         // Starting Inventory
