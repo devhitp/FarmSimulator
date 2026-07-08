@@ -17,10 +17,15 @@ const Renderer = {
         ctx.translate(-Camera.x, -Camera.y);
 
         this.drawWorld(ctx);
+
+        // Draw world-space particles
+        ParticleManager.draw(ctx);
+
         this.drawPlayer(ctx);
 
         ctx.restore();
 
+        // Draw UI
         this.drawHotbar(ctx);
         InventoryUI.draw(ctx);
 
@@ -32,124 +37,41 @@ const Renderer = {
 
     drawWorld(ctx) {
 
+        TerrainRenderer.draw(ctx);
+
         for (let row = 0; row < WORLD_ROWS; row++) {
 
             for (let col = 0; col < WORLD_COLS; col++) {
 
                 const tile = World.tiles[row][col];
-                const tileData = TileRegistry[tile.type];
 
-                if (tile.type === "grass") {
+                const x = col * TILE_SIZE;
+                const y = row * TILE_SIZE;
 
-                    const grassColors = [
-                        "#63B95D",
-                        "#67BF61",
-                        "#5EB357",
-                        "#6CC468"
-                    ];
-
-                    ctx.fillStyle = grassColors[tile.variation];
-
-                }
-                else if (tile.type === "soil" && tile.watered) {
-
-                    ctx.fillStyle = "#6B4423";
-
-                }
-                else {
-
-                    ctx.fillStyle = tileData.color;
-
-                }
-
-                ctx.fillRect(
-                    col * TILE_SIZE,
-                    row * TILE_SIZE,
-                    TILE_SIZE,
-                    TILE_SIZE
-                );
-
-                // ======================================
-                // Soil Texture
-                // ======================================
-
-                if (tile.type === "soil") {
-
-                    ctx.fillStyle = tile.watered
-                        ? "#5A361C"
-                        : "#70431F";
-
-                    for (let i = 0; i < 6; i++) {
-
-                        const px = col * TILE_SIZE + 4 + (i * 4) % 24;
-                        const py = row * TILE_SIZE + 5 + ((i * 7) % 20);
-
-                        ctx.fillRect(px, py, 2, 2);
-
-                    }
-
-                }
-
-                ctx.strokeStyle = "#4BA048";
-
-                ctx.strokeRect(
-                    col * TILE_SIZE,
-                    row * TILE_SIZE,
-                    TILE_SIZE,
-                    TILE_SIZE
+                DecorationRenderer.draw(
+                    ctx,
+                    tile,
+                    x,
+                    y
                 );
 
                 TreeRenderer.draw(
-
                     ctx,
                     tile,
-                    col * TILE_SIZE,
-                    row * TILE_SIZE
-
+                    x,
+                    y
                 );
 
-                // Crop
                 CropRenderer.draw(
-
                     ctx,
                     tile,
-                    col * TILE_SIZE,
-                    row * TILE_SIZE
-
+                    x,
+                    y
                 );
 
             }
 
         }
-
-    },
-
-    // ===================================================
-    // CROP RENDERING
-    // ===================================================
-
-    drawCrop(ctx, row, col, tile) {
-
-        const colors = [
-            "#7ED957",
-            "#5FCF65",
-            "#42B84A",
-            "#2E8B57"
-        ];
-
-        ctx.fillStyle = colors[tile.crop.stage];
-
-        ctx.beginPath();
-
-        ctx.arc(
-            col * TILE_SIZE + TILE_SIZE / 2,
-            row * TILE_SIZE + TILE_SIZE / 2,
-            6 + tile.crop.stage * 2,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fill();
 
     },
 
@@ -169,7 +91,6 @@ const Renderer = {
         );
 
     },
-
 
     // ===================================================
     // HOTBAR UI
@@ -261,7 +182,6 @@ const Renderer = {
             );
 
         }
-        ParticleManager.draw(ctx);
 
         ctx.restore();
 

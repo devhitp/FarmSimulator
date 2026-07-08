@@ -23,6 +23,7 @@ const Game = {
         // Canvas
         this.canvas = document.getElementById("gameCanvas");
         this.ctx = this.canvas.getContext("2d");
+        this.ctx.imageSmoothingEnabled = false;
 
         this.canvas.width = GAME_WIDTH;
         this.canvas.height = GAME_HEIGHT;
@@ -30,6 +31,20 @@ const Game = {
         // Engine Systems
         Input.init(this.canvas);
         World.init();
+
+        // =====================================
+        // Load Terrain Assets
+        // =====================================
+
+        Assets.loadImage(
+            "grass",
+            "assets/tiles/grass.png"
+        );
+
+        Assets.loadImage(
+            "dirt",
+            "assets/tiles/dirt.png"
+        );
 
         // =====================================
         // Load Assets

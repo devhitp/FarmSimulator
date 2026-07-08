@@ -33,9 +33,12 @@ const WorldGenerator = {
 
                     tree: null,
 
-                    variation: Math.floor(Math.random() * 4)
+                    decoration: null
 
                 };
+
+                // Future:
+                // WorldDecorator.decorate(tile);
 
             }
 

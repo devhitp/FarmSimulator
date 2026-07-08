@@ -4,13 +4,7 @@
 // Responsibility:
 // - Load images
 // - Store loaded assets
-// - Provide access to assets
-//
-// Future:
-// - Audio
-// - Sprite sheets
-// - Animations
-// - Loading screen
+// - Provide asset lookup
 // ===================================================
 
 const Assets = {
