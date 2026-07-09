@@ -32,6 +32,11 @@ const Game = {
         Input.init(this.canvas);
         World.init();
 
+        Assets.loadImage(
+            "player",
+            "assets/player/player_1.png"
+        );
+
         // =====================================
         // Terrain Assets
         // =====================================
@@ -44,6 +49,44 @@ const Game = {
         Assets.loadImage(
             "dirt",
             "assets/tiles/dirt.png"
+        );
+
+        // =====================================
+        // Decoration Assets
+        // =====================================
+
+        Assets.loadImage(
+            "flower",
+            "assets/decorations/flower.png"
+        );
+
+        Assets.loadImage(
+            "mushroom",
+            "assets/decorations/mushroom.png"
+        );
+
+        Assets.loadImage(
+            "bush",
+            "assets/decorations/bush.png"
+        );
+
+        Assets.loadImage(
+            "cherryBush",
+            "assets/decorations/cherry_bush.png"
+        );
+
+        Assets.loadImage(
+            "stone",
+            "assets/decorations/stone.png"
+        );
+
+        Assets.loadImage(
+            "smallStones",
+            "assets/decorations/small_stones.png"
+        );
+        Assets.loadImage(
+            "grassDecoration",
+            "assets/decorations/grass.png"
         );
 
         // =====================================

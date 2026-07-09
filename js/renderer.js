@@ -22,6 +22,28 @@ const Renderer = {
 
         this.drawPlayer(ctx);
 
+        for (let row = 0; row < WORLD_ROWS; row++) {
+
+            for (let col = 0; col < WORLD_COLS; col++) {
+
+                const tile = World.tiles[row][col];
+
+                DecorationRenderer.drawTall(
+
+                    ctx,
+
+                    tile,
+
+                    col * TILE_SIZE,
+
+                    row * TILE_SIZE
+
+                );
+
+            }
+
+        }
+
         // =====================================
         // Overhead Layer
         // =====================================
@@ -68,7 +90,7 @@ const Renderer = {
                 const x = col * TILE_SIZE;
                 const y = row * TILE_SIZE;
 
-                DecorationRenderer.draw(
+                DecorationRenderer.drawGround(
                     ctx,
                     tile,
                     x,
@@ -101,14 +123,7 @@ const Renderer = {
 
     drawPlayer(ctx) {
 
-        ctx.fillStyle = "#3498db";
-
-        ctx.fillRect(
-            Player.x,
-            Player.y,
-            Player.width,
-            Player.height
-        );
+        PlayerRenderer.draw(ctx);
 
     },
 

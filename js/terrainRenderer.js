@@ -100,18 +100,18 @@ const TerrainRenderer = {
 
                 }
 
-                // ========================================
-                // Grid
-                // ========================================
+                // // ========================================
+                // // Grid
+                // // ========================================
 
-                ctx.strokeStyle = "#4BA048";
+                // ctx.strokeStyle = "#4BA048";
 
-                ctx.strokeRect(
-                    x,
-                    y,
-                    TILE_SIZE,
-                    TILE_SIZE
-                );
+                // ctx.strokeRect(
+                //     x,
+                //     y,
+                //     TILE_SIZE,
+                //     TILE_SIZE
+                // );
 
             }
 

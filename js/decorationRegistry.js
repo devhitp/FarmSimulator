@@ -10,19 +10,13 @@ const DecorationRegistry = {
 
         id: "flower",
 
-        name: "Flower",
+        image: "flower",
 
-        image: "flower"
+        offsetX: 0,
 
-    },
+        offsetY: 0,
 
-    weed: {
-
-        id: "weed",
-
-        name: "Weed",
-
-        image: "weed"
+        solid: false
 
     },
 
@@ -30,20 +24,83 @@ const DecorationRegistry = {
 
         id: "mushroom",
 
-        name: "Mushroom",
+        image: "mushroom",
 
-        image: "mushroom"
+        offsetX: 0,
+
+        offsetY: 0,
+
+        solid: false
 
     },
 
-    pebble: {
+    bush: {
 
-        id: "pebble",
+        id: "bush",
 
-        name: "Pebble",
+        image: "bush",
 
-        image: "pebble"
+        offsetX: 0,
 
-    }
+        offsetY: -6,
+
+        solid: false
+
+    },
+
+    cherryBush: {
+
+        id: "cherryBush",
+
+        image: "cherryBush",
+
+        offsetX: 0,
+
+        offsetY: -6,
+
+        solid: false
+
+    },
+
+    stone: {
+
+        id: "stone",
+
+        image: "stone",
+
+        offsetX: 0,
+
+        offsetY: 0,
+
+        solid: true
+
+    },
+
+    smallStones: {
+
+        id: "smallStones",
+
+        image: "smallStones",
+
+        offsetX: 0,
+
+        offsetY: 0,
+
+        solid: false
+
+    },
+    grass: {
+
+        id: "grass",
+
+        image: "grassDecoration",
+
+        offsetX: 0,
+
+        offsetY: 0,
+
+        solid: false
+
+    },
 
 };
