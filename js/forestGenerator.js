@@ -10,11 +10,89 @@ const ForestGenerator = {
 
     generate(tiles) {
 
-        this.generateBorder(tiles);
+        this.generateCoreForest(tiles);
 
-        this.generateForestEdges(tiles);
+        this.generateForestEdge(tiles);
 
-        this.generateInteriorTrees(tiles);
+        this.generateMeadowTrees(tiles);
+
+    },
+
+    // ===================================================
+    // GENERATE CORE FOREST
+    // ===================================================
+
+    generateCoreForest(tiles) {
+
+        const border = 5;
+
+        // -----------------------------
+        // Top Forest
+        // -----------------------------
+
+        this.paintForest(
+            tiles,
+            0,
+            border,
+            0,
+            WORLD_COLS,
+            "large"
+        );
+
+        // -----------------------------
+        // Bottom Forest
+        // -----------------------------
+
+        this.paintForest(
+            tiles,
+            WORLD_ROWS - border,
+            WORLD_ROWS,
+            0,
+            WORLD_COLS,
+            "large"
+        );
+
+        // -----------------------------
+        // Left Forest
+        // -----------------------------
+
+        this.paintForest(
+            tiles,
+            border,
+            WORLD_ROWS - border,
+            0,
+            border,
+            "large"
+        );
+
+        // -----------------------------
+        // Right Forest
+        // -----------------------------
+
+        this.paintForest(
+            tiles,
+            border,
+            WORLD_ROWS - border,
+            WORLD_COLS - border,
+            WORLD_COLS,
+            "large"
+        );
+
+    },
+
+    // ===================================================
+    // GENERATE FOREST EDGE
+    // ===================================================
+
+    generateForestEdge(tiles) {
+
+    },
+
+    // ===================================================
+    // GENERATE MEADOW TREES
+    // ===================================================
+
+    generateMeadowTrees(tiles) {
 
     },
 
@@ -65,81 +143,74 @@ const ForestGenerator = {
     },
 
     // ===================================================
-    // GENERATE FOREST EDGES
+    // GENERATE FOREST EDGE
     // ===================================================
 
-    generateForestEdges(tiles) {
+    generateForestEdge(tiles) {
 
-        const border = this.BORDER_SIZE;
+        const border = 5;
 
-        const spread = 5;
+        const blobCount = 45;
 
+        for (let i = 0; i < blobCount; i++) {
 
-        // Top edge spread
+            const side = Math.floor(Math.random() * 4);
 
-        for (let i = 0; i < 30; i++) {
+            let row;
+            let col;
 
-            const row = border + Math.floor(Math.random() * spread);
-            const col = Math.floor(Math.random() * WORLD_COLS);
+            switch (side) {
 
-            if (tiles[row][col].type === "grass") {
+                // Top
+                case 0:
 
-                tiles[row][col].tree = this.createTree();
+                    row = border + Math.floor(Math.random() * 5);
+                    col = Math.floor(Math.random() * WORLD_COLS);
 
-            }
+                    break;
 
-        }
+                // Bottom
+                case 1:
 
+                    row =
+                        WORLD_ROWS - border - 1 -
+                        Math.floor(Math.random() * 5);
 
-        // Bottom edge spread
+                    col = Math.floor(Math.random() * WORLD_COLS);
 
-        for (let i = 0; i < 30; i++) {
+                    break;
 
-            const row =
-                WORLD_ROWS - border -
-                Math.floor(Math.random() * spread);
+                // Left
+                case 2:
 
-            const col = Math.floor(Math.random() * WORLD_COLS);
+                    row = Math.floor(Math.random() * WORLD_ROWS);
 
-            if (tiles[row][col].type === "grass") {
+                    col =
+                        border + Math.floor(Math.random() * 5);
 
-                tiles[row][col].tree = this.createTree();
+                    break;
 
-            }
+                // Right
+                default:
 
-        }
+                    row = Math.floor(Math.random() * WORLD_ROWS);
 
+                    col =
+                        WORLD_COLS - border - 1 -
+                        Math.floor(Math.random() * 5);
 
-        // Left edge spread
-
-        for (let i = 0; i < 30; i++) {
-
-            const row = Math.floor(Math.random() * WORLD_ROWS);
-            const col = border + Math.floor(Math.random() * spread);
-
-            if (tiles[row][col].type === "grass") {
-
-                tiles[row][col].tree = this.createTree();
-
-            }
-
-        }
-
-
-        // Right edge spread
-
-        for (let i = 0; i < 30; i++) {
-
-            const row = Math.floor(Math.random() * WORLD_ROWS);
-            const col =
-                WORLD_COLS - border -
-                Math.floor(Math.random() * spread);
-
-            if (tiles[row][col].type === "grass") {
-
-                tiles[row][col].tree = this.createTree();
+                    break;
 
             }
+
+            this.paintForestBlob(
+
+                tiles,
+                row,
+                col,
+                Math.floor(Math.random() * 2) + 1
+
+            );
 
         }
 
@@ -182,10 +253,94 @@ const ForestGenerator = {
     },
 
     // ===================================================
+    // PAINT EDGE TREE
+    // ===================================================
+
+    paintEdgeTree(tile) {
+
+        const trees = [
+
+            "largeOak",
+            "largePine",
+            "smallOak",
+            "smallPine",
+            "smallOak",
+            "smallPine"
+
+        ];
+
+        tile.tree = {
+
+            id: trees[
+                Math.floor(Math.random() * trees.length)
+            ]
+
+        };
+
+    },
+
+    // ===================================================
+    // PAINT FOREST BLOB
+    // ===================================================
+
+    paintForestBlob(tiles, centerRow, centerCol, radius) {
+
+        for (let row = centerRow - radius; row <= centerRow + radius; row++) {
+
+            for (let col = centerCol - radius; col <= centerCol + radius; col++) {
+
+                if (
+                    row < 0 ||
+                    row >= WORLD_ROWS ||
+                    col < 0 ||
+                    col >= WORLD_COLS
+                ) {
+                    continue;
+                }
+
+                const dx = col - centerCol;
+                const dy = row - centerRow;
+
+                if (dx * dx + dy * dy > radius * radius) {
+                    continue;
+                }
+
+                const tile = tiles[row][col];
+
+                if (tile.type !== "grass") {
+                    continue;
+                }
+
+                tile.tree = {
+
+                    id: Math.random() < 0.8
+                        ? (Math.random() < 0.5
+                            ? "largeOak"
+                            : "largePine")
+                        : (Math.random() < 0.5
+                            ? "smallOak"
+                            : "smallPine")
+
+                };
+
+            }
+
+        }
+
+    },
+
+    // ===================================================
     // PAINT FOREST
     // ===================================================
 
-    paintForest(tiles, startRow, endRow, startCol, endCol) {
+    paintForest(
+        tiles,
+        startRow,
+        endRow,
+        startCol,
+        endCol,
+        size = "large"
+    ) {
 
         for (let row = startRow; row < endRow; row++) {
 
@@ -197,7 +352,41 @@ const ForestGenerator = {
                     continue;
                 }
 
-                tile.tree = this.createTree();
+                if (size === "large") {
+
+                    const largeTrees = [
+                        "largeOak",
+                        "largePine"
+                    ];
+
+                    tile.tree = {
+
+                        id: largeTrees[
+                            Math.floor(
+                                Math.random() * largeTrees.length
+                            )
+                        ]
+
+                    };
+
+                } else {
+
+                    const smallTrees = [
+                        "smallOak",
+                        "smallPine"
+                    ];
+
+                    tile.tree = {
+
+                        id: smallTrees[
+                            Math.floor(
+                                Math.random() * smallTrees.length
+                            )
+                        ]
+
+                    };
+
+                }
 
             }
 
