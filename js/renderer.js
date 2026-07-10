@@ -81,6 +81,15 @@ const Renderer = {
 
         TerrainRenderer.draw(ctx);
 
+        for (const building of World.buildings) {
+
+            BuildingRenderer.draw(
+                ctx,
+                building
+            );
+
+        }
+
         for (let row = 0; row < WORLD_ROWS; row++) {
 
             for (let col = 0; col < WORLD_COLS; col++) {

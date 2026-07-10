@@ -9,8 +9,8 @@ const Player = {
     // PROPERTIES
     // ===================================================
 
-    x: 10 * TILE_SIZE,
-    y: 10 * TILE_SIZE,
+    x: 0,
+    y: 0,
     width: TILE_SIZE,
     height: TILE_SIZE,
 

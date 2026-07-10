@@ -79,6 +79,7 @@ const WorldGenerator = {
 
         ForestGenerator.generate(tiles);
         NatureGenerator.generate(tiles);
+        FarmGenerator.generate(tiles);
 
         return tiles;
 

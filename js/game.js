@@ -31,6 +31,42 @@ const Game = {
         // Engine Systems
         Input.init(this.canvas);
         World.init();
+        Player.x = World.spawn.x;
+        Player.y = World.spawn.y;
+
+        Assets.loadImage("roof_peak", "assets/buildings/roof_peak.png");
+
+        Assets.loadImage("roof_top_left", "assets/buildings/roof_top_left.png");
+        Assets.loadImage("roof_top_center", "assets/buildings/roof_top_center.png");
+        Assets.loadImage("roof_top_right", "assets/buildings/roof_top_right.png");
+
+        Assets.loadImage("roof_upper_left", "assets/buildings/roof_upper_left.png");
+        Assets.loadImage("roof_upper_center", "assets/buildings/roof_upper_center.png");
+        Assets.loadImage("roof_upper_right", "assets/buildings/roof_upper_right.png");
+
+        Assets.loadImage("roof_lower_left", "assets/buildings/roof_lower_left.png");
+        Assets.loadImage("roof_lower_center", "assets/buildings/roof_lower_center.png");
+        Assets.loadImage("roof_lower_right", "assets/buildings/roof_lower_right.png");
+
+        Assets.loadImage("roof_bottom_left", "assets/buildings/roof_bottom_left.png");
+        Assets.loadImage("roof_bottom_center", "assets/buildings/roof_bottom_center.png");
+        Assets.loadImage("roof_bottom_right", "assets/buildings/roof_bottom_right.png");
+
+        Assets.loadImage("wall_top_left", "assets/buildings/wall_top_left.png");
+        Assets.loadImage("wall_top_center", "assets/buildings/wall_top_center.png");
+        Assets.loadImage("wall_top_right", "assets/buildings/wall_top_right.png");
+
+        Assets.loadImage("wall_upper_left", "assets/buildings/wall_upper_left.png");
+        Assets.loadImage("wall_upper_center", "assets/buildings/wall_upper_center.png");
+        Assets.loadImage("wall_upper_right", "assets/buildings/wall_upper_right.png");
+
+        Assets.loadImage("wall_lower_left", "assets/buildings/wall_lower_left.png");
+        Assets.loadImage("wall_lower_center", "assets/buildings/wall_lower_center.png");
+        Assets.loadImage("wall_lower_right", "assets/buildings/wall_lower_right.png");
+
+        Assets.loadImage("wall_bottom_left", "assets/buildings/wall_bottom_left.png");
+        Assets.loadImage("wall_bottom_center", "assets/buildings/wall_bottom_center.png");
+        Assets.loadImage("wall_bottom_right", "assets/buildings/wall_bottom_right.png");
 
         Assets.loadImage(
             "player",
