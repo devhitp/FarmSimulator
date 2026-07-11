@@ -65,13 +65,9 @@ const Game = {
         Assets.loadImage("wall_lower_right", "assets/buildings/wall_lower_right.png");
 
         Assets.loadImage("wall_bottom_left", "assets/buildings/wall_bottom_left.png");
-        Assets.loadImage("wall_bottom_center", "assets/buildings/wall_bottom_center.png");
-        Assets.loadImage("wall_bottom_right", "assets/buildings/wall_bottom_right.png");
-
-        Assets.loadImage(
-            "player",
-            "assets/player/player_1.png"
-        );
+        Assets.loadImage("door", "assets/buildings/door.png");
+        Assets.loadImage("window", "assets/buildings/window.png");
+        Assets.loadImage("player","assets/player/player_1.png");
 
         // =====================================
         // Terrain Assets

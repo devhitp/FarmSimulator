@@ -4,6 +4,73 @@
 // Builds houses from individual building tiles.
 // ===================================================
 
+
+// ===================================================
+// HOUSE LAYOUT
+// ---------------------------------------------------
+// Defines the farmhouse blueprint.
+// ===================================================
+
+const HOUSE_LAYOUT = {
+
+    roof: [
+
+        ["roof_peak"],
+
+        [
+            "roof_top_left",
+            "roof_top_center",
+            "roof_top_right"
+        ],
+
+        [
+            "roof_upper_left",
+            "roof_upper_center",
+            "roof_upper_right"
+        ],
+
+        [
+            "roof_lower_left",
+            "roof_lower_center",
+            "roof_lower_right"
+        ],
+
+        [
+            "roof_bottom_left",
+            "roof_bottom_center",
+            "roof_bottom_right"
+        ]
+
+    ],
+
+    walls: [
+        [
+            "wall_top_left",
+            "wall_top_center",
+            "wall_top_right"
+        ],
+
+        [
+            "wall_upper_left",
+            "wall_upper_center",
+            "wall_upper_right"
+        ],
+
+        [
+            "wall_lower_left",
+            "wall_lower_center",
+            "wall_lower_right"
+        ],
+
+        // [
+        //     "wall_bottom_left",
+        //     "wall_bottom_center",
+        //     "wall_bottom_right"
+        // ]
+    ]
+
+};
+
 const HouseBuilder = {
 
     build(x, y) {
@@ -23,6 +90,10 @@ const HouseBuilder = {
         this.buildRoof(house);
 
         this.buildWalls(house);
+
+        this.buildDoor(house);
+
+        // this.buildWindow(house);
 
         this.buildFoundation(house);
 
@@ -47,168 +118,57 @@ const HouseBuilder = {
     },
 
     // ===================================================
+    // ADD ROW
+    // ===================================================
+
+    addRow(house, images, row, startCol) {
+
+        for (let i = 0; i < images.length; i++) {
+
+            this.addTile(
+
+                house,
+
+                images[i],
+
+                row,
+
+                startCol + i
+
+            );
+
+        }
+
+    },
+
+    // ===================================================
     // BUILD ROOF
     // ===================================================
 
     buildRoof(house) {
 
-        this.addTile(
+        for (let row = 0; row < HOUSE_LAYOUT.roof.length; row++) {
 
-            house,
+            const tiles = HOUSE_LAYOUT.roof[row];
 
-            "roof_peak",
+            const startCol =
+                row === 0
+                    ? 2
+                    : 1;
 
-            0,
+            this.addRow(
 
-            2
+                house,
 
-        );
-        this.addTile(
+                tiles,
 
-            house,
+                row,
 
-            "roof_top_left",
+                startCol
 
-            1,
+            );
 
-            1
-
-        );
-        this.addTile(
-
-            house,
-
-            "roof_top_center",
-
-            1,
-
-            2
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_top_right",
-
-            1,
-
-            3
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_upper_left",
-
-            2,
-
-            1
-
-        );
-
-
-        this.addTile(
-
-            house,
-
-            "roof_upper_center",
-
-            2,
-
-            2
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_upper_right",
-
-            2,
-
-            3
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_lower_left",
-
-            3,
-
-            1
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_lower_center",
-
-            3,
-
-            2
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_lower_right",
-
-            3,
-
-            3
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_bottom_left",
-
-            4,
-
-            1
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_bottom_center",
-
-            4,
-
-            2
-
-        );
-
-        this.addTile(
-
-            house,
-
-            "roof_bottom_right",
-
-            4,
-
-            3
-
-        );
-
-
-
+        }
 
     },
 
@@ -218,25 +178,61 @@ const HouseBuilder = {
 
     buildWalls(house) {
 
-        // Top
-        this.addTile(house, "wall_top_left", 4, 1);
-        this.addTile(house, "wall_top_center", 4, 2);
-        this.addTile(house, "wall_top_right", 4, 3);
+        for (let row = 0; row < HOUSE_LAYOUT.walls.length; row++) {
 
-        // Upper
-        this.addTile(house, "wall_upper_left", 5, 1);
-        this.addTile(house, "wall_upper_center", 5, 2);
-        this.addTile(house, "wall_upper_right", 5, 3);
+            this.addRow(
 
-        // Lower
-        this.addTile(house, "wall_lower_left", 6, 1);
-        this.addTile(house, "wall_lower_center", 6, 2);
-        this.addTile(house, "wall_lower_right", 6, 3);
+                house,
 
-        // Bottom
-        this.addTile(house, "wall_bottom_left", 7, 1);
-        this.addTile(house, "wall_bottom_center", 7, 2);
-        this.addTile(house, "wall_bottom_right", 7, 3);
+                HOUSE_LAYOUT.walls[row],
+
+                row + 3,
+
+                1
+
+            );
+
+        }
+
+    },
+
+    // ===================================================
+    // BUILD DOOR
+    // ===================================================
+
+    buildDoor(house) {
+
+        this.addTile(
+
+            house,
+
+            "door",
+
+            5,
+
+            2
+
+        );
+
+    },
+
+    // ===================================================
+    // BUILD WINDOW
+    // ===================================================
+
+    buildWindow(house) {
+
+        this.addTile(
+
+            house,
+
+            "window",
+
+            5,
+
+            1
+
+        );
 
     },
 
@@ -246,6 +242,10 @@ const HouseBuilder = {
 
     buildFoundation(house) {
 
-    }
+        // Foundation assets will be added here.
+
+    },
+
+    
 
 };
