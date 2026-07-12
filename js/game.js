@@ -67,7 +67,22 @@ const Game = {
         Assets.loadImage("wall_bottom_left", "assets/buildings/wall_bottom_left.png");
         Assets.loadImage("door", "assets/buildings/door.png");
         Assets.loadImage("window", "assets/buildings/window.png");
-        Assets.loadImage("player","assets/player/player_1.png");
+        Assets.loadImage("player", "assets/player/player_1.png");
+
+        Assets.loadImage(
+
+            "shippingBin",
+
+            "assets/farmObjects/shipping_bin.png"
+
+        );
+        Assets.loadImage(
+
+            "mailbox",
+
+            "assets/farmObjects/mailbox.png"
+
+        );
 
         // =====================================
         // Terrain Assets

@@ -77,6 +77,8 @@ const HouseBuilder = {
 
         const house = {
 
+            id: "house",
+
             x,
             y,
 
@@ -246,6 +248,6 @@ const HouseBuilder = {
 
     },
 
-    
+
 
 };

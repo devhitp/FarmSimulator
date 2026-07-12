@@ -22,6 +22,19 @@ const Renderer = {
 
         this.drawPlayer(ctx);
 
+        // =====================================
+        // Building Roof Layer
+        // =====================================
+
+        for (const building of World.buildings) {
+
+            BuildingRenderer.drawRoof(
+                ctx,
+                building
+            );
+
+        }
+
         for (let row = 0; row < WORLD_ROWS; row++) {
 
             for (let col = 0; col < WORLD_COLS; col++) {
@@ -83,9 +96,18 @@ const Renderer = {
 
         for (const building of World.buildings) {
 
-            BuildingRenderer.draw(
+            BuildingRenderer.drawBase(
                 ctx,
                 building
+            );
+
+        }
+
+        for (const object of World.farmObjects) {
+
+            FarmObjectRenderer.draw(
+                ctx,
+                object
             );
 
         }

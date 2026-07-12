@@ -12,6 +12,7 @@ const World = {
 
     tiles: [],
     buildings: [],
+    farmObjects: [],
 
     spawn: {
 
@@ -63,8 +64,10 @@ const World = {
     worldToTile(x, y) {
 
         return {
+
             row: Math.floor(y / TILE_SIZE),
             col: Math.floor(x / TILE_SIZE)
+
         };
 
     },
@@ -72,9 +75,96 @@ const World = {
     tileToWorld(row, col) {
 
         return {
+
             x: col * TILE_SIZE,
             y: row * TILE_SIZE
+
         };
+
+    },
+
+    // ===================================================
+    // COLLISION HELPERS
+    // ===================================================
+
+    rectanglesOverlap(a, b) {
+
+        return (
+
+            a.x < b.x + b.width &&
+            a.x + a.width > b.x &&
+            a.y < b.y + b.height &&
+            a.y + a.height > b.y
+
+        );
+
+    },
+
+    // ===================================================
+    // BUILDING COLLISION
+    // ===================================================
+
+    isCollidingWithBuildings(rect) {
+
+        for (const building of this.buildings) {
+
+            const data = BuildingRegistry[building.id];
+
+            if (!data || !data.collision) {
+                continue;
+            }
+
+            const box = {
+
+                x: building.x + data.collision.x,
+                y: building.y + data.collision.y,
+
+                width: data.collision.width,
+                height: data.collision.height
+
+            };
+
+            if (this.rectanglesOverlap(rect, box)) {
+                return true;
+            }
+
+        }
+
+        return false;
+
+    },
+
+    // ===================================================
+    // FARM OBJECT COLLISION
+    // ===================================================
+
+    isCollidingWithFarmObjects(rect) {
+
+        for (const object of this.farmObjects) {
+
+            const data = FarmObjectRegistry[object.id];
+
+            if (!data || !data.collision) {
+                continue;
+            }
+
+            const box = {
+
+                x: object.x + data.collision.x,
+                y: object.y + data.collision.y,
+
+                width: data.collision.width,
+                height: data.collision.height
+
+            };
+
+            if (this.rectanglesOverlap(rect, box)) {
+                return true;
+            }
+
+        }
+
+        return false;
 
     },
 
@@ -117,9 +207,6 @@ const World = {
                 );
 
                 tile.crop.stage = stage;
-
-                // Debug
-                console.log(tile.crop.stage);
 
             }
 

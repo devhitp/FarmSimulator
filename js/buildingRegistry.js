@@ -16,35 +16,15 @@ const BuildingRegistry = {
 
         height: 4,
 
-        solid: true
+        collision: {
 
-    },
+            x: TILE_SIZE,
+            y: TILE_SIZE * 2,
 
-    shippingBin: {
+            width: TILE_SIZE * 3,
+            height: TILE_SIZE * 4
 
-        id: "shippingBin",
-
-        image: "shippingBin",
-
-        width: 2,
-
-        height: 2,
-
-        solid: true
-
-    },
-
-    mailbox: {
-
-        id: "mailbox",
-
-        image: "mailbox",
-
-        width: 1,
-
-        height: 1,
-
-        solid: true
+        }
 
     }
 

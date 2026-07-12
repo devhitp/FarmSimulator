@@ -7,17 +7,14 @@
 const BuildingRenderer = {
 
     // ===================================================
-    // DRAW BUILDING
+    // DRAW BUILDING BASE
     // ===================================================
 
-    draw(ctx, building) {
-
-        // -----------------------------
-        // Draw Walls
-        // -----------------------------
+    drawBase(ctx, building) {
 
         for (const tile of building.tiles) {
 
+            // Skip roof tiles
             if (tile.image.startsWith("roof_")) {
                 continue;
             }
@@ -42,12 +39,17 @@ const BuildingRenderer = {
 
         }
 
-        // -----------------------------
-        // Draw Roof
-        // -----------------------------
+    },
+
+    // ===================================================
+    // DRAW BUILDING ROOF
+    // ===================================================
+
+    drawRoof(ctx, building) {
 
         for (const tile of building.tiles) {
 
+            // Draw only roof tiles
             if (!tile.image.startsWith("roof_")) {
                 continue;
             }

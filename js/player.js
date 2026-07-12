@@ -83,6 +83,21 @@ const Player = {
             World.isWalkable(bottomLeft) &&
             World.isWalkable(bottomRight);
 
+        const playerBoxX = {
+
+            x: newX,
+            y: this.y,
+
+            width: this.width,
+            height: this.height
+
+        };
+
+        canMoveX =
+            canMoveX &&
+            !World.isCollidingWithBuildings(playerBoxX) &&
+            !World.isCollidingWithFarmObjects(playerBoxX);
+
         if (canMoveX) {
             this.x = newX;
         }
@@ -103,6 +118,21 @@ const Player = {
             World.isWalkable(topRight) &&
             World.isWalkable(bottomLeft) &&
             World.isWalkable(bottomRight);
+
+        const playerBoxY = {
+
+            x: this.x,
+            y: newY,
+
+            width: this.width,
+            height: this.height
+
+        };
+
+        canMoveY =
+            canMoveY &&
+            !World.isCollidingWithBuildings(playerBoxY) &&
+            !World.isCollidingWithFarmObjects(playerBoxY);
 
         if (canMoveY) {
             this.y = newY;
