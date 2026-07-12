@@ -8,6 +8,7 @@
 
 - [x] Project Setup
 - [x] Game Loop
+- [x] Input Manager
 - [x] Camera
 - [x] Player Movement
 - [x] World Generation
@@ -32,50 +33,69 @@
 
 ---
 
-# ✅ Sprint 3 — World Expansion
+# ✅ Sprint 3 — Rendering Systems
 
+- [x] Asset Manager
+- [x] Crop Renderer
+- [x] Tree Renderer
+- [x] Particle Manager
+- [x] Effects System
 - [x] Tree Registry
 - [x] Tree Generation
-- [x] Tree Renderer
 - [x] Grass Variation
 - [x] Soil Texturing
 - [x] Harvest Particles
 - [x] Water Feedback
-- [x] Particle Manager
-- [x] Effects System
 
 ---
 
-# 🚧 Sprint 4 — Asset Engine
+# ✅ Sprint 4 — Farm Foundation
 
-- [x] Asset Manager
-- [ ] Tree Assets
-- [ ] Terrain Assets
-- [ ] Crop Assets
-- [ ] Sprite Rendering
-- [ ] Multi-Tile Objects
-- [ ] Animation Support
+- [x] House Builder
+- [x] Building Renderer
+- [x] Building Registry
+- [x] Farm Generator
+- [x] Farm Object Renderer
+- [x] Farm Object Registry
+- [x] Shipping Bin
+- [x] Mailbox
+- [x] Layered Building Rendering
+- [x] Building Collision
+- [x] Farm Object Collision
+- [x] Player Spawn Generation
 
 ---
 
-# ⏳ Sprint 5 — Living World
+# 🚧 Sprint 5 — Starter Farm
 
-- [ ] Rocks
+## Farm Decoration
+
+- [ ] Wooden Fence
+- [ ] Fence Gate
+- [ ] Dirt Path
+- [ ] Starter Crop Field
+- [ ] Decorative Rocks
 - [ ] Flowers
-- [ ] Decorative Grass
-- [ ] Forest Generation
-- [ ] Fences
-- [ ] World Decorations
+- [ ] Weeds
+- [ ] Farm Borders
 
 ---
 
-# ⏳ Sprint 6 — Economy
+# ⏳ Sprint 6 — Gameplay Expansion
 
-- [ ] Shop
-- [ ] Coin System
-- [ ] Buying & Selling
-- [ ] Farm Expansion
+## Farming
+
+- [ ] More Crops
+- [ ] Crop Seasons
+- [ ] Tool Durability
 - [ ] Tool Upgrades
+
+## Economy
+
+- [ ] Coin System
+- [ ] Selling Crops
+- [ ] Shop
+- [ ] Buy Seeds
 
 ---
 
@@ -85,35 +105,61 @@
 - [ ] Auto Save
 - [ ] World Seed
 - [ ] Player Progress
+- [ ] Settings Save
 
 ---
 
 # ⏳ Sprint 8 — Living World
 
 - [ ] Villagers
-- [ ] Animals
-- [ ] Fishing
 - [ ] NPC Schedules
+- [ ] Dialogue System
 - [ ] Quests
+- [ ] Animals
+- [ ] Animal Products
 
 ---
 
 # ⏳ Sprint 9 — Environment
 
-- [ ] Day & Night
-- [ ] Weather
+- [ ] Day & Night Cycle
+- [ ] Dynamic Weather
 - [ ] Seasons
-- [ ] Lighting
+- [ ] Lighting System
 - [ ] Ambient Effects
+
+---
+
+# ⏳ Sprint 10 — Exploration
+
+- [ ] Forest Expansion
+- [ ] Mining Area
+- [ ] Fishing System
+- [ ] Rivers
+- [ ] Bridges
+- [ ] Secret Areas
+
+---
+
+# ⏳ Sprint 11 — Polish
+
+- [ ] Sound Effects
+- [ ] Background Music
+- [ ] UI Improvements
+- [ ] Animations
+- [ ] Performance Optimization
+- [ ] Accessibility Improvements
 
 ---
 
 # 🌟 Version 1.0 Goals
 
 - [ ] Complete Farming Loop
-- [ ] Fully Playable World
-- [ ] Pixel Art Assets
+- [ ] Living NPC System
+- [ ] Functional Economy
+- [ ] Save / Load
+- [ ] Complete Pixel Art Assets
 - [ ] Audio
-- [ ] Polish
-- [ ] Performance Optimization
+- [ ] Weather & Seasons
+- [ ] Stable Performance
 - [ ] Public Demo Release

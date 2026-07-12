@@ -1,12 +1,18 @@
-<!-- Built from scratch using HTML5 Canvas and Vanilla JavaScript.
-Designed with a modular architecture inspired by modern game engine principles. -->
+<!--
+Built completely from scratch using HTML5 Canvas and Vanilla JavaScript.
+
+Harvest Engine follows a modular, data-driven architecture inspired by modern game engine design principles.
+-->
+
 # 🌾 Farm Simulator — Harvest Engine Architecture
 
 ## Overview
 
-Farm Simulator is a 2D browser-based farming game built completely from scratch using **HTML5 Canvas**, **CSS**, and **Vanilla JavaScript**.
+Farm Simulator is a 2D browser-based farming simulation game built entirely from scratch using **HTML5 Canvas**, **CSS**, and **Vanilla JavaScript**.
 
-The project follows a modular architecture where every system has a single responsibility.
+The project focuses on building every gameplay and engine system without external libraries or game engines while maintaining a clean, scalable architecture.
+
+Every system has a single responsibility and communicates through reusable managers, builders, renderers, generators, and registries.
 
 ---
 
@@ -25,6 +31,9 @@ Game
 ├── Asset Manager
 ├── Particle Manager
 ├── Effects
+├── Building System
+├── Farm Object System
+├── World Generation
 └── Registries
 ```
 
@@ -34,18 +43,18 @@ Game
 
 ## Game
 
-**Responsibility**
+Responsible for:
 
-- Initializes the engine
-- Starts the game loop
-- Updates all systems
-- Renders every frame
+- Engine initialization
+- Game loop
+- Updating every system
+- Rendering every frame
 
 ---
 
 ## Input
 
-**Responsibility**
+Responsible for:
 
 - Keyboard input
 - Mouse input
@@ -56,10 +65,11 @@ Game
 
 ## Camera
 
-**Responsibility**
+Responsible for:
 
-- Follows the player
-- Keeps the camera inside world bounds
+- Following the player
+- World bounds
+- Camera translation
 
 Future:
 
@@ -71,39 +81,61 @@ Future:
 
 ## Renderer
 
-**Responsibility**
+Responsible for coordinating every visual system.
 
-Draws:
-
-Draws:
+Draw order:
 
 - Terrain
-- Trees
+- Buildings (Base)
+- Farm Objects
+- Ground Decorations
+- Tree Trunks
 - Crops
 - Player
+- Building Roofs
+- Tall Decorations
+- Tree Overhead
 - Particle Effects
-- Hotbar
-- Inventory UI
+- UI
 
-The renderer delegates specialized drawing to dedicated renderers:
-
-- TreeRenderer
-- CropRenderer
-
-Renderer never updates game logic.
-
----
+Renderer never updates gameplay logic.
 
 ---
 
 # Rendering Systems
+
+## Building Renderer
+
+Responsible for:
+
+- Building base rendering
+- Roof rendering
+- Layered rendering
+
+---
+
+## Farm Object Renderer
+
+Responsible for rendering:
+
+- Shipping Bin
+- Mailbox
+
+Future:
+
+- Scarecrow
+- Wells
+- Fences
+- Signs
+
+---
 
 ## Crop Renderer
 
 Responsible for:
 
 - Crop rendering
-- Crop growth visuals
+- Growth stages
 - Future crop animations
 
 ---
@@ -112,8 +144,8 @@ Responsible for:
 
 Responsible for:
 
-- Tree rendering
-- Future tree sprites
+- Ground layer
+- Overhead layer
 - Future tree animations
 
 ---
@@ -129,8 +161,8 @@ Future:
 
 - Rain
 - Snow
-- Dust
 - Leaves
+- Dust
 - Fire
 
 ---
@@ -141,67 +173,117 @@ High-level visual effects.
 
 Current:
 
-- Harvest effect
+- Harvest Effect
 
 Future:
 
-- Water splash
 - Mining
-- Tree chopping
+- Tree Chopping
+- Water Splash
 - Magic
 
 ---
-
 
 # World System
 
 ## World
 
-Stores every tile.
+Stores every world tile.
 
 Responsible for:
 
 - Tile updates
 - Crop growth
+- Collision queries
 - Tile utilities
 
 ---
 
 ## World Generator
 
-Generates the world.
+Responsible for generating:
 
-Current generation:
+Current:
 
 - Grass
-- Grass Variation
 - Lakes
 - Trees
+- Farm Area
 
-Future generation:
+Future:
 
 - Forests
-- Rocks
-- Flowers
-- Spawn Areas
 - Rivers
+- Villages
+- Secret Areas
 
 ---
 
-## Brush
+## Farm Generator
+
+Responsible for:
+
+- Farm generation
+- House placement
+- Shipping Bin placement
+- Mailbox placement
+- Player spawn
+
+---
+
+## Brush System
 
 Utility used by World Generator.
 
-Current brushes:
+Current Brushes:
 
 - Circle Brush
 
-Future brushes:
+Future Brushes:
 
 - Rectangle
-- Noise
 - Blob
+- Noise
 - Flood Fill
+
+---
+
+# Building System
+
+## House Builder
+
+Responsible for:
+
+- Multi-tile house construction
+- Roof generation
+- Wall generation
+- Door placement
+- Window placement
+
+Future Buildings:
+
+- Barn
+- Coop
+- Greenhouse
+- Shed
+
+---
+
+# Farm Object System
+
+Current Objects:
+
+- Shipping Bin
+- Mailbox
+
+Future Objects:
+
+- Well
+- Fence
+- Fence Gate
+- Lamp
+- Sign
+- Scarecrow
 
 ---
 
@@ -211,11 +293,18 @@ Responsible for:
 
 - Movement
 - Collision
-- Farming
 - Tool usage
-- Harvesting
+- Farming
 - Planting
 - Watering
+- Harvesting
+
+Future:
+
+- Stamina
+- Health
+- Fishing
+- Mining
 
 ---
 
@@ -223,18 +312,19 @@ Responsible for:
 
 ## Crop Registry
 
-Contains crop definitions.
+Stores crop definitions.
 
-Current crop:
+Current Crop:
 
 - Turnip
 
-Future crops:
+Future Crops:
 
 - Potato
 - Tomato
 - Corn
 - Pumpkin
+- Blueberry
 
 Current Features:
 
@@ -246,39 +336,36 @@ Current Features:
 
 ## Tree Registry
 
-Stores all tree definitions.
+Stores tree definitions.
 
-Current tree:
+Current Trees:
 
-- Oak Tree
-
-Future:
-
+- Oak
 - Pine
+
+Future Trees:
+
 - Birch
 - Maple
 
 ---
 
-
 # Inventory System
 
 ## Inventory
 
-Stores every collected item.
+Responsible for:
 
-Handles:
-
-- Item Collection
-- Item Stacking
-- Item Lookup
-- Harvest Rewards
+- Item collection
+- Item stacking
+- Harvest rewards
+- Item lookup
 
 ---
 
 ## Inventory UI
 
-Draws:
+Responsible for:
 
 - Inventory window
 - Item slots
@@ -289,21 +376,20 @@ Draws:
 
 ## Hotbar
 
-Quick-access inventory.
+Current Features:
 
-Current features:
-
-- 3 slots
+- 3 Slots
 - Tool selection
 
 Future:
 
-- Slot swapping
 - Drag & Drop
+- Slot swapping
+- Scroll wheel support
 
 ---
 
-Registries
+# Registries
 
 Current Registries:
 
@@ -311,10 +397,19 @@ Current Registries:
 - Item Registry
 - Crop Registry
 - Tree Registry
+- Building Registry
+- Farm Object Registry
+
+---
 
 ## Item Registry
 
-Stores every item.
+Stores:
+
+- Tools
+- Seeds
+- Crops
+- Harvest Items
 
 Examples:
 
@@ -337,6 +432,25 @@ Examples:
 
 ---
 
+# Asset System
+
+## Asset Manager
+
+Responsible for:
+
+- Image loading
+- Asset lookup
+- Asset storage
+
+Future:
+
+- Sprite Sheets
+- Animations
+- Audio
+- Loading Screen
+
+---
+
 # Utilities
 
 Shared helper functions.
@@ -346,40 +460,28 @@ Examples:
 - getTileAt()
 - getPlayerTile()
 
----
-
-# Asset System
-
-## Asset Manager
-
-Responsible for:
-
-- Loading image assets
-- Storing loaded assets
-- Providing asset lookup
-
 Future:
 
-- Sprite Sheets
-- Audio
-- Animations
-- Loading Screen
+- Collision helpers
+- Math helpers
+- Random utilities
 
 ---
-
 
 # Design Philosophy
 
-Harvest Engine follows modern game engine principles:
+Harvest Engine follows modern game engine principles.
 
+- Modular Architecture
 - Separation of Rendering and Gameplay
-- Reusable Managers
 - Single Responsibility
-- Modular Systems
 - Data-Driven Registries
+- Builder Pattern
+- Generator Pattern
+- Reusable Managers
 - Easy Expansion
-- Readable Code
 - Consistent File Structure
+- Readable Code
 
 ---
 
@@ -388,37 +490,52 @@ Harvest Engine follows modern game engine principles:
 ## ✅ Completed
 
 - Engine Foundation
+- Game Loop
 - Camera System
 - Input Manager
 - World Generation
 - Brush System
+- Farm Generator
 - Tile Registry
+- Item Registry
+- Crop Registry
+- Tree Registry
+- Building Registry
+- Farm Object Registry
+- House Builder
+- Building Renderer
+- Farm Object Renderer
+- Crop Renderer
+- Tree Renderer
+- Player System
 - Farming System
 - Inventory
 - Hotbar
 - Crop Growth
 - Harvesting
-- Crop Renderer
-- Tree Renderer
 - Particle Manager
 - Effects System
 - Asset Manager
-- Architecture Cleanup
+- Collision System
+- Layered Rendering
 
 ---
 
 # Planned Systems
 
-- Rocks
-- Flowers
-- Asset Integration
-- Multi-Tile Objects
+- Starter Farm
+- Wooden Fences
+- Fence Gates
+- Dirt Paths
+- Save / Load
 - Weather
 - Seasons
 - NPCs
 - Animals
 - Shop
-- Save / Load
+- Mining
+- Fishing
+- Crafting
 - Audio
 - Lighting
 
@@ -426,25 +543,28 @@ Harvest Engine follows modern game engine principles:
 
 # Engine Version
 
-Harvest Engine v0.4
+## Harvest Engine v0.2.0
 
 ---
 
 # Rendering Pipeline
 
 ```
-Game
-    │
-    ▼
 Renderer
-    │
-    ├── Terrain
-    ├── TreeRenderer
-    ├── CropRenderer
-    ├── ParticleManager
-    ├── Player
-    ├── Hotbar
-    └── Inventory UI
+│
+├── Terrain
+├── Buildings (Base)
+├── Farm Objects
+├── Ground Decorations
+├── Tree Ground Layer
+├── Crops
+├── Player
+├── Building Roof Layer
+├── Tall Decorations
+├── Tree Overhead Layer
+├── Particle Effects
+├── Hotbar
+└── Inventory UI
 ```
 
-The renderer coordinates every visual system while keeping gameplay logic completely separate from rendering.
+The renderer coordinates every visual system while keeping rendering completely independent from gameplay logic.

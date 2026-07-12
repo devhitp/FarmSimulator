@@ -1,8 +1,8 @@
 # 🌾 Farm Simulator
 
-> Powered by **Harvest Engine** — a custom 2D game engine built from scratch in Vanilla JavaScript.
+> Powered by **Harvest Engine** — a custom 2D game engine built entirely from scratch using Vanilla JavaScript.
 
-> A browser-based farming simulation game built from scratch using **HTML5 Canvas, CSS, and Vanilla JavaScript**.
+> A browser-based farming simulation game inspired by **Stardew Valley** and **Harvest Moon**, focused on building every gameplay and engine system without external game engines or frameworks.
 
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
 ![Version](https://img.shields.io/badge/Version-v0.4.0-blue)
@@ -10,93 +10,104 @@
 
 ---
 
-## 📖 About
+# 📖 About
 
-Farm Simulator is a 2D farming simulation game currently under active development. The goal of this project is to create a complete farming experience entirely from scratch without using any external game engine or JavaScript framework.
+Farm Simulator is a long-term game development project built completely from scratch using **HTML5 Canvas**, **CSS**, and **Vanilla JavaScript**.
 
-Instead of relying on existing libraries, every major system—including the game loop, rendering engine, camera, world generation, player movement, farming mechanics, inventory, economy, and save system—is being designed and implemented manually.
+Instead of relying on existing game engines, every major system is developed manually, including:
 
-This project serves both as a learning journey and as a demonstration of software architecture, clean code principles, and game development using modern JavaScript.
+- Game Loop
+- Rendering Pipeline
+- Camera System
+- World Generation
+- Player Controller
+- Collision System
+- Farming Mechanics
+- Inventory
+- Building System
+- Particle Effects
+- Asset Pipeline
+
+The project emphasizes clean software architecture, modular engine design, and reusable systems.
 
 ---
 
-## 🚀 Current Version
+# 🚀 Current Version
 
-**v0.4.0 – World Expansion & Rendering Systems**
+## Harvest Engine v0.4.0
 
-### ✅ Completed Features
+### ✅ Engine
 
-#### 🎮 Engine
-- Project Setup
 - Game Loop
-- Camera System
 - Input Manager
+- Camera System
 - World Generation
-- Tile Registry
+- Farm Generator
+- Collision System
 - Asset Manager
+- Particle System
 - Effects System
-- Particle Manager
 
-#### 🌾 Farming
+---
+
+### 🌾 Farming
+
 - Hoe Tool
 - Seed Planting
 - Watering
 - Crop Growth
 - Harvesting
 
-#### 🎒 Systems
+---
+
+### 🏡 Buildings
+
+- Modular House Builder
+- Building Renderer
+- Layered Roof Rendering
+- House Collision
+- Door & Window Rendering
+
+---
+
+### 📦 Farm Objects
+
+- Shipping Bin
+- Mailbox
+- Farm Object Renderer
+- Farm Object Registry
+
+---
+
+### 🎒 Inventory
+
 - Inventory
 - Inventory UI
 - Hotbar
 - Item Registry
-- Crop Registry
-- Tree Registry
-
-#### 🎨 Rendering
-- Crop Renderer
-- Tree Renderer
-- Grass Variation
-- Soil Texturing
-- Harvest Particles
-- Water Feedback
 
 ---
 
-🚧 Currently working on **Sprint 4 – Asset Engine**
-
 ### 🌍 World
+
+- Procedural Terrain
+- Lakes
 - Trees
-- Rocks
-- Flowers
-- Procedural decorations
-- Expandable farm
+- Farm Area Generation
+- Grass Variation
+- Soil Rendering
 
-### 🏪 Economy
-- Shop system
-- Coin system
-- Buying & selling
-- Farm upgrades
+---
 
-### 🌦 World Systems
-- Day & Night cycle
-- Weather
-- Seasons
-- Save & Load
-- Auto Save
+### 🎨 Rendering
 
-### 🏡 Living World
-- NPC Villagers
-- Animals
-- Fishing
-- Events
-- Exploration
-
-### 🔥 Future (Hard Mode)
-- Hunger
-- Stamina
-- Wildlife
-- Survival mechanics
-- Dynamic difficulty
+- Terrain Renderer
+- Building Renderer
+- Farm Object Renderer
+- Crop Renderer
+- Tree Renderer
+- Layered Rendering
+- Harvest Particles
 
 ---
 
@@ -111,101 +122,133 @@ This project serves both as a learning journey and as a demonstration of softwar
 
 ---
 
-# 🧠 Technical Highlights
+# ✨ Engine Highlights
 
-- Modular Game Architecture
-- Custom Rendering Pipeline
-- Asset Management System
-- Procedural World Generation
+- Modular Architecture
 - Data-Driven Registries
-- Brush-Based Terrain Generation
-- Camera System
-- Collision Detection
+- Builder Pattern
+- Generator Pattern
+- Layered Rendering Pipeline
+- Custom Collision System
+- Procedural World Generation
 - Particle Effects
-- Effects System
-- Custom Input Manager
-- Inventory & Hotbar
-- Clean Git Workflow
+- Asset Manager
+- Clean Project Structure
 
 ---
 
 # 📂 Project Structure
 
+```
 FarmSimulator/
 │
 ├── assets/
-│   ├── crops/
-│   ├── trees/
-│   ├── tiles/
-│   ├── player/
-│   ├── ui/
-│   └── icons/
 │
 ├── js/
+│   ├── core/
+│   ├── world/
+│   ├── rendering/
+│   ├── gameplay/
+│   ├── ui/
+│   └── utilities/
 │
 ├── README.md
 ├── ARCHITECTURE.md
+├── ENGINE_GUIDELINES.md
 ├── DEVLOG.md
 ├── CHANGELOG.md
 ├── LICENSE
 └── index.html
+```
 
 ---
 
+# 🗺 Development Roadmap
+
 ## ✅ Sprint 1 — Engine Foundation
-- Project Setup
+
 - Game Loop
 - Camera
+- Input
 - Player Movement
-- Procedural World
+- World Generation
 - Brush System
 - Tile Registry
 
-## ✅ Sprint 2 — Farming System
+---
+
+## ✅ Sprint 2 — Core Farming
+
+- Inventory
+- Hotbar
 - Hoe Tool
 - Seeds
 - Watering
 - Crop Growth
 - Harvesting
-- Inventory
-- Hotbar
 
-## ✅ Sprint 3 — World Expansion
-- Tree Registry
-- Tree Generation
-- Tree Renderer
-- Grass Variation
-- Soil Texturing
-- Harvest Effects
+---
 
-## 🚧 Sprint 4 — Asset Engine
+## ✅ Sprint 3 — Rendering Systems
+
 - Asset Manager
-- Sprite Rendering
-- Tree Assets
-- Terrain Assets
-- Multi-Tile Objects
+- Crop Renderer
+- Tree Renderer
+- Particle System
+- Effects
+- Grass Variation
+- Tree Generation
 
-## ⏳ Sprint 5 — Living World
-- Rocks
+---
+
+## ✅ Sprint 4 — Farm Foundation
+
+- House Builder
+- Farm Generator
+- Building Renderer
+- Farm Objects
+- Layered Rendering
+- Collision System
+- Shipping Bin
+- Mailbox
+
+---
+
+## 🚧 Sprint 5 — Starter Farm
+
+- Wooden Fences
+- Fence Gate
+- Dirt Paths
+- Decorative Rocks
 - Flowers
-- Decorations
-- Forest Generation
+- Starter Crop Field
 
-## ⏳ Sprint 6 — Economy
-- Shop
-- Coins
-- Farm Expansion
+---
 
-## ⏳ Sprint 7 — Save System
+## ⏳ Future
+
+- NPC Villagers
+- Animals
+- Shops
+- Mining
+- Fishing
+- Crafting
+- Weather
+- Seasons
 - Save / Load
-- World Seed
-- Auto Save
-
-## ⏳ Sprint 8 — Polish
-- Pixel Art
-- Animations
 - Audio
-- UI Improvements
+- Lighting
+
+---
+
+# 📚 Documentation
+
+Project documentation is separated into dedicated files.
+
+- 📖 **ARCHITECTURE.md** — Engine architecture
+- 📜 **CHANGELOG.md** — Version history
+- 🌱 **DEVLOG.md** — Development progress
+- 📘 **ENGINE_GUIDELINES.md** — Engineering standards
 
 ---
 
@@ -215,9 +258,9 @@ This project focuses on improving practical skills in:
 
 - JavaScript
 - HTML5 Canvas
-- Game Development
-- Object-Oriented Programming
 - Software Architecture
+- Game Engine Development
+- Object-Oriented Programming
 - Git & GitHub
 - Debugging
 - Performance Optimization
@@ -228,26 +271,22 @@ This project focuses on improving practical skills in:
 
 Every completed milestone follows a structured workflow:
 
-- ✅ Planning
-- ✅ Development
-- ✅ Testing
-- ✅ Git Commit
-- ✅ Git Push
-- ✅ TODO Update
-- ✅ DEVLOG Update
-- ✅ CHANGELOG Update
-- ✅ Git Tag
-- ✅ GitHub Release
+- Planning
+- Development
+- Testing
+- Refactoring
+- Documentation
+- Git Commit
+- Git Push
+- Version Update
 
 ---
 
 # 🌟 Vision
 
-The vision of Farm Simulator is to build a complete browser-based farming simulation game powered by **Harvest Engine**, a custom JavaScript game engine developed entirely from scratch.
+The long-term goal is to develop **Harvest Engine** into a reusable JavaScript 2D game engine capable of powering multiple games.
 
-The project emphasizes scalable architecture, reusable systems, procedural world generation, and clean software engineering practices while remaining completely independent of external game engines.
-
-Every major gameplay and rendering system is designed to be modular, making Harvest Engine a strong foundation for future projects beyond Farm Simulator.
+Farm Simulator is the first project built on top of Harvest Engine and serves as both a complete farming simulation and a showcase of modern engine architecture built without external game engines.
 
 ---
 
@@ -257,4 +296,4 @@ This project is licensed under the MIT License.
 
 ---
 
-### ⭐ If you like this project, consider giving it a star!
+⭐ If you enjoy this project, consider giving it a star!

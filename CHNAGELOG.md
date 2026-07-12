@@ -90,3 +90,59 @@ All notable changes to this project will be documented here.
 - Mouse coordinate scaling with browser zoom
 - Rendering organization
 - Particle effect integration
+
+---
+
+## [v0.4.0] - Farm Foundation
+
+### Added
+
+#### Buildings
+- House Builder
+- Multi-tile farmhouse
+- Modular roof system
+- Door rendering
+- Window rendering
+
+#### Farm Objects
+- Shipping Bin
+- Mailbox
+- Farm Object Registry
+- Farm Object Renderer
+
+#### World
+- Farm Generator
+- House placement
+- Shipping Bin placement
+- Mailbox placement
+- Player spawn generation
+
+#### Rendering
+- Building Renderer
+- Layered building rendering
+- Roof rendering layer
+- Building base rendering
+
+#### Engine
+- Building Registry
+- Collision system for buildings
+- Collision system for farm objects
+
+### Improved
+- Renderer layering
+- World generation pipeline
+- Engine architecture
+- Building construction workflow
+- Rendering order
+- Player spawn positioning
+
+### Fixed
+- House rendering alignment
+- Roof overlap rendering
+- Door placement
+- Window placement
+- Building depth rendering
+- House collision
+- Shipping Bin collision
+- Mailbox collision
+- Building rendering order

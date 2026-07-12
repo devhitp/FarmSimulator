@@ -1,8 +1,8 @@
 # 🌾 Harvest Engine Engineering Guidelines
 
-> These guidelines define the architecture and development principles used throughout Harvest Engine.
+> These guidelines define the architecture, coding standards, and engineering principles used throughout Harvest Engine.
 
-Following these rules keeps the engine modular, scalable, and easy to maintain.
+Following these rules keeps the engine modular, scalable, reusable, and easy to maintain as the project grows.
 
 ---
 
@@ -10,109 +10,280 @@ Following these rules keeps the engine modular, scalable, and easy to maintain.
 
 Build systems before content.
 
-A strong architecture allows new gameplay features to be added with minimal changes to existing code.
+A strong engine architecture allows new gameplay features to be added with minimal changes to existing code.
+
+Every feature should be built on top of reusable systems rather than one-time implementations.
 
 ---
 
-# General Rules
+# Engineering Principles
 
 - One file = One responsibility.
+- One system = One responsibility.
+- Prefer reusable systems over feature-specific code.
 - Prefer composition over duplication.
-- Build reusable systems instead of one-time solutions.
-- Refactor when architecture becomes unclear.
-- Avoid quick fixes that create technical debt.
+- Build data-driven systems whenever possible.
+- Refactor before complexity becomes technical debt.
+- Never sacrifice architecture for short-term convenience.
 
 ---
 
 # Rendering
 
-Rendering is responsible only for drawing.
+Rendering is responsible **only** for drawing.
 
 Renderers must never:
 
 - Update gameplay
 - Modify world data
-- Change inventory
 - Spawn objects
+- Handle player logic
+- Change inventory
+- Process input
 
-Every renderer should have a single responsibility.
-
-Current renderers:
+Current Renderers:
 
 - TerrainRenderer
+- BuildingRenderer
+- FarmObjectRenderer
 - DecorationRenderer
 - TreeRenderer
 - CropRenderer
-
-Future renderers:
-
 - PlayerRenderer
+
+Future Renderers:
+
 - WeatherRenderer
 - LightingRenderer
+- ShadowRenderer
+- WaterRenderer
 - UIRenderer
+
+---
+
+# Layered Rendering
+
+Top-down games require multiple rendering layers.
+
+Current rendering order:
+
+```
+Terrain
+↓
+
+Buildings (Base)
+↓
+
+Farm Objects
+↓
+
+Ground Decorations
+↓
+
+Tree Ground Layer
+↓
+
+Crops
+↓
+
+Player
+↓
+
+Building Roofs
+↓
+
+Tall Decorations
+↓
+
+Tree Overhead Layer
+↓
+
+Particle Effects
+↓
+
+UI
+```
+
+Never break the rendering order unless introducing a new rendering layer.
 
 ---
 
 # Gameplay
 
-Gameplay systems never draw graphics.
+Gameplay systems never render graphics.
 
-Examples:
+Example:
 
-Player
+## Player
 
 Responsible for:
 
 - Movement
+- Collision
 - Farming
 - Tool usage
+- Planting
+- Watering
 - Harvesting
 
 Not responsible for:
 
-- Drawing crops
-- Drawing particles
-- Drawing UI
+- Drawing sprites
+- Playing particle effects
+- Rendering UI
+- Loading assets
 
 ---
 
 # World
 
-World stores data.
+World stores data and provides world queries.
 
-It should never contain rendering code.
+Responsible for:
 
-Each tile stores only its state.
+- Tile data
+- Tile utilities
+- Collision queries
+- Crop updates
+- Spawn information
 
-Example:
+World must never:
 
-- Terrain
-- Decoration
-- Tree
-- Crop
-- Watered State
+- Draw graphics
+- Handle player input
+- Update UI
+
+---
+
+# Buildings
+
+Buildings are assembled using Builders.
+
+Builders create world objects.
+
+Renderers draw them.
+
+Registries describe them.
+
+Current Building Systems:
+
+- HouseBuilder
+- BuildingRenderer
+- BuildingRegistry
+
+Future:
+
+- BarnBuilder
+- CoopBuilder
+- GreenhouseBuilder
+
+---
+
+# Farm Objects
+
+Farm Objects are independent world objects.
+
+Current:
+
+- Shipping Bin
+- Mailbox
+
+Future:
+
+- Fence
+- Fence Gate
+- Well
+- Lamp
+- Sign
+- Scarecrow
+
+Each farm object should contain:
+
+- Position
+- Dimensions
+- Collision
+- Asset reference
+
+---
+
+# Collision
+
+Collision belongs to the World.
+
+Gameplay asks the World whether movement is allowed.
+
+Gameplay never performs collision calculations directly.
+
+Collision data should remain independent from rendering.
 
 ---
 
 # Registries
 
-All gameplay data belongs inside registries.
+Gameplay data belongs inside registries.
 
 Avoid hardcoded values.
 
-Examples:
+Current Registries:
 
 - TileRegistry
 - ItemRegistry
 - CropRegistry
 - TreeRegistry
-- DecorationRegistry
+- BuildingRegistry
+- FarmObjectRegistry
 
-Future:
+Future Registries:
 
 - NPCRegistry
 - AnimalRegistry
+- WeatherRegistry
 - ToolRegistry
+- SoundRegistry
+
+---
+
+# Builders
+
+Builders assemble complex objects.
+
+Current Builders:
+
+- HouseBuilder
+- ShippingBinBuilder
+- MailboxBuilder
+
+Future Builders:
+
+- BarnBuilder
+- FenceBuilder
+- BridgeBuilder
+
+Builders should never render.
+
+Builders should never update gameplay.
+
+Builders only construct objects.
+
+---
+
+# Generators
+
+Generators create world content.
+
+Current:
+
+- WorldGenerator
+- FarmGenerator
+
+Future:
+
+- TerrainGenerator
+- DecorationGenerator
+- TreeGenerator
+- StructureGenerator
+
+Generators should never render.
 
 ---
 
@@ -120,61 +291,59 @@ Future:
 
 Assets are loaded only through AssetManager.
 
-Never access image files directly.
-
 Correct:
 
-Assets.get("grass")
+```javascript
+Assets.get("grass");
+```
 
 Incorrect:
 
-new Image()
+```javascript
+new Image();
+```
 
-inside gameplay or renderer code.
+inside gameplay or rendering systems.
 
 ---
 
-# World Generation
+# Utilities
 
-Generation should remain modular.
+Utility functions should remain pure.
 
-Preferred architecture:
+Examples:
 
-WorldGenerator
+- getTileAt()
+- getPlayerTile()
 
-↓
-
-TerrainGenerator
-
-↓
-
-DecorationGenerator
-
-↓
-
-TreeGenerator
-
-↓
-
-StructureGenerator
-
-Each generator has one responsibility.
+Utilities should never modify gameplay state.
 
 ---
 
 # Code Style
 
-Prefer readable code over short code.
+Prefer readable code over clever code.
 
-Good names are more valuable than clever code.
+Guidelines:
 
-Keep functions focused.
+- Use descriptive variable names.
+- Keep functions focused.
+- Keep files focused.
+- Avoid unnecessary nesting.
+- Group related code together.
+- Add section comments for large files.
 
-If a function grows too large, split it.
+If a function becomes difficult to understand, split it.
 
 ---
 
 # Project Structure
+
+Dependencies should always flow downward.
+
+```
+Game
+↓
 
 Gameplay
 
@@ -189,8 +358,7 @@ Rendering
 ↓
 
 UI
-
-Dependencies should always flow downward.
+```
 
 Avoid circular dependencies.
 
@@ -198,16 +366,33 @@ Avoid circular dependencies.
 
 # Development Workflow
 
-Every completed milestone should follow:
+Every completed milestone follows:
 
-- Planning
-- Development
-- Testing
-- Refactoring
-- Documentation
-- Git Commit
-- Git Push
-- Release Tag
+1. Planning
+2. Development
+3. Testing
+4. Refactoring
+5. Documentation
+6. Git Commit
+7. Git Push
+8. Version Update
+9. Changelog Update
+
+Never skip documentation after completing a major system.
+
+---
+
+# Git Guidelines
+
+Every commit should represent one logical feature.
+
+Examples:
+
+- Add Building Renderer
+- Implement Crop Growth
+- Add Collision System
+
+Avoid mixing unrelated features into a single commit.
 
 ---
 
@@ -215,6 +400,8 @@ Every completed milestone should follow:
 
 Harvest Engine is designed to become a reusable JavaScript 2D game engine.
 
-Farm Simulator is the first game built on top of it.
+Farm Simulator is the first game built on top of the engine.
 
-Future projects should reuse the engine instead of rebuilding common systems.
+Future games should reuse the engine rather than rebuilding common systems.
+
+The goal is to create a modular engine capable of supporting multiple 2D games while keeping gameplay code separate from engine code.
