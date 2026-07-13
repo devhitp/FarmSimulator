@@ -146,3 +146,47 @@ All notable changes to this project will be documented here.
 - Shipping Bin collision
 - Mailbox collision
 - Building rendering order
+
+---
+
+## [v0.5.0] - Starter Farm
+
+### Added
+
+#### Builders
+- Fence Builder
+- Field Builder
+
+#### Registries
+- Fence Registry
+
+#### Rendering
+- Fence Renderer
+- Fence rendering pipeline integration
+
+#### Farm Layout
+- Procedural rectangle fence generation
+- Configurable fence opening system
+- Automatic starter field generation
+- Starter farm layout generation
+
+#### Engine
+- Reusable builder architecture
+- Builder-driven farm generation pipeline
+
+### Improved
+- Procedural farm generation workflow
+- Builder architecture consistency
+- World generation pipeline
+- Farm layout generation
+- Fence generation flexibility
+- Engine modularity
+
+### Fixed
+- World generation initialization order
+- Fence rendering integration
+- Fence asset loading
+- Field generation timing
+- Builder responsibility separation
+- Farm generation workflow
+- Replaced gate-based entrance with a cleaner opening system

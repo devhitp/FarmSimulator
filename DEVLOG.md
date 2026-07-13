@@ -163,19 +163,71 @@
 
 ---
 
+# 🚀 v0.5.0 - Starter Farm
+
+### ✅ Completed
+
+#### 🪵 Fence System
+- Created Fence Registry.
+- Created Fence Builder.
+- Created Fence Renderer.
+- Added procedural horizontal fence generation.
+- Added procedural vertical fence generation.
+- Built reusable rectangle fence generation.
+- Added configurable fence opening system.
+- Integrated fences into the rendering pipeline.
+
+#### 🌾 Field System
+- Created Field Builder.
+- Added automatic starter field generation.
+- Integrated fields into Farm Generator.
+- Prepared the engine for future crop layouts.
+
+#### 🏡 Farm Layout
+- Generated a complete starter farm.
+- Added fenced farming area.
+- Added entrance to the farm.
+- Positioned the starter field inside the fenced area.
+- Improved overall farm presentation.
+
+#### 🧩 Engine Architecture
+- Expanded the Builder architecture.
+- Standardized Builder → Generator workflow.
+- Improved procedural world generation pipeline.
+- Reduced hardcoded farm generation logic.
+
+### 🛠 Problems Solved
+- Fixed world generation initialization order.
+- Fixed fence rendering integration.
+- Fixed asset loading path issues.
+- Fixed field generation timing.
+- Improved builder responsibility separation.
+- Replaced fence gate with a cleaner opening system.
+- Improved procedural farm generation architecture.
+
+### 📚 Lessons Learned
+- Builders should generate reusable structures rather than hardcoded layouts.
+- World generation should operate on temporary world data before initialization completes.
+- Small reusable builders make procedural generation easier to expand.
+- Engine systems become cleaner when each builder owns a single responsibility.
+- Designing APIs around concepts (like "openings") is more flexible than designing around specific assets (like "gates").
+
+---
+
 # 🚀 Next Sprint
 
-## Sprint 5 – Starter Farm
+## Sprint 5 – Starter Farm Polish
 
 ### Planned Goals
 
-- 🌾 Starter crop field
-- 🪵 Wooden fence system
-- 🚪 Fence gate
-- 🛤 Dirt path
+- 🚧 Fence collision
+- 🛤 Dirt path from house to farm
 - 🌼 Decorative flowers
 - 🪨 Decorative rocks
-- 🌱 Farm weeds
-- 🌳 Improve farmhouse surroundings
+- 🌱 Weeds
+- 🌳 Farm border decoration
+- 🌾 Starter crop generation
+- 🌱 Crop layout builder
+- 🎨 Farm layout polish
 
-**Goal:** Transform the empty farm into a believable starter farm ready for gameplay.
+**Goal:** Transform the starter farm into a believable, polished environment while continuing to expand Harvest Engine's reusable builder architecture.

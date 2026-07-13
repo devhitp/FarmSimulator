@@ -68,16 +68,23 @@
 
 # 🚧 Sprint 5 — Starter Farm
 
-## Farm Decoration
+## Farm Layout
 
-- [ ] Wooden Fence
-- [ ] Fence Gate
+- [x] Fence Registry
+- [x] Fence Builder
+- [x] Fence Renderer
+- [x] Procedural Rectangle Fence
+- [x] Fence Opening System
+- [x] Field Builder
+- [x] Starter Crop Field
+- [ ] Fence Collision
 - [ ] Dirt Path
-- [ ] Starter Crop Field
 - [ ] Decorative Rocks
 - [ ] Flowers
 - [ ] Weeds
 - [ ] Farm Borders
+- [ ] Starter Crops
+- [ ] Farm Layout Polish
 
 ---
 
@@ -89,6 +96,8 @@
 - [ ] Crop Seasons
 - [ ] Tool Durability
 - [ ] Tool Upgrades
+- [ ] Fertilizer
+- [ ] Scarecrow
 
 ## Economy
 
