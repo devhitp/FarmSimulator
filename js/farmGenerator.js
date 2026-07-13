@@ -16,6 +16,39 @@ const FarmGenerator = {
 
         this.generateMailbox(house);
 
+        this.generateField(
+
+            tiles,
+
+            house
+
+        );
+
+        const fence = FenceBuilder.buildRectangle(
+
+            house.x - TILE_SIZE * 2,
+
+            house.y + TILE_SIZE * 6,
+
+            8,
+
+            6,
+
+            {
+
+                opening: "bottom",
+
+                openingOffset: 4,
+
+                openingWidth: 2
+
+            }
+
+        );
+
+        World.fences.push(...fence);
+        // console.log(World.fences);
+
     },
 
     // ===================================================
@@ -118,6 +151,32 @@ const FarmGenerator = {
         );
 
         World.farmObjects.push(mailbox);
+
+    },
+
+    // ===================================================
+    // GENERATE FIELD
+    // ===================================================
+
+    generateField(tiles, house) {
+
+        const startRow = Math.floor(house.y / TILE_SIZE) + 7;
+
+        const startCol = Math.floor(house.x / TILE_SIZE);
+
+        FieldBuilder.build(
+
+            tiles,
+
+            startRow,
+
+            startCol,
+
+            5,
+
+            3
+
+        );
 
     },
 

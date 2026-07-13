@@ -13,6 +13,7 @@ const World = {
     tiles: [],
     buildings: [],
     farmObjects: [],
+    fences: [],
 
     spawn: {
 
@@ -26,6 +27,10 @@ const World = {
     // ===================================================
 
     init() {
+
+        this.buildings = [];
+        this.farmObjects = [];
+        this.fences = [];
 
         this.tiles = WorldGenerator.generate();
 

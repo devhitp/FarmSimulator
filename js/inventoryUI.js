@@ -126,14 +126,14 @@ const InventoryUI = {
 
                 const item = ItemRegistry[inventoryItem.id];
 
-                if (isMouseOver) {
-                    console.log(
-                        "Hovering slot:",
-                        row,
-                        col,
-                        inventoryItem ? inventoryItem.id : "empty"
-                    );
-                }
+                // if (isMouseOver) {
+                //     console.log(
+                //         "Hovering slot:",
+                //         row,
+                //         col,
+                //         inventoryItem ? inventoryItem.id : "empty"
+                //     );
+                // }
 
                 // ================================
                 // ICON

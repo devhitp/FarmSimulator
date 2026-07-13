@@ -229,7 +229,7 @@ const Player = {
             tile.type = "soil";
         }
 
-        console.log("Hoe tile:", tile);
+        // console.log("Hoe tile:", tile);
     },
 
     waterTile() {
@@ -342,6 +342,6 @@ const Player = {
         tile.watered = false;
         tile.type = "soil";
 
-        console.log("Harvest tile:", this.getFacingTile());
+        // console.log("Harvest tile:", this.getFacingTile());
     }
 };

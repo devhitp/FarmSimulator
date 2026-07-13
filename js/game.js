@@ -84,6 +84,23 @@ const Game = {
 
         );
 
+        Assets.loadImage("fence_corner_tl", "assets/fence/fence_corner_tl.png");
+        Assets.loadImage("fence_corner_tr", "assets/fence/fence_corner_tr.png");
+        Assets.loadImage("fence_corner_bl", "assets/fence/fence_corner_bl.png");
+        Assets.loadImage("fence_corner_br", "assets/fence/fence_corner_br.png");
+
+        Assets.loadImage("fence_start_horizontal", "assets/fence/fence_start_horizontal.png");
+        Assets.loadImage("fence_middle_horizontal", "assets/fence/fence_middle_horizontal.png");
+        Assets.loadImage("fence_end_horizontal", "assets/fence/fence_end_horizontal.png");
+
+        Assets.loadImage("fence_start_vertical", "assets/fence/fence_start_vertical.png");
+        Assets.loadImage("fence_middle_vertical", "assets/fence/fence_middle_vertical.png");
+        Assets.loadImage("fence_end_vertical", "assets/fence/fence_end_vertical.png");
+
+        Assets.loadImage("fence_loop_middle", "assets/fence/fence_loop_middle.png");
+
+        Assets.loadImage("fence_gate", "assets/fence/fence_gate.png");
+
         // =====================================
         // Terrain Assets
         // =====================================

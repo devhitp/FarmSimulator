@@ -19,11 +19,11 @@ const Inventory = {
     add(itemId, amount = 1) {
 
         // Debug
-        console.log("ADDING ITEM:", itemId);
+        // console.log("ADDING ITEM:", itemId);
 
         if (!itemId) {
 
-            console.log("BLOCKED INVALID ITEM ADD:", itemId);
+            // console.log("BLOCKED INVALID ITEM ADD:", itemId);
             return;
 
         }

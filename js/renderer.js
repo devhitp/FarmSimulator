@@ -112,6 +112,21 @@ const Renderer = {
 
         }
 
+        // =====================================
+        // Fences
+        // =====================================
+
+        // console.log("Fence count:", World.fences.length);
+
+        for (const fence of World.fences) {
+
+            FenceRenderer.draw(
+                ctx,
+                fence
+            );
+
+        }
+
         for (let row = 0; row < WORLD_ROWS; row++) {
 
             for (let col = 0; col < WORLD_COLS; col++) {
