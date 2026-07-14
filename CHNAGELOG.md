@@ -190,3 +190,20 @@ All notable changes to this project will be documented here.
 - Builder responsibility separation
 - Farm generation workflow
 - Replaced gate-based entrance with a cleaner opening system
+
+## [v0.5.1] - Farm Polish
+
+### Added
+
+#### World
+- Flower grass variation
+- Fence collision
+
+### Improved
+- Decoration variety
+- Farm interaction
+- Collision consistency
+
+### Fixed
+- Fence collision detection
+- Fence collision architecture

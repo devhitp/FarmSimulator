@@ -77,7 +77,7 @@
 - [x] Fence Opening System
 - [x] Field Builder
 - [x] Starter Crop Field
-- [ ] Fence Collision
+- [x] Fence Collision
 - [ ] Dirt Path
 - [ ] Decorative Rocks
 - [ ] Flowers

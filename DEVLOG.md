@@ -216,18 +216,53 @@
 
 # 🚀 Next Sprint
 
-## Sprint 5 – Starter Farm Polish
+## Sprint 5 – Farm Polish & Soil System
 
 ### Planned Goals
 
-- 🚧 Fence collision
-- 🛤 Dirt path from house to farm
-- 🌼 Decorative flowers
-- 🪨 Decorative rocks
-- 🌱 Weeds
-- 🌳 Farm border decoration
-- 🌾 Starter crop generation
-- 🌱 Crop layout builder
-- 🎨 Farm layout polish
+- 🌱 Connected Soil Rendering System
+- 💧 Watered Soil Rendering
+- 🛤 Dirt Path Generation
+- 🌼 Decorative Flowers
+- 🪨 Decorative Rocks
+- 🌿 Decorative Grass
+- 🌳 Farm Border Decoration
+- 🎨 Farm Layout Polish
 
-**Goal:** Transform the starter farm into a believable, polished environment while continuing to expand Harvest Engine's reusable builder architecture.
+**Goal:** Improve the visual quality of the starter farm while expanding Harvest Engine with reusable terrain rendering systems.
+
+---
+
+# 🚀 v0.5.1 - Environment Improvements
+
+### ✅ Completed
+
+#### 🌿 World
+- Added flower grass variation.
+- Improved world decoration variety.
+
+#### 🪵 Fences
+- Added fence collision.
+- Integrated fences into the world collision system.
+
+#### 🏗 Engine
+- Improved collision architecture consistency.
+- Refined starter farm generation.
+- Planned the connected Soil Rendering System.
+
+---
+
+### 🛠 Problems Solved
+
+- Fixed fence collision lookup.
+- Fixed fence collision integration.
+- Simplified fence collision by using placed fence instance data.
+
+---
+
+### 📚 Lessons Learned
+
+- Placed world objects should own their gameplay properties.
+- Small environmental details significantly improve world quality.
+- Consistent collision systems reduce complexity across engine components.
+- Planning rendering systems before implementation leads to cleaner engine architecture.
