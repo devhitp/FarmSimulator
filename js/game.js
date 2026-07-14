@@ -153,6 +153,11 @@ const Game = {
             "assets/decorations/grass.png"
         );
 
+        Assets.loadImage(
+            "grassDecorationFlower",
+            "assets/decorations/grass1.png"
+        );
+
         // =====================================
         // Tree Assets
         // =====================================

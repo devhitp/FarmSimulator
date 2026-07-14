@@ -22,6 +22,36 @@ const FieldBuilder = {
 
     ) {
 
+        this.buildHorizontalRows(
+
+            tiles,
+
+            startRow,
+            startCol,
+
+            width,
+            height
+
+        );
+
+    },
+
+    // ===================================================
+    // BUILD HORIZONTAL ROWS
+    // ===================================================
+
+    buildHorizontalRows(
+
+        tiles,
+
+        startRow,
+        startCol,
+
+        width,
+        height
+
+    ) {
+
         for (
 
             let row = startRow;
@@ -31,6 +61,11 @@ const FieldBuilder = {
             row++
 
         ) {
+
+            // Grass path
+            if ((row - startRow) % 2 !== 0) {
+                continue;
+            }
 
             for (
 
@@ -54,6 +89,6 @@ const FieldBuilder = {
 
         }
 
-    }
+    },
 
 };

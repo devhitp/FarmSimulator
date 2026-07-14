@@ -174,6 +174,38 @@ const World = {
     },
 
     // ===================================================
+    // FENCE COLLISION
+    // ===================================================
+
+    isCollidingWithFences(rect) {
+
+        for (const fence of this.fences) {
+
+            if (!fence.collision) {
+                continue;
+            }
+
+            const box = {
+
+                x: fence.x,
+                y: fence.y,
+
+                width: TILE_SIZE,
+                height: TILE_SIZE
+
+            };
+
+            if (this.rectanglesOverlap(rect, box)) {
+                return true;
+            }
+
+        }
+
+        return false;
+
+    },
+
+    // ===================================================
     // WORLD UPDATE
     // ===================================================
 

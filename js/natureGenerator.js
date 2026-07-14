@@ -44,7 +44,10 @@ const NatureGenerator = {
                 row,
                 col,
                 2,
-                "grass"
+
+                Math.random() < 0.8
+                    ? "grass"
+                    : "grassFlower"
 
             );
 

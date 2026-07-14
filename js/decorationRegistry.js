@@ -102,5 +102,15 @@ const DecorationRegistry = {
         solid: false
 
     },
+    grassFlower: {
+
+        id: "grassFlower",
+
+        image: "grassDecorationFlower",
+
+        offsetX: 0,
+        offsetY: 0,
+
+    },
 
 };

@@ -96,7 +96,8 @@ const Player = {
         canMoveX =
             canMoveX &&
             !World.isCollidingWithBuildings(playerBoxX) &&
-            !World.isCollidingWithFarmObjects(playerBoxX);
+            !World.isCollidingWithFarmObjects(playerBoxX) &&
+            !World.isCollidingWithFences(playerBoxX);
 
         if (canMoveX) {
             this.x = newX;
@@ -132,7 +133,8 @@ const Player = {
         canMoveY =
             canMoveY &&
             !World.isCollidingWithBuildings(playerBoxY) &&
-            !World.isCollidingWithFarmObjects(playerBoxY);
+            !World.isCollidingWithFarmObjects(playerBoxY) &&
+            !World.isCollidingWithFences(playerBoxY);
 
         if (canMoveY) {
             this.y = newY;
