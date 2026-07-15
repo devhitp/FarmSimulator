@@ -82,19 +82,31 @@ const SoilRenderer = {
 
 
         const left =
-            this.isSoil(row, col - 1);
+            this.isSoil(
+                row,
+                col - 1
+            );
 
 
         const right =
-            this.isSoil(row, col + 1);
+            this.isSoil(
+                row,
+                col + 1
+            );
 
 
         const up =
-            this.isSoil(row - 1, col);
+            this.isSoil(
+                row - 1,
+                col
+            );
 
 
         const down =
-            this.isSoil(row + 1, col);
+            this.isSoil(
+                row + 1,
+                col
+            );
 
 
 
@@ -143,7 +155,6 @@ const SoilRenderer = {
 
     isSoil(row, col) {
 
-
         if (
             row < 0 ||
             row >= WORLD_ROWS ||
@@ -182,14 +193,31 @@ const SoilRenderer = {
 
     getWateredImage(position) {
 
+        switch (position) {
 
-        if (position === "single") {
-            return "dirt";
+            case "horizontal_start":
+                return "dirt_watered_horizontal_start";
+
+            case "horizontal_middle":
+                return "dirt_watered_horizontal_middle";
+
+            case "horizontal_end":
+                return "dirt_watered_horizontal_end";
+
+            case "vertical_start":
+                return "dirt_watered_vertical_start";
+
+            case "vertical_middle":
+                return "dirt_watered_vertical_middle";
+
+            case "vertical_end":
+                return "dirt_watered_vertical_end";
+
+            default:
+                return "dirt";
+
         }
 
-
-        return "dirt_watered_" + position;
-
-    }
+    },
 
 };

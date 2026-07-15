@@ -88,7 +88,7 @@
 - [x] Soil Renderer
 - [x] Connected Soil Rendering
 - [x] Dry Soil Rendering
-- [ ] Watered Soil Rendering
+- [x] Watered Soil Rendering
 - [ ] Dirt Path
 - [ ] Decorative Rocks
 - [ ] Flowers
