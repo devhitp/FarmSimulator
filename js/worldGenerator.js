@@ -25,6 +25,10 @@ const WorldGenerator = {
 
                 tiles[row][col] = {
 
+                    row: row,
+
+                    col: col,
+
                     type: "grass",
 
                     watered: false,

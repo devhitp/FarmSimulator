@@ -214,55 +214,73 @@
 
 ---
 
-# 🚀 Next Sprint
-
-## Sprint 5 – Farm Polish & Soil System
-
-### Planned Goals
-
-- 🌱 Connected Soil Rendering System
-- 💧 Watered Soil Rendering
-- 🛤 Dirt Path Generation
-- 🌼 Decorative Flowers
-- 🪨 Decorative Rocks
-- 🌿 Decorative Grass
-- 🌳 Farm Border Decoration
-- 🎨 Farm Layout Polish
-
-**Goal:** Improve the visual quality of the starter farm while expanding Harvest Engine with reusable terrain rendering systems.
-
----
-
 # 🚀 v0.5.1 - Environment Improvements
 
 ### ✅ Completed
 
 #### 🌿 World
 - Added flower grass variation.
-- Improved world decoration variety.
+- Improved world decoration diversity.
+- Enhanced starter farm environment.
 
-#### 🪵 Fences
+#### 🪵 Fence System
 - Added fence collision.
 - Integrated fences into the world collision system.
+- Improved fence interaction consistency.
 
-#### 🏗 Engine
-- Improved collision architecture consistency.
-- Refined starter farm generation.
-- Planned the connected Soil Rendering System.
+#### 🌱 Soil Rendering System
+- Created dedicated Soil Renderer.
+- Separated soil rendering from Terrain Renderer.
+- Added connected soil rendering architecture.
+- Added soil tile coordinate support.
+- Integrated dirt asset pipeline.
+- Added support for:
+  - Dry soil rendering
+  - Horizontal soil connections
+  - Vertical soil connections
+  - Future watered soil variations
+
+#### 🏗 Engine Architecture
+- Improved rendering responsibility separation.
+- Expanded specialized renderer architecture.
+- Improved terrain rendering pipeline.
 
 ---
 
 ### 🛠 Problems Solved
 
-- Fixed fence collision lookup.
+- Fixed fence collision lookup issues.
 - Fixed fence collision integration.
-- Simplified fence collision by using placed fence instance data.
+- Removed soil rendering responsibility from Terrain Renderer.
+- Fixed missing tile position data required for connected rendering.
+- Improved renderer modularity.
+- Improved asset-based terrain rendering workflow.
 
 ---
 
 ### 📚 Lessons Learned
 
-- Placed world objects should own their gameplay properties.
-- Small environmental details significantly improve world quality.
-- Consistent collision systems reduce complexity across engine components.
-- Planning rendering systems before implementation leads to cleaner engine architecture.
+- Specialized renderers make complex systems easier to expand.
+- Terrain systems should be separated into independent rendering modules.
+- World objects should contain their own gameplay properties.
+- Asset pipelines should be designed around future expansion.
+- Clean architecture prevents visual systems from becoming tightly coupled.
+
+---
+
+# 🚀 Next Sprint
+
+## Sprint 5 – Farm Polish & World Interaction
+
+### Planned Goals
+
+- 💧 Complete watered soil rendering
+- 🛤 Dirt path generation
+- 🌼 Decorative flowers around farm
+- 🪨 Decorative rocks
+- 🌿 Farm weeds
+- 🌳 Farm border decoration
+- 🌾 Improve field generation layouts
+- 🎨 Starter farm visual polish
+
+**Goal:** Transform the starter farm into a more believable environment while continuing to expand Harvest Engine's reusable rendering and builder systems.

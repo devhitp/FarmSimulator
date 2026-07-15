@@ -27,6 +27,23 @@ const TerrainRenderer = {
                 const y = row * TILE_SIZE;
 
                 // ========================================
+                // Soil Rendering
+                // ========================================
+
+                if (tile.type === "soil") {
+
+                    SoilRenderer.draw(
+                        ctx,
+                        tile,
+                        x,
+                        y
+                    );
+
+                    continue;
+
+                }
+
+                // ========================================
                 // Terrain Sprite
                 // ========================================
 
@@ -57,48 +74,7 @@ const TerrainRenderer = {
 
                 }
 
-                // ========================================
-                // Watered Soil Overlay
-                // ========================================
-
-                if (tile.type === "soil" && tile.watered) {
-
-                    ctx.fillStyle = "rgba(40,30,20,0.35)";
-
-                    ctx.fillRect(
-                        x,
-                        y,
-                        TILE_SIZE,
-                        TILE_SIZE
-                    );
-
-                }
-
-                // ========================================
-                // Soil Texture
-                // ========================================
-
-                if (tile.type === "soil") {
-
-                    ctx.fillStyle = tile.watered
-                        ? "#5A361C"
-                        : "#70431F";
-
-                    for (let i = 0; i < 6; i++) {
-
-                        const px = x + 4 + (i * 4) % 24;
-                        const py = y + 5 + ((i * 7) % 20);
-
-                        ctx.fillRect(
-                            px,
-                            py,
-                            2,
-                            2
-                        );
-
-                    }
-
-                }
+                
 
                 // // ========================================
                 // // Grid

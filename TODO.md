@@ -66,7 +66,7 @@
 
 ---
 
-# 🚧 Sprint 5 — Starter Farm
+# 🚧 Sprint 5 — Starter Farm Polish
 
 ## Farm Layout
 
@@ -76,17 +76,34 @@
 - [x] Procedural Rectangle Fence
 - [x] Fence Opening System
 - [x] Field Builder
-- [x] Starter Crop Field
+- [x] Starter Farming Area
 - [x] Fence Collision
+
+---
+
+## Terrain & Environment
+
+- [x] Grass Variation
+- [x] Flower Grass Variation
+- [x] Soil Renderer
+- [x] Connected Soil Rendering
+- [x] Dry Soil Rendering
+- [ ] Watered Soil Rendering
 - [ ] Dirt Path
 - [ ] Decorative Rocks
 - [ ] Flowers
 - [ ] Weeds
 - [ ] Farm Borders
-- [ ] Starter Crops
 - [ ] Farm Layout Polish
 
 ---
+
+## Player Farm Experience
+
+- [x] Empty Starter Field Generation
+- [ ] Player Crop Placement
+- [ ] Crop Layout System
+- [ ] Farm Expansion Preparation
 
 # ⏳ Sprint 6 — Gameplay Expansion
 

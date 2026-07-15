@@ -159,6 +159,87 @@ const Game = {
         );
 
         // =====================================
+        // Soil Assets
+        // =====================================
+
+        Assets.loadImage(
+            "dirt",
+            "assets/tiles/dirt.png"
+        );
+
+
+        // Horizontal Dry Soil
+
+        Assets.loadImage(
+            "dirt_horizontal_start",
+            "assets/tiles/dirt_horizontal_start.png"
+        );
+
+        Assets.loadImage(
+            "dirt_horizontal_middle",
+            "assets/tiles/dirt_horizontal_middle.png"
+        );
+
+        Assets.loadImage(
+            "dirt_horizontal_end",
+            "assets/tiles/dirt_horizontal_end.png"
+        );
+
+
+        // Vertical Dry Soil
+
+        Assets.loadImage(
+            "dirt_vertical_start",
+            "assets/tiles/dirt_vertical_start.png"
+        );
+
+        Assets.loadImage(
+            "dirt_vertical_middle",
+            "assets/tiles/dirt_vertical_middle.png"
+        );
+
+        Assets.loadImage(
+            "dirt_vertical_end",
+            "assets/tiles/dirt_vertical_end.png"
+        );
+
+
+        // Horizontal Watered Soil
+
+        Assets.loadImage(
+            "dirt_watered_horizontal_start",
+            "assets/tiles/dirt_watered_horizontal_start.png"
+        );
+
+        Assets.loadImage(
+            "dirt_watered_horizontal_middle",
+            "assets/tiles/dirt_watered_horizontal_middle.png"
+        );
+
+        Assets.loadImage(
+            "dirt_watered_horizontal_end",
+            "assets/tiles/dirt_watered_horizontal_end.png"
+        );
+
+
+        // Vertical Watered Soil
+
+        Assets.loadImage(
+            "dirt_watered_vertical_start",
+            "assets/tiles/dirt_watered_vertical_start.png"
+        );
+
+        Assets.loadImage(
+            "dirt_watered_vertical_middle",
+            "assets/tiles/dirt_watered_vertical_middle.png"
+        );
+
+        Assets.loadImage(
+            "dirt_watered_vertical_end",
+            "assets/tiles/dirt_watered_vertical_end.png"
+        );
+
+        // =====================================
         // Tree Assets
         // =====================================
 

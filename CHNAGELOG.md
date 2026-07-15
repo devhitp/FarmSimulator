@@ -191,19 +191,57 @@ All notable changes to this project will be documented here.
 - Farm generation workflow
 - Replaced gate-based entrance with a cleaner opening system
 
-## [v0.5.1] - Farm Polish
+## [v0.5.1] - Environment Improvements
 
 ### Added
 
 #### World
-- Flower grass variation
-- Fence collision
+- Flower grass variation.
+- Improved world decoration variety.
+
+#### Collision
+- Fence collision system.
+- Integrated fence collision into world collision queries.
+
+#### Rendering
+- Created dedicated Soil Renderer.
+- Added connected soil rendering system.
+- Added soil asset pipeline.
+- Added support for:
+  - Dry soil rendering.
+  - Horizontal soil connections.
+  - Vertical soil connections.
+  - Future watered soil variations.
+
+#### Engine
+- Added tile coordinate tracking for rendering systems.
+- Improved terrain rendering architecture.
+
+---
 
 ### Improved
-- Decoration variety
-- Farm interaction
-- Collision consistency
+
+- Decoration variety.
+- Farm interaction.
+- Collision consistency.
+- Renderer responsibility separation.
+- Terrain rendering pipeline.
+- Asset-based rendering workflow.
+
+---
 
 ### Fixed
-- Fence collision detection
-- Fence collision architecture
+
+- Fence collision detection.
+- Fence collision architecture.
+- Soil rendering dependency on Terrain Renderer.
+- Missing tile position data for connected terrain rendering.
+- Hardcoded soil texture rendering.
+
+---
+
+### Changed
+
+- Moved soil rendering logic from Terrain Renderer to Soil Renderer.
+- Replaced placeholder soil rendering with asset-based rendering.
+- Improved renderer modularity for future terrain systems.
