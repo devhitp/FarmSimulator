@@ -9,21 +9,100 @@ const CropRegistry = {
     // CROPS
     // ===================================================
 
-    turnip: {
 
-        id: "turnip",
-        name: "Turnip",
 
-        // Growth
-        growthStages: 4,
+    cabbage: {
+
+        id: "cabbage",
+        name: "Cabbage",
+
+        growthStages: 3,
         growthTime: 30,
 
-        // Economy
-        sellPrice: 15,
+        sellPrice: 20,
 
-        // Harvest
-        harvestItem: "turnip"
+        harvestItem: "cabbage",
 
-    }
+        stages: [
+
+            "cabbage_stage1",
+            "cabbage_stage2",
+            "cabbage_stage3"
+
+        ]
+
+    },
+
+    carrot: {
+
+        id:"carrot",
+        name:"Carrot",
+
+        growthStages:3,
+        growthTime: 25,
+
+        sellPrice:20,
+
+        harvestItem:"carrot",
+
+        stages: [
+
+            "carrot_stage1",
+
+            "carrot_stage2",
+
+            "carrot_stage3"
+
+        ]
+
+    },
+
+    corn: {
+
+        id:"corn",
+        name:"Corn",
+
+        growthStages:3,
+        growthTime: 25,
+
+        sellPrice:20,
+
+        harvestItem:"corn",
+
+        stages: [
+
+            "corn_stage1",
+
+            "corn_stage2",
+
+            "corn_stage3"
+
+        ]
+
+    },
+
+    tomato: {
+
+        id:"tomato",
+        name:"Tomato",
+
+        growthStages:3,
+        growthTime: 25,
+
+        sellPrice:20,
+
+        harvestItem:"tomato",
+
+        stages: [
+
+            "tomato_stage1",
+
+            "tomato_stage2",
+
+            "tomato_stage3"
+
+        ]
+
+    },
 
 };

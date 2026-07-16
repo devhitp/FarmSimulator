@@ -37,15 +37,51 @@ const ItemRegistry = {
     // SEEDS
     // ===================================================
 
-    turnipSeed: {
+    cabbageSeed: {
 
-        id: "turnipSeed",
-        name: "Turnip Seed",
+        id: "cabbageSeed",
+        name: "Cabbage Seed",
 
         type: "seed",
-        cropId: "turnip",
+        cropId: "cabbage",
 
-        icon: "🌱"
+        icon: "🥬"
+
+    },
+
+    carrotSeed: {
+
+        id: "carrotSeed",
+        name: "Carrot Seed",
+
+        type: "seed",
+        cropId: "carrot",
+
+        icon: "🥕"
+
+    },
+
+    cornSeed: {
+
+        id: "cornSeed",
+        name: "Corn Seed",
+
+        type: "seed",
+        cropId: "corn",
+
+        icon: "🌽"
+
+    },
+
+    tomatoSeed: {
+
+        id: "tomatoSeed",
+        name: "Tomato Seed",
+
+        type: "seed",
+        cropId: "tomato",
+
+        icon: "🍅"
 
     },
 
@@ -53,15 +89,48 @@ const ItemRegistry = {
     // CROPS
     // ===================================================
 
-    turnip: {
+    cabbage: {
 
-        id: "turnip",
-        name: "Turnip",
+        id: "cabbage",
+        name: "Cabbage",
+
+        type: "crop",
+
+        icon: "🥬"
+
+    },
+
+    carrot: {
+
+        id: "carrot",
+        name: "Carrot",
 
         type: "crop",
 
         icon: "🥕"
 
-    }
+    },
+
+    corn: {
+
+        id: "corn",
+        name: "Corn",
+
+        type: "crop",
+
+        icon: "🌽"
+
+    },
+
+    tomato: {
+
+        id: "tomato",
+        name: "Tomato",
+
+        type: "crop",
+
+        icon: "🍅"
+
+    },
 
 };

@@ -34,6 +34,18 @@ const Game = {
         Player.x = World.spawn.x;
         Player.y = World.spawn.y;
 
+        Assets.loadImage("cabbage_stage1", "assets/crops/cabbage_stage1.png");
+        Assets.loadImage("cabbage_stage2", "assets/crops/cabbage_stage2.png");
+        Assets.loadImage("cabbage_stage3", "assets/crops/cabbage_stage3.png");
+
+        Assets.loadImage("carrot_stage1", "assets/crops/carrot_stage1.png");
+        Assets.loadImage("carrot_stage2", "assets/crops/carrot_stage2.png");
+        Assets.loadImage("carrot_stage3", "assets/crops/carrot_stage3.png");
+
+        Assets.loadImage("tomato_stage1", "assets/crops/tomato_stage1.png");
+        Assets.loadImage("tomato_stage2", "assets/crops/tomato_stage2.png");
+        Assets.loadImage("tomato_stage3", "assets/crops/tomato_stage3.png");
+
         Assets.loadImage("roof_peak", "assets/buildings/roof_peak.png");
 
         Assets.loadImage("roof_top_left", "assets/buildings/roof_top_left.png");
@@ -276,7 +288,7 @@ const Game = {
         // Starting Inventory
         Inventory.add("hoe", 1);
         Inventory.add("wateringCan", 1);
-        Inventory.add("turnipSeed", 10);
+        Inventory.add("cabbageSeed", 10);
 
         // Start Game Loop
         requestAnimationFrame(this.loop.bind(this));

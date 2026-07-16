@@ -268,6 +268,16 @@
 
 ---
 
+## 🌱 Crop Rendering
+
+- Replaced placeholder crop rendering with sprite-based rendering.
+- Added cabbage, carrot, corn, and tomato assets.
+- Refactored Crop Renderer to use Crop Registry.
+- Made crop rendering fully data-driven.
+- Simplified adding new crops through the registry.
+
+---
+
 # 🚀 Next Sprint
 
 ## Sprint 5 – Farm Polish & World Interaction

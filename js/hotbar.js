@@ -11,7 +11,7 @@ const Hotbar = {
 
     slots: [
         "hoe",
-        "turnipSeed",
+        "cabbageSeed",
         "wateringCan"
     ],
 
