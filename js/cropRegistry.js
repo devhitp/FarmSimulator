@@ -4,105 +4,91 @@
 // ===================================================
 
 const CropRegistry = {
+  // ===================================================
+  // CROPS
+  // ===================================================
 
-    // ===================================================
-    // CROPS
-    // ===================================================
+  cabbage: {
+    id: "cabbage",
+    name: "Cabbage",
 
+    growthStages: 3,
+    growthTime: 30,
 
+    sellPrice: 20,
 
-    cabbage: {
+    harvestItem: "cabbage",
 
-        id: "cabbage",
-        name: "Cabbage",
+    stages: ["cabbage_stage1", "cabbage_stage2", "cabbage_stage3"],
+    render: {
+      width: TILE_SIZE,
+      height: TILE_SIZE,
 
-        growthStages: 3,
-        growthTime: 30,
-
-        sellPrice: 20,
-
-        harvestItem: "cabbage",
-
-        stages: [
-
-            "cabbage_stage1",
-            "cabbage_stage2",
-            "cabbage_stage3"
-
-        ]
-
+      offsetX: 0,
+      offsetY: 0,
     },
+  },
 
-    carrot: {
+  carrot: {
+    id: "carrot",
+    name: "Carrot",
 
-        id:"carrot",
-        name:"Carrot",
+    growthStages: 3,
+    growthTime: 25,
 
-        growthStages:3,
-        growthTime: 25,
+    sellPrice: 20,
 
-        sellPrice:20,
+    harvestItem: "carrot",
 
-        harvestItem:"carrot",
+    stages: ["carrot_stage1", "carrot_stage2", "carrot_stage3"],
+    render: {
+      width: TILE_SIZE,
+      height: TILE_SIZE,
 
-        stages: [
-
-            "carrot_stage1",
-
-            "carrot_stage2",
-
-            "carrot_stage3"
-
-        ]
-
+      offsetX: 0,
+      offsetY: 0,
     },
+  },
 
-    corn: {
+  corn: {
+    id: "corn",
+    name: "Corn",
 
-        id:"corn",
-        name:"Corn",
+    growthStages: 3,
+    growthTime: 25,
 
-        growthStages:3,
-        growthTime: 25,
+    sellPrice: 20,
 
-        sellPrice:20,
+    harvestItem: "corn",
 
-        harvestItem:"corn",
+    stages: ["corn_stage1", "corn_stage2", "corn_stage3"],
+    render: {
+      width: TILE_SIZE,
+      height: TILE_SIZE,
 
-        stages: [
-
-            "corn_stage1",
-
-            "corn_stage2",
-
-            "corn_stage3"
-
-        ]
-
+      offsetX: 0,
+      offsetY: 0,
     },
+  },
 
-    tomato: {
+  tomato: {
+    id: "tomato",
+    name: "Tomato",
 
-        id:"tomato",
-        name:"Tomato",
+    growthStages: 3,
+    growthTime: 25,
 
-        growthStages:3,
-        growthTime: 25,
+    sellPrice: 20,
 
-        sellPrice:20,
+    harvestItem: "tomato",
 
-        harvestItem:"tomato",
+    stages: ["tomato_stage1", "tomato_stage2", "tomato_stage3"],
+    render: {
+      width: TILE_SIZE,
+      height: TILE_SIZE,
 
-        stages: [
-
-            "tomato_stage1",
-
-            "tomato_stage2",
-
-            "tomato_stage3"
-
-        ]
-
+      offsetX: 0,
+      offsetY: 0,
     },
-
+  },
 };
