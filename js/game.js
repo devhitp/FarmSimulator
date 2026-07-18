@@ -330,7 +330,7 @@ const Game = {
         }
 
         if (Input.wasKeyPressed("e")) {
-            Player.useSelectedItem();
+            InteractionManager.interact();
         }
 
         if (Input.wasKeyPressed("i")) {

@@ -96,7 +96,9 @@ const ItemRegistry = {
 
         type: "crop",
 
-        icon: "🥬"
+        icon: "🥬",
+
+        sellPrice: 20
 
     },
 
@@ -107,7 +109,9 @@ const ItemRegistry = {
 
         type: "crop",
 
-        icon: "🥕"
+        icon: "🥕",
+
+        sellPrice: 20
 
     },
 
@@ -118,7 +122,9 @@ const ItemRegistry = {
 
         type: "crop",
 
-        icon: "🌽"
+        icon: "🌽",
+
+        sellPrice: 20
 
     },
 
@@ -129,7 +135,9 @@ const ItemRegistry = {
 
         type: "crop",
 
-        icon: "🍅"
+        icon: "🍅",
+
+        sellPrice: 20
 
     },
 

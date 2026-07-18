@@ -17,6 +17,8 @@ const Player = {
     speed: 200, // pixels per second
     facing: "down",
 
+    coins: 0,
+
     toolCooldown: 0,
     toolDelay: 200,
 
@@ -345,5 +347,30 @@ const Player = {
         tile.type = "soil";
 
         // console.log("Harvest tile:", this.getFacingTile());
+    },
+
+    // ===================================================
+    // MONEY SYSTEM
+    // ===================================================
+
+    addCoins(amount) {
+
+        this.coins += amount;
+
+    },
+
+    removeCoins(amount) {
+
+        if (this.coins < amount) {
+
+            return false;
+
+        }
+
+        this.coins -= amount;
+
+        return true;
+
     }
+
 };

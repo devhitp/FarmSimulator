@@ -15,7 +15,6 @@ const CropRegistry = {
     growthStages: 3,
     growthTime: 30,
 
-    sellPrice: 20,
 
     harvestItem: "cabbage",
 
@@ -36,7 +35,7 @@ const CropRegistry = {
     growthStages: 3,
     growthTime: 25,
 
-    sellPrice: 20,
+   
 
     harvestItem: "carrot",
 
@@ -57,7 +56,7 @@ const CropRegistry = {
     growthStages: 3,
     growthTime: 25,
 
-    sellPrice: 20,
+
 
     harvestItem: "corn",
 
@@ -78,7 +77,7 @@ const CropRegistry = {
     growthStages: 3,
     growthTime: 25,
 
-    sellPrice: 20,
+    
 
     harvestItem: "tomato",
 

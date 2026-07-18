@@ -49,6 +49,38 @@ const Inventory = {
     },
 
     // ===================================================
+    // REMOVE ITEM
+    // ===================================================
+
+    remove(itemId, amount = 1) {
+
+        const existing = this.items.find(
+            item => item.id === itemId
+        );
+
+        if (!existing) {
+            return false;
+        }
+
+        if (existing.amount < amount) {
+            return false;
+        }
+
+        existing.amount -= amount;
+
+        if (existing.amount === 0) {
+
+            this.items = this.items.filter(
+                item => item.id !== itemId
+            );
+
+        }
+
+        return true;
+
+    },
+
+    // ===================================================
     // ITEM SELECTION
     // ===================================================
 

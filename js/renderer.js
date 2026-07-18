@@ -81,6 +81,7 @@ const Renderer = {
         ctx.restore();
 
         // Draw UI
+        this.drawCoins(ctx);
         this.drawHotbar(ctx);
         InventoryUI.draw(ctx);
 
@@ -170,6 +171,29 @@ const Renderer = {
     drawPlayer(ctx) {
 
         PlayerRenderer.draw(ctx);
+
+    },
+
+    // ===================================================
+    // COIN UI
+    // ===================================================
+
+    drawCoins(ctx) {
+
+        ctx.save();
+
+        ctx.fillStyle = "#E3B341";
+        ctx.font = "bold 28px Arial";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "top";
+
+        ctx.fillText(
+            "🪙 " + Player.coins,
+            20,
+            20
+        );
+
+        ctx.restore();
 
     },
 
