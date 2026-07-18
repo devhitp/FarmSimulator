@@ -36,8 +36,10 @@ function getTileAt(x, y) {
 function getPlayerTile() {
 
     return World.worldToTile(
-        Player.x,
-        Player.y
+
+        Player.x + Player.width / 2,
+        Player.y + Player.height / 2
+
     );
 
 }

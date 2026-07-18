@@ -184,6 +184,43 @@ const Player = {
         }
     },
 
+    getTargetPoint() {
+
+        const centerX = this.x + this.width / 2;
+        const centerY = this.y + this.height / 2;
+
+        const reach = TILE_SIZE * 0.75;
+
+        let targetX = centerX;
+        let targetY = centerY;
+
+        switch (this.facing) {
+
+            case "up":
+                targetY -= reach;
+                break;
+
+            case "down":
+                targetY += reach;
+                break;
+
+            case "left":
+                targetX -= reach;
+                break;
+
+            case "right":
+                targetX += reach;
+                break;
+
+        }
+
+        return {
+            x: targetX,
+            y: targetY
+        };
+
+    },
+
     // ===================================================
     // TILE DETECTION
     // ===================================================
@@ -197,10 +234,22 @@ const Player = {
 
         switch (this.facing) {
 
-            case "up": row--; break;
-            case "down": row++; break;
-            case "left": col--; break;
-            case "right": col++; break;
+            case "up":
+                row--;
+                break;
+
+            case "down":
+                row++;
+                break;
+
+            case "left":
+                col--;
+                break;
+
+            case "right":
+                col++;
+                break;
+
         }
 
         if (
@@ -213,6 +262,7 @@ const Player = {
         }
 
         return World.tiles[row][col];
+
     },
 
     // ===================================================
