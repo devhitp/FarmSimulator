@@ -1,56 +1,67 @@
-# 🌾 Farm Simulator
+# 🌾 Harvest Engine
 
-> Powered by **Harvest Engine** — a custom 2D game engine built entirely from scratch using Vanilla JavaScript.
+> **A modular, data-driven 2D game engine built entirely from scratch using HTML5 Canvas and Vanilla JavaScript.**
 
-> A browser-based farming simulation game inspired by **Stardew Valley** and **Harvest Moon**, focused on building every gameplay and engine system without external game engines or frameworks.
+> **Farm Simulator** is the first game powered by Harvest Engine, demonstrating modern game engine architecture without relying on external engines or frameworks.
 
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
-![Version](https://img.shields.io/badge/Version-v0.4.0-blue)
+![Version](https://img.shields.io/badge/Version-v0.6.0-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
 # 📖 About
 
-Farm Simulator is a long-term game development project built completely from scratch using **HTML5 Canvas**, **CSS**, and **Vanilla JavaScript**.
+Harvest Engine is a custom JavaScript game engine focused on creating scalable 2D simulation games.
 
-Instead of relying on existing game engines, every major system is developed manually, including:
+Every core system is designed from scratch, including rendering, world generation, interactions, gameplay, UI, and asset management.
 
-- Game Loop
-- Rendering Pipeline
-- Camera System
-- World Generation
-- Player Controller
-- Collision System
-- Farming Mechanics
-- Inventory
-- Building System
-- Particle Effects
-- Asset Pipeline
+The engine emphasizes:
 
-The project emphasizes clean software architecture, modular engine design, and reusable systems.
+- Modular Architecture
+- Separation of Responsibilities
+- Data-Driven Design
+- Reusable Systems
+- Clean Project Structure
+- Engine-first Development
+
+**Farm Simulator** is the first game built using Harvest Engine and serves as both a farming simulation and a showcase of the engine's capabilities.
 
 ---
 
 # 🚀 Current Version
 
-## Harvest Engine v0.4.0
+## Harvest Engine v0.6.0
 
-### ✅ Engine
+---
+
+# ✅ Engine Core
 
 - Game Loop
 - Input Manager
 - Camera System
-- World Generation
-- Farm Generator
-- Collision System
+- Renderer
 - Asset Manager
-- Particle System
+- Collision System
+- Particle Manager
 - Effects System
 
 ---
 
-### 🌾 Farming
+# 🌍 World
+
+- Procedural World Generation
+- Farm Generator
+- Brush System
+- Tree Generation
+- Terrain Generation
+- Grass Variation
+- Soil Rendering
+- Starter Farm Generation
+
+---
+
+# 🌾 Farming
 
 - Hoe Tool
 - Seed Planting
@@ -60,53 +71,75 @@ The project emphasizes clean software architecture, modular engine design, and r
 
 ---
 
-### 🏡 Buildings
+# 💰 Economy
 
-- Modular House Builder
-- Building Renderer
-- Layered Roof Rendering
-- House Collision
-- Door & Window Rendering
+- Coin System
+- Shop Manager
+- Sell Manager
+- Shop Registry
+- Buying System
+- Selling System
 
 ---
 
-### 📦 Farm Objects
+# 🏡 Buildings
+
+- Building Registry
+- House Builder
+- Building Renderer
+- Layered Roof Rendering
+- Building Collision
+
+---
+
+# 📦 Farm Objects
 
 - Shipping Bin
 - Mailbox
-- Farm Object Renderer
 - Farm Object Registry
+- Farm Object Renderer
+- Data-Driven Interactions
 
 ---
 
-### 🎒 Inventory
+# 🎒 Inventory
 
 - Inventory
 - Inventory UI
 - Hotbar
 - Item Registry
+- Item Stacking
+- Item Removal
 
 ---
 
-### 🌍 World
+# 🛒 Shop
 
-- Procedural Terrain
-- Lakes
-- Trees
-- Farm Area Generation
-- Grass Variation
-- Soil Rendering
+- Shop UI
+- Keyboard Navigation
+- Item Purchasing
+- Coin Display
 
 ---
 
-### 🎨 Rendering
+# 🤝 Interaction System
+
+- Generic Interaction Manager
+- Data-Driven Interaction Routing
+- Shipping Bin Interaction
+- Mailbox Interaction
+
+---
+
+# 🎨 Rendering
 
 - Terrain Renderer
+- Soil Renderer
 - Building Renderer
 - Farm Object Renderer
 - Crop Renderer
 - Tree Renderer
-- Layered Rendering
+- Layered Rendering Pipeline
 - Harvest Particles
 
 ---
@@ -126,14 +159,38 @@ The project emphasizes clean software architecture, modular engine design, and r
 
 - Modular Architecture
 - Data-Driven Registries
+- Data-Driven Interactions
 - Builder Pattern
 - Generator Pattern
-- Layered Rendering Pipeline
+- Manager Pattern
+- Layered Rendering
 - Custom Collision System
 - Procedural World Generation
-- Particle Effects
-- Asset Manager
-- Clean Project Structure
+- Reusable Rendering Systems
+- Scalable Engine Design
+
+---
+
+# 🏗 Engine Architecture
+
+```
+Game
+│
+├── Input
+├── Camera
+├── World
+├── Renderer
+├── Player
+├── Inventory
+├── Hotbar
+├── Interaction Manager
+├── Shop Manager
+├── Sell Manager
+├── Asset Manager
+├── Particle Manager
+├── Effects
+└── Registries
+```
 
 ---
 
@@ -150,13 +207,14 @@ FarmSimulator/
 │   ├── rendering/
 │   ├── gameplay/
 │   ├── ui/
+│   ├── registries/
 │   └── utilities/
 │
 ├── README.md
 ├── ARCHITECTURE.md
-├── ENGINE_GUIDELINES.md
-├── DEVLOG.md
 ├── CHANGELOG.md
+├── DEVLOG.md
+├── ROADMAP.md
 ├── LICENSE
 └── index.html
 ```
@@ -181,9 +239,7 @@ FarmSimulator/
 
 - Inventory
 - Hotbar
-- Hoe Tool
-- Seeds
-- Watering
+- Farming
 - Crop Growth
 - Harvesting
 
@@ -192,49 +248,56 @@ FarmSimulator/
 ## ✅ Sprint 3 — Rendering Systems
 
 - Asset Manager
-- Crop Renderer
 - Tree Renderer
-- Particle System
-- Effects
-- Grass Variation
-- Tree Generation
+- Crop Renderer
+- Particle Manager
+- Effects System
 
 ---
 
 ## ✅ Sprint 4 — Farm Foundation
 
-- House Builder
+- Building System
 - Farm Generator
 - Building Renderer
 - Farm Objects
 - Layered Rendering
-- Collision System
-- Shipping Bin
-- Mailbox
 
 ---
 
-## 🚧 Sprint 5 — Starter Farm
+## ✅ Sprint 5 — Starter Farm
 
-- Wooden Fences
-- Fence Gate
-- Dirt Paths
-- Decorative Rocks
-- Flowers
-- Starter Crop Field
+- Fence System
+- Soil Renderer
+- Environment Improvements
+- Starter Farm Generation
 
 ---
 
-## ⏳ Future
+## ✅ Sprint 6 — Economy & Interaction
 
-- NPC Villagers
-- Animals
-- Shops
-- Mining
-- Fishing
-- Crafting
+- Coin System
+- Shop System
+- Shop UI
+- Shop Manager
+- Sell Manager
+- Generic Interaction System
+- Data-Driven Interactions
+
+---
+
+## 🚧 Upcoming
+
+- Building Interaction Framework
+- NPC System
+- Dialogue System
+- Quest System
 - Weather
 - Seasons
+- Animals
+- Fishing
+- Mining
+- Crafting
 - Save / Load
 - Audio
 - Lighting
@@ -243,57 +306,74 @@ FarmSimulator/
 
 # 📚 Documentation
 
-Project documentation is separated into dedicated files.
-
-- 📖 **ARCHITECTURE.md** — Engine architecture
+- 📖 **ARCHITECTURE.md** — Complete engine architecture
 - 📜 **CHANGELOG.md** — Version history
-- 🌱 **DEVLOG.md** — Development progress
-- 📘 **ENGINE_GUIDELINES.md** — Engineering standards
+- 🌱 **DEVLOG.md** — Sprint-by-sprint development
+- 🛣 **ROADMAP.md** — Planned milestones
 
 ---
 
 # 🎯 Learning Goals
 
-This project focuses on improving practical skills in:
+This project focuses on mastering:
 
 - JavaScript
 - HTML5 Canvas
 - Software Architecture
 - Game Engine Development
-- Object-Oriented Programming
+- Data-Oriented Design
+- Rendering Pipelines
+- Procedural Generation
 - Git & GitHub
-- Debugging
 - Performance Optimization
 
 ---
 
 # 🤝 Development Workflow
 
-Every completed milestone follows a structured workflow:
+Every feature follows the same workflow:
 
-- Planning
-- Development
-- Testing
-- Refactoring
-- Documentation
-- Git Commit
-- Git Push
-- Version Update
+1. Planning
+2. Architecture Design
+3. Implementation
+4. Testing
+5. Refactoring
+6. Documentation
+7. Git Commit
+8. Version Release
 
 ---
 
 # 🌟 Vision
 
-The long-term goal is to develop **Harvest Engine** into a reusable JavaScript 2D game engine capable of powering multiple games.
+Harvest Engine is designed to become a reusable JavaScript 2D game engine capable of powering multiple simulation games.
 
-Farm Simulator is the first project built on top of Harvest Engine and serves as both a complete farming simulation and a showcase of modern engine architecture built without external game engines.
+Farm Simulator serves as the flagship project, showcasing how modern engine architecture can be built entirely from scratch without external game engines.
+
+---
+
+# 📈 Current Progress
+
+### Engine
+
+🟩🟩🟩🟩🟩🟩🟩🟩⬜⬜ **80%**
+
+### Gameplay Systems
+
+🟩🟩🟩🟩🟩🟩🟩⬜⬜⬜ **70%**
+
+### Content
+
+🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ **20%**
+
+> The engine foundation is largely complete. The next development phase focuses on expanding the game world with buildings, NPCs, dialogue, weather, and additional gameplay content.
 
 ---
 
 # 📜 License
 
-This project is licensed under the MIT License.
+Licensed under the MIT License.
 
 ---
 
-⭐ If you enjoy this project, consider giving it a star!
+⭐ **If you enjoy the project, consider giving it a star!**

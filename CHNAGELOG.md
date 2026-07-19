@@ -245,3 +245,76 @@ All notable changes to this project will be documented here.
 - Moved soil rendering logic from Terrain Renderer to Soil Renderer.
 - Replaced placeholder soil rendering with asset-based rendering.
 - Improved renderer modularity for future terrain systems.
+
+---
+
+# [v0.6.0] - Economy & Interaction System
+
+### Added
+
+#### Economy
+- Coin system.
+- Shop Registry.
+- Shop Manager.
+- Sell Manager.
+- Item buying system.
+- Inventory selling system.
+- Buy prices for items.
+- Sell prices for items.
+
+#### Shop
+- Shop UI.
+- Keyboard navigation.
+- Shop item selection.
+- Purchase system.
+- Coin display.
+- Shop inventory rendering.
+
+#### Interaction
+- Generic Interaction Manager.
+- Data-driven interaction architecture.
+- Farm object interaction routing.
+- Mailbox interaction support.
+- Shipping Bin interaction support.
+
+#### Inventory
+- Item removal system.
+- Inventory integration with buying and selling.
+
+---
+
+### Improved
+
+- Economy architecture.
+- Inventory architecture.
+- Interaction architecture.
+- Separation of gameplay and UI.
+- Registry-driven gameplay systems.
+- Manager responsibility separation.
+- Input handling for shop navigation.
+- Engine modularity.
+
+---
+
+### Changed
+
+- Refactored Interaction Manager to use data-driven interactions.
+- Farm objects now define interactions through the registry.
+- Selling now routes through Sell Manager.
+- Buying now routes through Shop Manager.
+- Player now stores coin data.
+- Item Registry now stores buy and sell prices.
+
+---
+
+### Fixed
+
+- Inventory synchronization after selling.
+- Coin updates after purchases.
+- Shop navigation edge cases.
+- Interaction code duplication.
+- UI selection consistency.
+- Economy workflow consistency.
+- Registry responsibility separation.
+
+---

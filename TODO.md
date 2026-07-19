@@ -1,6 +1,6 @@
-# 🌾 Farm Simulator Roadmap
+# 🌾 Harvest Engine Roadmap
 
-> Long-term development roadmap for Farm Simulator and Harvest Engine.
+> Long-term development roadmap for **Harvest Engine** and its flagship game, **Farm Simulator**.
 
 ---
 
@@ -9,7 +9,7 @@
 - [x] Project Setup
 - [x] Game Loop
 - [x] Input Manager
-- [x] Camera
+- [x] Camera System
 - [x] Player Movement
 - [x] World Generation
 - [x] Brush System
@@ -23,10 +23,9 @@
 - [x] Crop Registry
 - [x] Inventory System
 - [x] Inventory UI
-- [x] Hotbar System
+- [x] Hotbar
 - [x] Hoe Tool
-- [x] Seed Items
-- [x] Planting System
+- [x] Seed Planting
 - [x] Watering System
 - [x] Crop Growth
 - [x] Harvesting
@@ -43,45 +42,56 @@
 - [x] Tree Registry
 - [x] Tree Generation
 - [x] Grass Variation
-- [x] Soil Texturing
+- [x] Soil Renderer
+- [x] Connected Soil Rendering
 - [x] Harvest Particles
-- [x] Water Feedback
+- [x] Water Feedback Effects
 
 ---
 
 # ✅ Sprint 4 — Farm Foundation
 
+## Buildings
+
+- [x] Building Registry
 - [x] House Builder
 - [x] Building Renderer
-- [x] Building Registry
-- [x] Farm Generator
-- [x] Farm Object Renderer
-- [x] Farm Object Registry
-- [x] Shipping Bin
-- [x] Mailbox
 - [x] Layered Building Rendering
 - [x] Building Collision
-- [x] Farm Object Collision
+
+## Farm Generation
+
+- [x] Farm Generator
+- [x] Starter Farm
+- [x] House Placement
+- [x] Shipping Bin Placement
+- [x] Mailbox Placement
 - [x] Player Spawn Generation
+
+## Farm Objects
+
+- [x] Farm Object Registry
+- [x] Farm Object Renderer
+- [x] Shipping Bin
+- [x] Mailbox
+- [x] Farm Object Collision
 
 ---
 
-# 🚧 Sprint 5 — Starter Farm Polish
+# ✅ Sprint 5 — Starter Farm
 
 ## Farm Layout
 
 - [x] Fence Registry
 - [x] Fence Builder
 - [x] Fence Renderer
+- [x] Fence Collision
 - [x] Procedural Rectangle Fence
 - [x] Fence Opening System
 - [x] Field Builder
 - [x] Starter Farming Area
-- [x] Fence Collision
 
----
-
-## Terrain & Environment
+## Environment
 
 - [x] Grass Variation
 - [x] Flower Grass Variation
@@ -89,103 +99,195 @@
 - [x] Connected Soil Rendering
 - [x] Dry Soil Rendering
 - [x] Watered Soil Rendering
-- [ ] Dirt Path
-- [ ] Decorative Rocks
-- [ ] Flowers
-- [ ] Weeds
-- [ ] Farm Borders
-- [ ] Farm Layout Polish
 
 ---
 
-## Player Farm Experience
+# ✅ Sprint 6 — Economy & Interaction
 
-- [x] Empty Starter Field Generation
-- [ ] Player Crop Placement
-- [ ] Crop Layout System
-- [ ] Farm Expansion Preparation
+## Economy
 
-# ⏳ Sprint 6 — Gameplay Expansion
+- [x] Coin System
+- [x] Shop Registry
+- [x] Shop Manager
+- [x] Sell Manager
+- [x] Buy Prices
+- [x] Sell Prices
+- [x] Item Purchasing
+- [x] Inventory Selling
+
+## Shop
+
+- [x] Shop UI
+- [x] Keyboard Navigation
+- [x] Item Selection
+- [x] Coin Display
+
+## Interaction
+
+- [x] Generic Interaction Manager
+- [x] Data-Driven Interactions
+- [x] Shipping Bin Interaction
+- [x] Mailbox Interaction
+
+---
+
+# 🚧 Sprint 7 — Building Framework
+
+## Buildings
+
+- [ ] Building Interaction System
+- [ ] Building Interaction Registry
+- [ ] Seed Shop Building
+- [ ] Interior Support
+- [ ] Building Placement Pipeline
+
+## Engine
+
+- [ ] Generic Building Interactions
+- [ ] Building Events
+- [ ] Building Animation Support
+
+---
+
+# ⏳ Sprint 8 — NPC Framework
+
+## NPCs
+
+- [ ] NPC Registry
+- [ ] NPC Renderer
+- [ ] NPC Movement
+- [ ] Daily Schedules
+- [ ] Pathfinding
+
+## Dialogue
+
+- [ ] Dialogue System
+- [ ] Dialogue UI
+- [ ] Dialogue Events
+- [ ] Shopkeeper NPC
+
+---
+
+# ⏳ Sprint 9 — Gameplay Expansion
 
 ## Farming
 
 - [ ] More Crops
 - [ ] Crop Seasons
-- [ ] Tool Durability
-- [ ] Tool Upgrades
 - [ ] Fertilizer
-- [ ] Scarecrow
+- [ ] Tool Upgrades
+- [ ] Tool Durability
+- [ ] Sprinklers
+- [ ] Scarecrows
 
-## Economy
+## Crafting
 
-- [ ] Coin System
-- [ ] Selling Crops
-- [ ] Shop
-- [ ] Buy Seeds
+- [ ] Crafting Table
+- [ ] Crafting Recipes
+- [ ] Item Crafting
 
 ---
 
-# ⏳ Sprint 7 — Save System
+# ⏳ Sprint 10 — Living World
+
+## Environment
+
+- [ ] Day & Night Cycle
+- [ ] Dynamic Weather
+- [ ] Seasons
+- [ ] Lighting
+- [ ] Ambient Effects
+
+## World
+
+- [ ] Forest Improvements
+- [ ] Rivers
+- [ ] Dirt Paths
+- [ ] Decorative Rocks
+- [ ] Decorative Flowers
+- [ ] Weeds
+- [ ] Farm Borders
+
+---
+
+# ⏳ Sprint 11 — Exploration
+
+- [ ] Mining Area
+- [ ] Fishing
+- [ ] Bridges
+- [ ] Secret Areas
+- [ ] Cave Generation
+- [ ] Resource Gathering
+
+---
+
+# ⏳ Sprint 12 — Save System
 
 - [ ] Save / Load
 - [ ] Auto Save
-- [ ] World Seed
+- [ ] World Seed Saving
+- [ ] Inventory Save
 - [ ] Player Progress
 - [ ] Settings Save
 
 ---
 
-# ⏳ Sprint 8 — Living World
-
-- [ ] Villagers
-- [ ] NPC Schedules
-- [ ] Dialogue System
-- [ ] Quests
-- [ ] Animals
-- [ ] Animal Products
-
----
-
-# ⏳ Sprint 9 — Environment
-
-- [ ] Day & Night Cycle
-- [ ] Dynamic Weather
-- [ ] Seasons
-- [ ] Lighting System
-- [ ] Ambient Effects
-
----
-
-# ⏳ Sprint 10 — Exploration
-
-- [ ] Forest Expansion
-- [ ] Mining Area
-- [ ] Fishing System
-- [ ] Rivers
-- [ ] Bridges
-- [ ] Secret Areas
-
----
-
-# ⏳ Sprint 11 — Polish
+# ⏳ Sprint 13 — Polish
 
 - [ ] Sound Effects
 - [ ] Background Music
 - [ ] UI Improvements
 - [ ] Animations
+- [ ] Screen Transitions
+- [ ] Accessibility
 - [ ] Performance Optimization
-- [ ] Accessibility Improvements
 
 ---
 
-# 🌟 Version 1.0 Goals
+# 🚀 Harvest Engine v1.0 Goals
 
-- [ ] Complete Farming Loop
-- [ ] Living NPC System
-- [ ] Functional Economy
-- [ ] Save / Load
-- [ ] Complete Pixel Art Assets
+## Engine
+
+- [ ] Complete reusable engine architecture
+- [ ] Stable rendering pipeline
+- [ ] Complete interaction framework
+- [ ] Save / Load system
+
+## Gameplay
+
+- [ ] Complete farming loop
+- [ ] Functional economy
+- [ ] Living NPCs
+- [ ] Dialogue
+- [ ] Shops
+- [ ] Crafting
+- [ ] Mining
+- [ ] Fishing
+
+## World
+
+- [ ] Dynamic weather
+- [ ] Seasons
+- [ ] Day & Night
+- [ ] Interactive buildings
+- [ ] Rich environment
+
+## Polish
+
+- [ ] Complete pixel art
 - [ ] Audio
-- [ ] Weather & Seasons
-- [ ] Stable Performance
-- [ ] Public Demo Release
+- [ ] Visual effects
+- [ ] Stable performance
+- [ ] Public playable demo
+
+---
+
+# 🌟 Long-Term Vision (v2.0+)
+
+- [ ] Multiplayer
+- [ ] Modding Support
+- [ ] Plugin System
+- [ ] AI Villagers
+- [ ] Procedural Villages
+- [ ] Controller Support
+- [ ] Steam Release
