@@ -11,10 +11,16 @@ const InteractionManager = {
 
     interact() {
 
-        // console.log("Interact");
+        const tile = Player.getFacingTile();
 
-        if (this.tryShippingBin()) {
-            return;
+        const object = this.getFarmObjectAtTile(tile);
+
+        if (object) {
+
+            if (this.handleFarmObjectInteraction(object)) {
+                return;
+            }
+
         }
 
         Player.useSelectedItem();
@@ -24,9 +30,7 @@ const InteractionManager = {
     // ===================================================
     // SHIPPING BIN
     // ===================================================
-    tryShippingBin() {
-
-        // console.log("Trying shipping bin");
+    tryShop() {
 
         const tile = Player.getFacingTile();
 
@@ -39,7 +43,7 @@ const InteractionManager = {
 
         for (const object of World.farmObjects) {
 
-            if (object.id !== "shippingBin") {
+            if (object.id !== "seedShop") {
                 continue;
             }
 
@@ -50,7 +54,7 @@ const InteractionManager = {
                 tileY < object.y + object.height
             ) {
 
-                SellManager.sellInventory();
+                ShopUI.open("seedShop");
 
                 return true;
 
@@ -60,6 +64,58 @@ const InteractionManager = {
 
         return false;
 
-    }
+    },
+
+    getFarmObjectAtTile(tile) {
+
+        if (!tile) {
+            return null;
+        }
+
+        const tileX = tile.col * TILE_SIZE;
+        const tileY = tile.row * TILE_SIZE;
+
+        for (const object of World.farmObjects) {
+
+            if (
+                tileX >= object.x &&
+                tileX < object.x + object.width &&
+                tileY >= object.y &&
+                tileY < object.y + object.height
+            ) {
+                return object;
+            }
+
+        }
+
+        return null;
+
+    },
+
+    handleFarmObjectInteraction(object) {
+
+        const data = FarmObjectRegistry[object.id];
+
+        if (!data || !data.interaction) {
+            return false;
+        }
+
+        switch (data.interaction.type) {
+
+            case "sell":
+
+                SellManager.sellInventory();
+                return true;
+
+            case "mail":
+
+                console.log("Open mailbox");
+                return true;
+
+        }
+
+        return false;
+
+    },
 
 };

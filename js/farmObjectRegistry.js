@@ -11,6 +11,8 @@ const FarmObjectRegistry = {
         width: TILE_SIZE,
         height: TILE_SIZE,
 
+        interaction: "sell",
+
         collision: {
 
             x: 0,
@@ -29,6 +31,8 @@ const FarmObjectRegistry = {
 
         width: TILE_SIZE,
         height: TILE_SIZE,
+
+        interaction: "mail",
 
         collision: {
 
