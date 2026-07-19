@@ -40,12 +40,16 @@ const ItemRegistry = {
     cabbageSeed: {
 
         id: "cabbageSeed",
+
         name: "Cabbage Seed",
 
         type: "seed",
+
         cropId: "cabbage",
 
-        icon: "🥬"
+        icon: "🥬",
+
+        buyPrice: 10
 
     },
 
@@ -57,7 +61,8 @@ const ItemRegistry = {
         type: "seed",
         cropId: "carrot",
 
-        icon: "🥕"
+        icon: "🥕",
+        buyPrice: 10
 
     },
 
@@ -69,7 +74,8 @@ const ItemRegistry = {
         type: "seed",
         cropId: "corn",
 
-        icon: "🌽"
+        icon: "🌽",
+        buyPrice: 10
 
     },
 
@@ -81,7 +87,8 @@ const ItemRegistry = {
         type: "seed",
         cropId: "tomato",
 
-        icon: "🍅"
+        icon: "🍅",
+        buyPrice: 10
 
     },
 

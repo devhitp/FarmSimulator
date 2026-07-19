@@ -84,6 +84,7 @@ const Renderer = {
         this.drawCoins(ctx);
         this.drawHotbar(ctx);
         InventoryUI.draw(ctx);
+        ShopUI.draw(ctx);
 
     },
 

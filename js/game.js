@@ -312,6 +312,7 @@ const Game = {
         World.update(deltaTime);
         ParticleManager.update(deltaTime);
         Camera.update();
+        ShopUI.update();
 
         // -----------------------------------------------
         // Input
